@@ -1,1 +1,0 @@
-[{"nombre":"Lapiz","precio":100,"id":1},{"nombre":"Marcador","precio":200,"id":2},{"nombre":"Calculadora","precio":500.15,"id":3},{"nombre":"Pan","precio":88,"id":4}]
