@@ -10,7 +10,6 @@ class Contenedor {
         let arr = [];
         return this.getAll().then((respuesta) => {
             arr = respuesta;
-            
             if(arr.length >= 1){
                 arr.sort((a,b)=> a.id-b.id);
                 id = arr[arr.length-1].id+1;
@@ -94,77 +93,35 @@ class Contenedor {
 
 }
 
-const producto1 = {
-    nombre: "Lapiz",
-    precio: 100,
-}
-
-const producto2 = {
-    nombre: "Marcador",
-    precio: 200,
-}
-
-const producto3 = {
-    nombre: "Calculadora",
-    precio: 500.15,
-}
-
-const producto4 = {
-    nombre: "Pan",
-    precio: 88,
-}
 
 
 
-const funcionAsync = async () =>{
-    const contenedor = new Contenedor("productos.txt");
-    try{
-        let id = await contenedor.save(producto1);
-        console.log(id);
-        id = await contenedor.save(producto2);
-        console.log(id);
-        id =await contenedor.save(producto3);
-        console.log(id);
-        id =await contenedor.save(producto4);
-        console.log(id);
-        let resGetAll = await contenedor.getAll();
-        console.log(resGetAll);
-        const unItem =  await contenedor.getById(4);
-        console.log(unItem);
-        await contenedor.deleteById(3);
-        resGetAll = await contenedor.getAll();
-        console.log(resGetAll);
-        //await contenedor.deleteAll();//borra todo
-    }catch(err){
-        console.log(err);
-    }
-}
-
-funcionAsync();
 
 
 
-/* const contenedor = new Contenedor("productos.txt");
-contenedor.save(producto1).then(()=>{
-    contenedor.save(producto2).then(()=>{
-        contenedor.save(producto3).then(()=>{
-            contenedor.save(producto4).then(()=>{
-                contenedor.getAll().then((respuesta)=>{
-                    console.log(respuesta);
-                    contenedor.getById(5).then((r)=>{
-                        console.log(r);
-                        contenedor.deleteById(1).then(()=>{
-                            contenedor.getAll().then((re)=>{
-                                console.log(re);
-                                contenedor.deleteAll().then(()=>{
 
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        })
-    })
-}) */
 
+const contenedor = new Contenedor("src/productos.txt")
+
+const express = require("express");
+const app = express();
+
+const puerto = 8080;
+
+const server = app.listen(puerto, ()=>{
+    console.log(`Servidor http escuchando en el puerto ${server.address().port}`);
+})
+
+server.on("error",(error) => console.log(`error en el servidos ${error}`))
+
+
+app.get("/productos", async (req,res)=>{
+    const todosLosProductos = await contenedor.getAll();
+    res.json(todosLosProductos);
+})
+
+app.get("/productoRandom", async (req,res)=>{
+    const todosLosProductos = await contenedor.getAll();
+    const numeroRandom = Math.floor(Math.random()* todosLosProductos.length);
+    res.json(todosLosProductos[numeroRandom]);
+})
