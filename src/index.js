@@ -120,7 +120,7 @@ app.get("/productos", async (req,res)=>{
     res.json(todosLosProductos);
 })
 
-app.post("/productoRandom", async (req,res)=>{
+app.get("/productoRandom", async (req,res)=>{
     const todosLosProductos = await contenedor.getAll();
     const numeroRandom = Math.floor(Math.random()* todosLosProductos.length);
     res.json(todosLosProductos[numeroRandom]);
