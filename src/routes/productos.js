@@ -18,16 +18,16 @@ rutaProductos.get("/historial", async (req,res)=>{
     const respuesta = await contenedor.GetAll();
     if(!respuesta.respuesta){
         if (respuesta.tipo == -1) {
-            res.render('mensajeErr');
+            res.render('components/mensajeErr', {classActiveHistorial:"buttonActive"});
         }else{
-            res.render("err500");
+            res.render("components/err500", {classActiveHistorial:"buttonActive"});
         }
     }
-	res.render('historial',{listaDeProductos: respuesta.data, classActiveHistorial:"buttonActive", layout: 'index'})
+	res.render('components/historial',{listaDeProductos: respuesta.data, classActiveHistorial:"buttonActive"})
 })
 
 rutaProductos.get("/", async (req,res)=>{
-	res.render('form',{classActiveProductos:"buttonActive"} )
+	res.render('components/form',{classActiveProductos:"buttonActive"} )
 })
 
 rutaProductos.post("/",[validarDatos], async(req,res)=>{

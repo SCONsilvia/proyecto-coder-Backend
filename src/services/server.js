@@ -1,5 +1,4 @@
 const path = require("path");
-const {engine} = require("express-handlebars");
 
 
 const rutaPrincipal = require("../routes/index");
@@ -12,25 +11,15 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-//configurando handlebars
+//configurando Pug
 app.use(express.static('public'));
 
 const direccionDeCarpetaView = path.resolve(__dirname, '../../views');
-const direccionDeCarpetaLayout = `${direccionDeCarpetaView}/layouts`
-const direccionDeCarpetaPartial = `${direccionDeCarpetaView}/partial`
-const direcionDeLayoutPorDefecto = `${direccionDeCarpetaView}/layouts/index.hbs`;
 
-app.set("view engine", "hbs");
-app.set("views", direccionDeCarpetaView)
+app.set("view engine", "pug");
+app.set("views", direccionDeCarpetaView);
 
-app.engine("hbs", engine({
-    extname:"hbs",
-    defaultLayout: direcionDeLayoutPorDefecto,
-    layoutsDir: direccionDeCarpetaLayout,
-	partialsDir: direccionDeCarpetaPartial,
-}));
-
-//fin de configurando handlebars
+//fin de configurando Pug
 
 
 

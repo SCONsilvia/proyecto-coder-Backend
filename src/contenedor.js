@@ -9,7 +9,6 @@ class Contenedor {
         let id = 1;
         let arr = [];
         return this.getAll().then((respuesta) => {
-            console.log(respuesta);
             if(respuesta.tipo == -1){
                 console.log(respuesta.errorMessage);
                 return {id, arr};
