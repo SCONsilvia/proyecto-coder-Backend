@@ -1,0 +1,92 @@
+.nav__ul{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav__ul__li__a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: 1px solid purple;
+    border-radius: 5px;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.buttonActive{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+
+
+
+.titleH1{
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+/*css historial*/
+.sectionProductos__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.unProducto{
+    border: 1px solid black;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.unProducto__title{
+    text-align: center;
+    margin: 10px;
+    font-size: 1.7rem;
+}
+
+.unProducto__contenedorImg{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.unProducto__contenedorImg__img{
+    max-width: 100%;
+    height: 100%;
+}
+
+/*css Formulario*/
+.sectionForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.form{
+    border: 1px solid black;
+    width: 300px;
+}
+
+.form__ul{
+    padding: 12px;
+}
+
+.form__ul__li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form__button{
+    display: flex;
+    margin: 10px auto;
+}

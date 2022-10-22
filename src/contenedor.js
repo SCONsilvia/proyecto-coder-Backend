@@ -9,12 +9,18 @@ class Contenedor {
         let id = 1;
         let arr = [];
         return this.getAll().then((respuesta) => {
-            arr = respuesta;
-            if(arr.length >= 1){
-                arr.sort((a,b)=> a.id-b.id);
-                id = arr[arr.length-1].id+1;
+            console.log(respuesta);
+            if(respuesta.tipo == -1){
+                console.log(respuesta.errorMessage);
+                return {id, arr};
+            }else{
+                arr = respuesta;
+                if(arr.length >= 1){
+                    arr.sort((a,b)=> a.id-b.id);
+                    id = arr[arr.length-1].id+1;
+                }
+                return {id, arr};
             }
-            return {id, arr};
         }).catch((error) => {
             console.log(error.message);
             return {id, arr};
@@ -42,16 +48,26 @@ class Contenedor {
             const data = await fs.promises.readFile(this.nombreDeArchivo, "utf-8");
             return JSON.parse(data);
         }catch(err){
-            return Promise.reject(err);
+            const error = {}
+
+            if(err.code == "ENOENT"){
+                error.tipo = -1;
+            }else{
+                error.tipo = -2;
+            }
+            error.errorMessage = err.message;
+            return error
         }
     }
 
     async GetAll(){
         const data = await this.getAll();
-        if(data === -1){
-            return  {respuesta: false, error : "no existe el archivo", data: null}
+        if(data.tipo === -1){
+            return  {respuesta: false, error : "no existe elementos", data: null, tipo : -1}
+        }else if(data.tipo === -2){
+            return {respuesta: false, error : data.errorMessage, data: null, tipo : -2}
         }
-        return  {respuesta: true, error : null, data:data}
+        return  {respuesta: true, error : null, data:data, tipo : 0}
     }
 
     async getById(id){
