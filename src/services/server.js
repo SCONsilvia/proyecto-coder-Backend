@@ -11,15 +11,15 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-//configurando Pug
+//configurando Ejs
 app.use(express.static('public'));
 
 const direccionDeCarpetaView = path.resolve(__dirname, '../../views');
 
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 app.set("views", direccionDeCarpetaView);
 
-//fin de configurando Pug
+//fin de configurando Ejs
 
 
 

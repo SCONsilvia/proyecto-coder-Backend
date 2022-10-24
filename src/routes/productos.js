@@ -18,16 +18,16 @@ rutaProductos.get("/historial", async (req,res)=>{
     const respuesta = await contenedor.GetAll();
     if(!respuesta.respuesta){
         if (respuesta.tipo == -1) {
-            res.render('components/mensajeErr', {classActiveHistorial:"buttonActive"});
+            res.render("index", {classActiveHistorial:"buttonActive",classActiveHistorial:"buttonActive", classActiveProductos:"", parcial:"./parciales/mensajeErr.ejs"});
         }else{
-            res.render("components/err500", {classActiveHistorial:"buttonActive"});
+            res.render("index", {classActiveHistorial:"buttonActive",  classActiveHistorial:"buttonActive", classActiveProductos:"", parcial:"./parciales/err500.ejs"});
         }
     }
-	res.render('components/historial',{listaDeProductos: respuesta.data, classActiveHistorial:"buttonActive"})
+	res.render('index',{listaDeProductos: respuesta.data, classActiveHistorial:"buttonActive", classActiveProductos:"", parcial:"./parciales/historial.ejs"})
 })
 
 rutaProductos.get("/", async (req,res)=>{
-	res.render('components/form',{classActiveProductos:"buttonActive"} )
+	res.render("index",{classActiveHistorial:"", classActiveProductos:"buttonActive", parcial:"./parciales/form.ejs"} )
 })
 
 rutaProductos.post("/",[validarDatos], async(req,res)=>{
