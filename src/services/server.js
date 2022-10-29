@@ -2,9 +2,6 @@ const path = require("path");
 const {engine} = require("express-handlebars");
 const rutaPrincipal = require("../routes/index");
 const express = require("express");
-const webSocket = require("socket.io");
-const http = require("http");
-const moment = require("moment");
 
 const app = express();
 
@@ -31,36 +28,5 @@ app.engine("hbs", engine({
 
 //fin de configurando handlebars
 
-//webSocket
-const myHTTPServer = http.Server(app);
-
-const myWebSocketServer = webSocket(myHTTPServer);
-const contenedorClase = require("../contenedor");
-const ContenedorDeChat = require("../contenedorDeChat");
-
-const contenedor = new contenedorClase("productos.txt");
-const chatUsuarios = new ContenedorDeChat("chat.txt");
-
-myWebSocketServer.on("connection",(socket)=>{
-    console.log("cliente conectado")
-
-    socket.on("envioDeDatosDeUnNuevoProducto", async (dataRecibida)=>{
-        console.log("recibido",dataRecibida);
-        const nuevoId = await contenedor.save(dataRecibida);
-        console.log("creacion exitosa el id es:",nuevoId);
-        
-        myWebSocketServer.emit("agregarNuevoProductoYQueSeVeaParaTodosLosUsuario", dataRecibida)
-    })
-
-    socket.on("envioDeDatosDelChat", (data)=>{
-        data.fecha = moment().format('Do MMMM YYYY, h:mm:ss a')
-        chatUsuarios.save(data);
-        socket.emit("agregarNuevoChatUser", data);
-        socket.broadcast.emit("agregarNuevoChat", data);
-    })
-})
-//fin de websocket
-
-
 app.use("/", rutaPrincipal)
-module.exports = {myHTTPServer};
+module.exports = {app};
