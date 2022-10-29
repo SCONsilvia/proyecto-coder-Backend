@@ -19,6 +19,7 @@ const initWsServer = (app) => {
     
         socket.on("envioDeDatosDeUnNuevoProducto", async (dataRecibida)=>{
             const nuevoId = await contenedor.save(dataRecibida);
+            console.log("creacion exitosa el id es:",nuevoId);
             
             myWebSocketServer.emit("agregarNuevoProductoYQueSeVeaParaTodosLosUsuario", dataRecibida)
         })
