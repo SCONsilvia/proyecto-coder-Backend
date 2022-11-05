@@ -1,0 +1,14 @@
+<section class="sectionProductos">
+    <h1 class="titleH1">Historial De productos</h1>
+    <article class="sectionProductos__container">
+        {{#each listaDeProductos}}
+            <div class="unProducto">
+                <h2 class="unProducto__title">{{this.title}}</h2>
+                <div class="unProducto__contenedorImg">
+                    <img class="unProducto__contenedorImg__img" src={{this.thumbnail}}/>
+                </div>
+                <p class="unProducto__price">{{this.price}}$</p>
+            </div>
+        {{/each}}
+    </article>
+</section>

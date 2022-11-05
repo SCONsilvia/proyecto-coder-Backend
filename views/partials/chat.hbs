@@ -1,0 +1,28 @@
+<section class="chat">
+    <h2 class="titleH1">Chat</h2>
+    <section class="mensajes" id="sectionMensaje">
+        {{#each historialDelChat}}
+        <div class="unMensaje">
+            <div class="datosDelMensaje">
+                <p class="chatEmail">{{this.email}}</p>
+                <p class="chatHora">{{this.fecha}}</p>
+            </div>
+            <div class="datosDelMensaje">
+                <pre class="chatMensaje">{{this.mensaje}}</pre>
+            </div>
+        </div>
+        {{/each}}
+    </section>
+    <form id="chat-form">
+        <ul class="chat-form__ul">
+            <li class="chat-form__ul__li">
+                <label class="chat-form__ul__li__label" for="email">Correo:</label>
+                <input class="chat-form__ul__li__input" type="email" id="email" name="email" required >
+            </li>
+            <li class="chat-form__ul__li">
+                <textarea class="areaDeTexto" id="mensaje" required></textarea>
+            </li>
+        </ul>
+        <input class="form__button" id="buttonSubmit" type="submit">
+    </form>
+</section>
