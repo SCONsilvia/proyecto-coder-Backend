@@ -5,9 +5,8 @@ const {Router} = require("express");
 const rutaApiProductos = Router();
 
 function validarDatos(req, res, next){
-    const {title, price, thumbnail} = req.body;
-    console.log(req.body);
-    if(!title || !price || !thumbnail) {
+    const {nombre, descripcion, codigo, foto, precio, stock} = req.body;
+    if(!nombre || !descripcion || !codigo || !foto || !precio || !stock) {
 		return res.status(400).json({
 			msg: "Campos invalidos "
 		})
@@ -36,16 +35,15 @@ rutaApiProductos.get("/", async (req,res)=>{
 
 rutaApiProductos.get("/:id", async (req,res)=>{
     const id = req.params.id;
-    const todosLosProductos = await contenedor.getAll();
-    const indice = todosLosProductos.findIndex(e => e.id == id);
+    const todosLosProductos = await contenedor.getById(id);
     
-    if(indice < 0){
+    if(todosLosProductos == null){
         return res.status(404).json({
             error: "Producto no encontrado"
         })
     }
 
-    res.json(todosLosProductos[indice]);
+    res.json(todosLosProductos);
 })
 
 rutaApiProductos.post("/", validarDatos, async(req,res)=>{

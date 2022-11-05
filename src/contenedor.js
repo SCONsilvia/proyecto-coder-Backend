@@ -33,6 +33,7 @@ class Contenedor {
             const nuevoId = nuevoObjectoConElArrYElId.id;
             const array = nuevoObjectoConElArrYElId.arr;
             data.id = nuevoId;
+            data.timestamp = Date.now();
             array.push(data);
             const dataAGuardar = JSON.stringify(array);
             await fs.promises.writeFile(this.nombreDeArchivo, dataAGuardar);
@@ -72,8 +73,8 @@ class Contenedor {
 
     async getById(id){
         try{
-            const respuesta = await this.getAll()
-            const estaONoEsta = respuesta.find(e => e.id === id);
+            const respuesta = await this.getAll();
+            const estaONoEsta = respuesta.find(e => e.id === parseInt(id));
             if(estaONoEsta !== undefined){
                 return estaONoEsta;
             }else{
