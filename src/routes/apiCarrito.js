@@ -57,10 +57,7 @@ rutaCarrito.delete("/:id", (req, res)=>{
 
 rutaCarrito.post("/:id/productos",validarDatos, async (req, res)=>{
     const id = req.params.id;
-    console.log(id);
     respuestaProducto = await producto.getById(req.body.id);
-    console.log(id);
-    console.log("a",respuestaProducto);
     if(respuestaProducto == null){
         return res.json({
             msj : "Ese producto no existe"
@@ -89,6 +86,21 @@ rutaCarrito.delete("/:id/productos/:id_prod", (req, res)=>{
     if(respuesta.status){
         return res.json({
             msj : `Borrado de producto en el carrito existosa`
+        })
+    }else{
+        return res.json({
+            msj : errores(respuesta.err)
+        })
+    }
+})
+
+rutaCarrito.get("/:id/productos", (req, res)=>{
+    const id = req.params.id;
+    const respuesta = carrito.getCarritoForId(id);
+
+    if(respuesta.status){
+        return res.json({
+            data : respuesta.data
         })
     }else{
         return res.json({

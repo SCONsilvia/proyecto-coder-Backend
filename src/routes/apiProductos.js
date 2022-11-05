@@ -1,3 +1,4 @@
+const config = require("../config/index");
 const contenedorClase = require("../contenedor");
 const contenedor = new contenedorClase("productos.txt");
 
@@ -14,9 +15,20 @@ function validarDatos(req, res, next){
     next();
 }
 
+function administrador(req, res, next){
+    console.log(config);
+    if(!config.administrador){
+        return res.status(401).json({
+            metodo: req.method,
+            ruta: req.baseUrl+ req.path,
+            err : "No tienes las autorizacion requeridad"
+        })
+    }
+    next();
+}
+
 rutaApiProductos.get("/", async (req,res)=>{
     const respuesta = await contenedor.GetAll();
-    console.log("lod",respuesta);
     if(!respuesta.respuesta){
         if (respuesta.tipo == -1) {
             return res.status(404).json({
@@ -46,7 +58,7 @@ rutaApiProductos.get("/:id", async (req,res)=>{
     res.json(todosLosProductos);
 })
 
-rutaApiProductos.post("/", validarDatos, async(req,res)=>{
+rutaApiProductos.post("/", administrador, validarDatos, async(req,res)=>{
     const nuevoId = await contenedor.save(req.body);
 
     return res.json({
@@ -54,7 +66,7 @@ rutaApiProductos.post("/", validarDatos, async(req,res)=>{
     })
 })
 
-rutaApiProductos.put("/:id", validarDatos, async(req,res)=>{
+rutaApiProductos.put("/:id", administrador, validarDatos, async(req,res)=>{
     const id = req.params.id;
 
     const existosoONoExistoso = await contenedor.actualizarPorId(id, req.body);
@@ -70,7 +82,7 @@ rutaApiProductos.put("/:id", validarDatos, async(req,res)=>{
     })
 })
 
-rutaApiProductos.delete("/:id", async(req,res)=>{
+rutaApiProductos.delete("/:id", administrador, async(req,res)=>{
     const id = req.params.id;
     const existosoONoExistoso = await contenedor.deleteById(id);
 

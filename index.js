@@ -2,7 +2,7 @@
 const {app} = require("./src/services/server")
 const {initWsServer} = require("./src/services/socket")
 
-const puerto = 8080;
+const puerto = process.env.PORT || 8080;
 const myHTTPServer = initWsServer(app)
 
 const server = myHTTPServer.listen(puerto, ()=>{

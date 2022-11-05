@@ -40,7 +40,7 @@ class Carrito {
         let carritos = respuesta.data;
         const indice = carritos.findIndex(element => element.id === id);
         if(indice == -1){
-            console.log("No se encontro ese carrito");
+            console.log("No se encontro ese id carrito");
             return {data:null, status: false, err:-1};
         }else{
             carritos[indice].productos.push(data);
