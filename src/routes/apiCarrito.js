@@ -17,7 +17,6 @@ function errores(tipoDeError){
 
 function validarDatos(req, res, next){
     const {id} = req.body;
-    console.log(req.body);
     if(!id) {
 		return res.status(400).json({
 			msg: "Campos invalidos "

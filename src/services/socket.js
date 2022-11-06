@@ -8,8 +8,6 @@ const ContenedorDeChat = require("../contenedorDeChat");
 const contenedor = new contenedorClase("productos.txt");
 const chatUsuarios = new ContenedorDeChat("chat.txt");
 
-const contenedorClase2 = require("../contenedorCarrito");
-
 let myHTTPServer;
 
 const initWsServer = (app) => {

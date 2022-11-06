@@ -97,6 +97,7 @@ class Contenedor {
             }
 
             nuevaData.id = todosLosProductos[indice].id;
+            nuevaData.timestamp = todosLosProductos[indice].timestamp;
             todosLosProductos[indice] = nuevaData;
 
             await fs.promises.writeFile(this.nombreDeArchivo, JSON.stringify(todosLosProductos));

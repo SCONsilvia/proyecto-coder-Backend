@@ -40,10 +40,16 @@ class Carrito {
         let carritos = respuesta.data;
         const indice = carritos.findIndex(element => element.id === id);
         if(indice == -1){
-            console.log("No se encontro ese id carrito");
+            console.log("No se encontro ese id de carrito");
             return {data:null, status: false, err:-1};
         }else{
-            carritos[indice].productos.push(data);
+            const itemExisteEnCarrito = carritos[indice].productos.findIndex(e => e.id == data.id);
+            if(itemExisteEnCarrito != -1){
+                carritos[indice].productos[itemExisteEnCarrito].cantidad +=1;
+            }else{
+                data.cantidad = 1;
+                carritos[indice].productos.push(data);
+            }
             try{
                 const dataAGuardar = JSON.stringify(carritos);
                 fs.writeFileSync(this.nombreDeArchivo, dataAGuardar);

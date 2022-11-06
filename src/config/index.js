@@ -1,1 +1,1 @@
-module.exports = {administrador : false}
+module.exports = {administrador : true}
