@@ -1,6 +1,5 @@
 const {Router} = require("express");
 const apiProductosRouter =  require("./apiProductos");
-const {rutaProductos} =  require("./productos");
 const apiRutaCarrito = require("./apiCarrito")
 
 const rutaPrincipal = Router();
@@ -18,6 +17,5 @@ urlNoValida.all("", (req,res) =>{
 
 rutaPrincipal.use("/api/productos", apiProductosRouter);
 rutaPrincipal.use("/api/carrito", apiRutaCarrito);
-rutaPrincipal.use("/productos", rutaProductos);
 rutaPrincipal.use("/*", urlNoValida);/*Cualquier cosa */
 module.exports = rutaPrincipal;

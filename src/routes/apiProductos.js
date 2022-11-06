@@ -16,7 +16,6 @@ function validarDatos(req, res, next){
 }
 
 function administrador(req, res, next){
-    console.log(config);
     if(!config.administrador){
         return res.status(401).json({
             metodo: req.method,
