@@ -9,7 +9,6 @@ class ContenedorDeChat{
         try{
             let arr = []
             const lectura = this.getAll();
-            console.log(lectura)
             if(lectura != ""){
                 arr = lectura;
             }
