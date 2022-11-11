@@ -5,6 +5,10 @@ const contenedor = new contenedorClase("productos.txt");
 const {Router} = require("express");
 const rutaApiProductos = Router();
 
+//cors para que me funcione el api en react y no me tire un error
+const cors = require('cors');
+rutaApiProductos.use(cors());
+
 function validarDatos(req, res, next){
     const {nombre, descripcion, codigo, foto, precio, stock} = req.body;
     if(!nombre || !descripcion || !codigo || !foto || !precio || !stock) {
@@ -12,6 +16,11 @@ function validarDatos(req, res, next){
 			msg: "Campos invalidos "
 		})
 	}
+    next();
+}
+
+function validarDatos(req, res, next){
+    res.
     next();
 }
 
@@ -27,6 +36,7 @@ function administrador(req, res, next){
 }
 
 rutaApiProductos.get("/", async (req,res)=>{
+    console.log("hi");
     const respuesta = await contenedor.GetAll();
     if(!respuesta.respuesta){
         if (respuesta.tipo == -1) {
@@ -39,6 +49,7 @@ rutaApiProductos.get("/", async (req,res)=>{
             })
         }
     }
+    console.log(respuesta.data);
     return res.json({
         data: respuesta.data
     })
