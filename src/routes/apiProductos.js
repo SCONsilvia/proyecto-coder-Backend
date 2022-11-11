@@ -5,10 +5,6 @@ const contenedor = new contenedorClase("productos.txt");
 const {Router} = require("express");
 const rutaApiProductos = Router();
 
-//cors para que me funcione el api en react y no me tire un error
-const cors = require('cors');
-rutaApiProductos.use(cors());
-
 function validarDatos(req, res, next){
     const {nombre, descripcion, codigo, foto, precio, stock} = req.body;
     if(!nombre || !descripcion || !codigo || !foto || !precio || !stock) {
