@@ -15,11 +15,6 @@ function validarDatos(req, res, next){
     next();
 }
 
-function validarDatos(req, res, next){
-    res.
-    next();
-}
-
 function administrador(req, res, next){
     if(!config.administrador){
         return res.status(401).json({
@@ -32,20 +27,12 @@ function administrador(req, res, next){
 }
 
 rutaApiProductos.get("/", async (req,res)=>{
-    console.log("hi");
-    const respuesta = await contenedor.GetAll();
-    if(!respuesta.respuesta){
-        if (respuesta.tipo == -1) {
-            return res.status(404).json({
-                error: `${respuesta.error}`
-            })
-        }else{
-            return res.status(500).json({
-                error: `${respuesta.error}`
-            })
-        }
+    const respuesta = await contenedor.getAll();
+    if(!respuesta.status){
+        return res.json({
+            data: respuesta.err
+        })
     }
-    console.log(respuesta.data);
     return res.json({
         data: respuesta.data
     })
@@ -53,36 +40,37 @@ rutaApiProductos.get("/", async (req,res)=>{
 
 rutaApiProductos.get("/:id", async (req,res)=>{
     const id = req.params.id;
-    const todosLosProductos = await contenedor.getById(id);
-    
-    if(todosLosProductos == null){
-        return res.status(404).json({
-            error: "Producto no encontrado"
+    const respuesta = await contenedor.getById(id);
+    if(!respuesta.status){
+        return res.json({
+            data: respuesta.err
         })
     }
-
-    res.json(todosLosProductos);
+    return res.json({
+        data: respuesta.data
+    })
 })
 
 rutaApiProductos.post("/", administrador, validarDatos, async(req,res)=>{
-    const nuevoId = await contenedor.save(req.body);
-
+    const respuesta = await contenedor.save(req.body);
+    if(!respuesta.status){
+        return res.json({
+            data: respuesta.err
+        })
+    }
     return res.json({
-        msg: `el producto se a creado existosamente su id es: ${nuevoId}`
+        msg: `el producto se a creado existosamente su id es: ${respuesta.data}`
     })
 })
 
 rutaApiProductos.put("/:id", administrador, validarDatos, async(req,res)=>{
     const id = req.params.id;
-
-    const existosoONoExistoso = await contenedor.actualizarPorId(id, req.body);
-
-    if(existosoONoExistoso.respuesta === false){
+    const respuesta = await contenedor.actualizarPorId(id, req.body);
+    if(!respuesta.status){
         return res.json({
-            msg: `${existosoONoExistoso.error}`
+            data: respuesta.err
         })
     }
-
     return res.json({
         msg: `Elemento actualizado exitosamente`
     })
@@ -90,14 +78,12 @@ rutaApiProductos.put("/:id", administrador, validarDatos, async(req,res)=>{
 
 rutaApiProductos.delete("/:id", administrador, async(req,res)=>{
     const id = req.params.id;
-    const existosoONoExistoso = await contenedor.deleteById(id);
-
-    if(existosoONoExistoso.respuesta === false){
+    const respuesta = await contenedor.deleteById(id);
+    if(!respuesta.status){
         return res.json({
-            msg: `${existosoONoExistoso.error}`
+            data: respuesta.err
         })
     }
-
     return res.json({
         msg: `Elemento eliminado exitosamente`
     })
