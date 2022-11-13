@@ -1,7 +1,6 @@
 //webSocket
 const webSocket = require("socket.io");
 const http = require("http");
-const moment = require("moment");
 
 const contenedorClase = require("../contenedor");
 const ContenedorDeChat = require("../contenedorDeChat");
@@ -19,13 +18,13 @@ const initWsServer = (app) => {
     
         socket.on("envioDeDatosDeUnNuevoProducto", async (dataRecibida)=>{
             const nuevoId = await contenedor.save(dataRecibida);
-            console.log("creacion exitosa el id es:",nuevoId);
+            dataRecibida.id = nuevoId.data;
+            console.log("creacion exitosa el id es:",nuevoId.data);
             
             myWebSocketServer.emit("agregarNuevoProductoYQueSeVeaParaTodosLosUsuario", dataRecibida)
         })
     
         socket.on("envioDeDatosDelChat", (data)=>{
-            data.fecha = moment().format('Do MMMM YYYY, h:mm:ss a')
             chatUsuarios.save(data);
             socket.emit("agregarNuevoChatUser", data);
             socket.broadcast.emit("agregarNuevoChat", data);

@@ -1,8 +1,4 @@
 const fs = require('fs');
-const path = require("path");
-const direccionDeArchivoAGuardar = path.resolve(__dirname, '../');
-
-console.log(direccionDeArchivoAGuardar);
 
 const {v4} = require("uuid");
 
