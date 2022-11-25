@@ -1,3 +1,4 @@
+if (process.env.MODE == "desarrollo") {
 const mongoose = require("mongoose");
 
 const chatsCollectionName = "chats";
@@ -10,3 +11,4 @@ const chatsSchema = new mongoose.Schema({
 const ChatsModel = mongoose.model(chatsCollectionName, chatsSchema);
 
 module.exports = {ChatsModel, chatsCollectionName};
+}
