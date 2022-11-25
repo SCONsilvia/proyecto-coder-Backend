@@ -1,4 +1,11 @@
-const ControllersChat = require("../controllers/chat")
+let ControllersChat;
+//para que funcione el glich
+if (process.env.MODE == "desarrollo") {
+    ControllersChat = require("../controllers/chat")
+}else{
+    ControllersChat = require("../contenedorDeChat");
+}
+
 const chatUser = new ControllersChat();
 
 const {Router} = require("express");
