@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
 
 const connectionString = process.env.MONGO_ATLAS || "mongodb://localhost:27017/coderhouse";
 

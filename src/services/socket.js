@@ -2,10 +2,18 @@
 const webSocket = require("socket.io");
 const http = require("http");
 
-const ControllersProductos = require("../controllers/productos");
-const ControllersChat = require("../controllers/chat");
-const contenedor = new ControllersProductos("productos.txt");
-const chatUsuarios = new ControllersChat("chat.txt");
+let ControllersChat;
+let ControllersProductos
+//para que funcione el glich
+if (process.env.MODE == "desarrollo") {
+    ControllersChat = require("../contenedorDeChat");
+    ControllersProductos = require("../contenedor");
+}else{
+    ControllersChat = require("../contenedorDeChat");
+    ControllersProductos = require("../contenedor");
+}
+const contenedor = new ControllersProductos();
+const chatUsuarios = new ControllersChat();
 
 let myHTTPServer;
 
