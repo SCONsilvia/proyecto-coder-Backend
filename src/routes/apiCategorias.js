@@ -1,13 +1,13 @@
 const config = require("../config/index");
-const ControllersProductos = require("../controllers/productos");
-const contenedor = new ControllersProductos();
+const ControllersCategoria = require("../controllers/categorias");
+const contenedor = new ControllersCategoria();
 
 const {Router} = require("express");
-const rutaApiProductos = Router();
+const rutaApiChat = Router();
 
 function validarDatos(req, res, next){
-    const {nombre, descripcion, codigo, foto, precio, stock} = req.body;
-    if(!nombre || !descripcion || !codigo || !foto || !precio || !stock) {
+    const {nombre, descripcion} = req.body;
+    if(!nombre || !descripcion ) {
 		return res.status(400).json({
 			msg: "Campos invalidos "
 		})
@@ -26,7 +26,7 @@ function administrador(req, res, next){
     next();
 }
 
-rutaApiProductos.get("/", async (req,res)=>{
+rutaApiChat.get("/", async (req,res)=>{
     const respuesta = await contenedor.getAll();
     if(!respuesta.status){
         return res.json({
@@ -38,7 +38,7 @@ rutaApiProductos.get("/", async (req,res)=>{
     })
 })
 
-rutaApiProductos.get("/:id", async (req,res)=>{
+rutaApiChat.get("/:id", async (req,res)=>{
     const id = req.params.id;
     const respuesta = await contenedor.getById(id);
     if(!respuesta.status){
@@ -51,7 +51,7 @@ rutaApiProductos.get("/:id", async (req,res)=>{
     })
 })
 
-rutaApiProductos.post("/", administrador, validarDatos, async(req,res)=>{
+rutaApiChat.post("/", administrador, validarDatos, async(req,res)=>{
     const respuesta = await contenedor.save(req.body);
     if(!respuesta.status){
         return res.json({
@@ -63,7 +63,7 @@ rutaApiProductos.post("/", administrador, validarDatos, async(req,res)=>{
     })
 })
 
-rutaApiProductos.put("/:id", administrador, validarDatos, async(req,res)=>{
+rutaApiChat.put("/:id", administrador, validarDatos, async(req,res)=>{
     const id = req.params.id;
     const respuesta = await contenedor.actualizarPorId(id, req.body);
     if(!respuesta.status){
@@ -76,7 +76,7 @@ rutaApiProductos.put("/:id", administrador, validarDatos, async(req,res)=>{
     })
 })
 
-rutaApiProductos.delete("/:id", administrador, async(req,res)=>{
+rutaApiChat.delete("/:id", administrador, async(req,res)=>{
     const id = req.params.id;
     const respuesta = await contenedor.deleteById(id);
     if(!respuesta.status){
@@ -89,4 +89,4 @@ rutaApiProductos.delete("/:id", administrador, async(req,res)=>{
     })
 })
 
-module.exports = rutaApiProductos;
+module.exports = rutaApiChat;

@@ -1,34 +1,12 @@
-const fs = require('fs');
-const ClientMariaDB =  require("./db/mariadbClient");
-const mariadbConfig = require("./db/mariadbConfig");
 
-//PARA QUE FUNCION EN GLICH
-const sqlConfig = require("./db/sqlConfig")
+const { ProductsModel } = require("../models/productos")
+const { CategoryModel } = require("../models/categorias")
 
-const dotenv = require("dotenv");
-dotenv.config();
-
-let mariadb;
-
-if(process.env.MODE == "desarrollo"){
-    mariadb = new ClientMariaDB(mariadbConfig);
-}else{
-    mariadb = new ClientMariaDB(sqlConfig);
-}
-
-
-
-/* const mariadb = new ClientMariaDB(mariadbConfig); */
-
-class Contenedor {
-    constructor(nombreDeArchivo) {
-        this.nombreDeArchivo = "./"+nombreDeArchivo;
-    }
-    
+class ControllersProductos {    
     async save(data){
         try{
-            const nuevoId = await mariadb.insertProduct(data);
-            return {data:nuevoId, status: true, err:null};
+            const nuevoProducto = await ProductsModel.create(data);
+            return {data:nuevoProducto._id, status: true, err:null};
         }catch(err){
             console.log("hubo un error en el guardado", err);
             return {data:null, status: false, err:err};
@@ -37,7 +15,7 @@ class Contenedor {
 
     async getAll(){
         try{
-            const data = await mariadb.getAllProducts();
+            const data = await ProductsModel.find({});
             return {data:data, status: true, err:null};
         }catch(err){
             return {data:null, status: false, err:err};
@@ -46,8 +24,8 @@ class Contenedor {
 
     async getById(id){
         try{
-            const data = await mariadb.getById(id);
-            if(data.length == 0){
+            const data = await ProductsModel.findById(id);
+            if(data == null){
                 return {data:null, status: false, err:"no existe esa data"};
             }
             return {data:data, status: true, err:null};
@@ -59,19 +37,21 @@ class Contenedor {
 
     async actualizarPorId(id,nuevaData){
         try{
-            const data = await mariadb.updateById(id,nuevaData);
-            if(data == 0){
+            const data = await ProductsModel.findById(id);
+            if(data == null){
                 return {data:null, status: false, err:"Elemento no encontrado"};
             }
-            return {data:null, status: true, err:null};
+            const productoActualizado = await ProductsModel.findByIdAndUpdate(id,nuevaData,{new: true})
+            return {data:productoActualizado, status: true, err:null};
         }catch(err){
+            console.log(err);
             return {data:null, status: false, err:err};
         }
     }
 
     async deleteAll(){
         try{
-            await mariadb.deleteProductByAll();
+            await ProductsModel.deleteMany();
             return {data:null, status: true, err:null};
         }catch(err){
             console.log("Ocurrio un error al borrar todo",err)
@@ -82,17 +62,17 @@ class Contenedor {
 
     async deleteById(id){
         try{
-            const data = await mariadb.deleteProductById(id);
-            console.log(data);
-            if(data == 0){
+            const data = await ProductsModel.findByIdAndDelete(id)
+            if(data == null){
                 return {data:null, status: false, err:"Elemento no encontrado"};
             }
             return {data:null, status: true, err:null};
         }catch(err){
+            console.log(err);
             return {data:null, status: false, err:err};
         }
     }
 
 }
 
-module.exports = Contenedor;
+module.exports = ControllersProductos;

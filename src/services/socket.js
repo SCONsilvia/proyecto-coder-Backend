@@ -2,10 +2,10 @@
 const webSocket = require("socket.io");
 const http = require("http");
 
-const contenedorClase = require("../contenedor");
-const ContenedorDeChat = require("../contenedorDeChat");
-const contenedor = new contenedorClase("productos.txt");
-const chatUsuarios = new ContenedorDeChat("chat.txt");
+const ControllersProductos = require("../controllers/productos");
+const ControllersChat = require("../controllers/chat");
+const contenedor = new ControllersProductos("productos.txt");
+const chatUsuarios = new ControllersChat("chat.txt");
 
 let myHTTPServer;
 
