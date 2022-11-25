@@ -1,6 +1,6 @@
 const config = require("../config/index");
-const contenedorClase = require("../contenedor");
-const contenedor = new contenedorClase("productos.txt");
+const ControllersProductos = require("../controllers/productos");
+const contenedor = new ControllersProductos();
 
 const {Router} = require("express");
 const rutaApiProductos = Router();

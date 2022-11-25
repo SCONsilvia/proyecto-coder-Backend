@@ -1,5 +1,5 @@
-const ContenedorDeChat = require("../contenedorDeChat")
-const chatUser = new ContenedorDeChat("chat.txt");
+const ControllersChat = require("../controllers/chat")
+const chatUser = new ControllersChat();
 
 const {Router} = require("express");
 const rutaApiChat = Router();
