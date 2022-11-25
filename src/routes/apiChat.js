@@ -6,7 +6,6 @@ const rutaApiChat = Router();
 
 rutaApiChat.get("/", async (req,res)=>{
     const respuesta = await chatUser.getAll();
-    console.log(respuesta);
     if(!respuesta.status){
         return res.json({
             data: respuesta.err

@@ -2,7 +2,7 @@ const {Router} = require("express");
 const rutaCarrito = Router();
 const ClaseCarrito = require("../contenedorCarrito");
 const carrito = new ClaseCarrito("carrito.txt");
-const ClaseProductos = require("../contenedor");
+const ClaseProductos = require("../controllers/productos");
 const producto = new ClaseProductos("productos.txt");
 
 function errores(tipoDeError){

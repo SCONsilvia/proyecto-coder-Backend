@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const connectionString = "mongodb://localhost:27017/coderhouse";
+const connectionString = process.env.MONGO_ATLAS || "mongodb://localhost:27017/coderhouse";
 
 const initMongoDB =  async () => {
     try {
