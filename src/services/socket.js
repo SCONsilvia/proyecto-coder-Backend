@@ -6,8 +6,8 @@ let ControllersChat;
 let ControllersProductos
 //para que funcione el glich
 if (process.env.MODE == "desarrollo") {
-    ControllersChat = require("../contenedorDeChat");
-    ControllersProductos = require("../contenedor");
+    ControllersChat = require("../controllers/chat");
+    ControllersProductos = require("../controllers/productos");
 }else{
     ControllersChat = require("../contenedorDeChat");
     ControllersProductos = require("../contenedor");

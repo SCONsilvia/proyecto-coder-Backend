@@ -3,6 +3,7 @@ const apiProductosRouter =  require("./apiProductos");
 const apiRutaCarrito = require("./apiCarrito");
 const apiChat = require("./apiChat");
 const apiCategoria = require("./apiCategorias");
+const apiFaker = require("./apiFaker");
 
 const rutaPrincipal = Router();
 
@@ -21,5 +22,6 @@ rutaPrincipal.use("/api/productos", apiProductosRouter);
 rutaPrincipal.use("/api/carrito", apiRutaCarrito);
 rutaPrincipal.use("/api/chat", apiChat);
 rutaPrincipal.use("/api/categoria", apiCategoria);
+rutaPrincipal.use("/api/productos-test", apiFaker);
 rutaPrincipal.use("/*", urlNoValida);/*Cualquier cosa */
 module.exports = rutaPrincipal;

@@ -1,5 +1,13 @@
 const {ChatsModel} = require("../models/chat")
 
+//para la normaliizacion
+function adapater(data){
+    return data.map((element)=>{
+        element._doc._id=element._doc._id.toString()
+        return element._doc
+    })
+}
+
 class ControllersChat{
     async save(data){
         try{
@@ -14,7 +22,7 @@ class ControllersChat{
     async getAll(){
         try{
             const data = await ChatsModel.find({});
-            return {data:data, status: true, err:null};
+            return {data:adapater(data), status: true, err:null};
         }catch(err){
             return {data:null, status: false, err:err};
         }

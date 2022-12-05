@@ -1,5 +1,5 @@
 const {CategoryModel} = require("../models/categorias")
-
+//no en uso por ahora
 class ControllersCategoria {  
     async save(data){
         try{
