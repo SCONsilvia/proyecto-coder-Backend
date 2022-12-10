@@ -49,6 +49,7 @@ login.post("/",validarDatos, async (req,res) => {
 
 login.get("/", (req,res) => {
     if (req.session.email) {
+        req.session.touch()//renovar la cookie   poner en un midderware si querres que se actualice en varias rutas distintas
         res.send({
             session: req.session,
             sessionId: req.sessionID,
