@@ -1,30 +1,48 @@
 const {Router} = require("express");
 const login = Router();
+let ControllersUsers;
+//para que funcione el glich
+if (process.env.MODE == "desarrollo") {
+    ControllersUsers = require("../controllers/users");
+}else{
+    //ControllersUsers = require("");
+}
 
-const users = [
-    {
-      nombre: 'maria',
-      edad: "80",
-      admin: true,
-    },
-    {
-      nombre: 'jose',
-      edad : 40,
-      admin: false,
+const contenedor = new ControllersUsers();
+
+function validarDatos(req, res, next){
+    const {email, contrasena} = req.body;
+    if(!email || !contrasena) {
+		return res.status(400).json({
+			msg: "Campos invalidos "
+		})
+	}
+    next();
+}
+
+login.post("/nuevo", validarDatos, async (req,res) => {
+    const respuesta = await contenedor.save(req.body);
+    if(!respuesta.status){
+        return res.json({
+            data: respuesta.err
+        })
     }
-]
+    return res.json({
+        msg: respuesta.data
+    })
 
-login.post("/", (req,res) => {
-    const { nombre } = req.body;
+})
 
-    const index = users.findIndex((e) => e.nombre === nombre);
-  
-    if(index < 0)
-      res.status(401).json({ msg: 'error al iniciar' });
+login.post("/",validarDatos, async (req,res) => {
+
+    const respuesta = await contenedor.buscarUsuarioEmailContrasena(req.body);
+
+    if(!respuesta.status)
+      res.status(401).json({ msg: respuesta.err });
     else {
-        req.session.nombre = nombre
+        req.session.email = respuesta.data[0].email
         res.json({
-            data:  `bienvenido ${nombre}`
+            data:  `bienvenido ${respuesta.data[0].email}`
         })
     }
 })
@@ -39,9 +57,9 @@ login.get("/", (req,res) => {
 })
 
 login.get("/logout", (req,res) => {
-    const nombre = req.session.nombre;
+    const email = req.session.email;
     req.session.destroy((err) => {
-        if (!err) res.send(`adios ${nombre}`);
+        if (!err) res.send(`adios ${email}`);
         else res.send({ status: 'Logout ERROR', body: err });
       });
 })
