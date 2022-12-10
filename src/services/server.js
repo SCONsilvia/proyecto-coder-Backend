@@ -17,6 +17,8 @@ const StoreOptions = {
     secret: "claveCualquiera",
     resave : false,
     saveUninitialized : false,
+    rolling: true,//no se para que sirve pero me resetea el tiempo de la cookie al actualizar la pagina
+    maxAge : ttlSeconds * 1000,
     cookie : {
         maxAge : ttlSeconds * 1000
     }
