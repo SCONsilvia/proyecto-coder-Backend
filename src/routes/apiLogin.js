@@ -48,12 +48,17 @@ login.post("/",validarDatos, async (req,res) => {
 })
 
 login.get("/", (req,res) => {
-    req.session.visitas = req.session.visitas? ++req.session.visitas : 1
-    res.send({
-        session: req.session,
-        sessionId: req.sessionID,
-        cookies: req.cookies,
-    })
+    if (req.session.email) {
+        res.send({
+            session: req.session,
+            sessionId: req.sessionID,
+            cookies: req.cookies,
+        })
+    }else{
+        res.json({
+            data:  `tienes que loguearte con el metodo post en http://localhost:8080/api/login/`
+        })
+    }
 })
 
 login.get("/logout", (req,res) => {
