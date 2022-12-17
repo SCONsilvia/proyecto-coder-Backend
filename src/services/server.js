@@ -23,7 +23,7 @@ const StoreOptions = {
         maxAge : ttlSeconds * 1000
     }
 }
-//
+//finsesion
 const app = express();
 
 app.use(express.json());
@@ -36,7 +36,7 @@ app.use(cors({ origin: ["http://localhost:3000"], credentials:true}));
 //sesion
 app.use(cookieParser());
 app.use(session(StoreOptions));
-//
+//finsesion
 
 app.use("/", rutaPrincipal)
 module.exports = {app};

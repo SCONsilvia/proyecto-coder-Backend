@@ -1,4 +1,3 @@
-const { ProductsModel } = require("../models/productos");
 const {UsersModel} = require("../models/users");
 
 class ControllersUsers {
