@@ -1,14 +1,12 @@
 const {Router} = require("express");
 const login = Router();
-let ControllersUsers;
-//para que funcione el glich
-if (process.env.MODE == "desarrollo") {
-    ControllersUsers = require("../controllers/users");
-}else{
-    //ControllersUsers = require("");
-}
 
-const contenedor = new ControllersUsers();
+//pasport
+const passport = require("passport");
+//
+
+
+const passportOptions = { badRequestMessage: 'falta username / password' };
 
 function validarDatos(req, res, next){
     const {email, contrasena} = req.body;
@@ -20,34 +18,34 @@ function validarDatos(req, res, next){
     next();
 }
 
-login.post("/nuevo", validarDatos, async (req,res) => {
-    const respuesta = await contenedor.save(req.body);
-    if(!respuesta.status){
-        return res.json({
-            data: respuesta.err
-        })
-    }
-    return res.json({
-        msg: respuesta.data
+login.post("/nuevo", validarDatos,(req, res) => {
+    passport.authenticate('signup', passportOptions, (err, user, info) => {
+        if(err) {
+            res.json({msg: 'un error'})
+        }
+        if(!user) return res.status(401).json(info);
+        res.json({msg: 'resgistrado con exito'})
+    })(req, res);
+})
+
+login.post("/",validarDatos,passport.authenticate('login', passportOptions), async (req,res) => {
+    req.session.email = req.user.email;
+    res.json({
+        data:  `bienvenido ${req.user.email}`
     })
-
 })
 
-login.post("/",validarDatos, async (req,res) => {
 
-    const respuesta = await contenedor.buscarUsuarioEmailContrasena(req.body);
+const isLoggedIn = (req, res, next) => {
+    console.log(req.isAuthenticated());
+    if(!req.isAuthenticated()) return res.status(401).json({msg: 'Unauthorized'});
+    next();
+}
+  
 
-    if(!respuesta.status)
-      res.status(401).json({ msg: respuesta.err });
-    else {
-        req.session.email = respuesta.data[0].email
-        res.json({
-            data:  `bienvenido ${respuesta.data[0].email}`
-        })
-    }
-})
 
-login.get("/", (req,res) => {
+
+login.get("/",isLoggedIn,(req,res) => {
     if (req.session.email) {
         req.session.touch()//renovar la time que sale solo visual   poner en un midderware si querres que se actualice en varias rutas distintas
         res.send({
@@ -62,7 +60,7 @@ login.get("/", (req,res) => {
     }
 })
 
-login.get("/logout", (req,res) => {
+login.get("/logout", isLoggedIn,(req,res) => {
     const email = req.session.email;
     req.session.destroy((err) => {
         if (!err) res.send(`adios ${email}`);

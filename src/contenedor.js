@@ -80,7 +80,6 @@ class Contenedor {
     async deleteById(id){
         try{
             const data = await mariadb.deleteProductById(id);
-            console.log(data);
             if(data == 0){
                 return {data:null, status: false, err:"Elemento no encontrado"};
             }

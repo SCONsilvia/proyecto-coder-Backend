@@ -1,6 +1,10 @@
 const rutaPrincipal = require("../routes/index");
 const express = require("express");
 
+//passport local
+const passport = require("passport");
+const { loginFunc, signUpFunc } = require("./auth.js")
+
 //session
 const MongoStore = require("connect-mongo");
 const cookieParser = require("cookie-parser");
@@ -37,6 +41,13 @@ app.use(cors({ origin: ["http://localhost:3000"], credentials:true}));
 app.use(cookieParser());
 app.use(session(StoreOptions));
 //finsesion
+
+//passport local
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use("login", loginFunc);
+passport.use("signup", signUpFunc);
+//
 
 app.use("/", rutaPrincipal)
 module.exports = {app};
