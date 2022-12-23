@@ -3,7 +3,12 @@ require("dotenv").config();
 const {app} = require("./src/services/server")
 const {initWsServer} = require("./src/services/socket")
 
-const puerto = process.env.PORT || 8080;
+
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const argv = yargs(hideBin(process.argv)).argv
+
+const puerto = argv.port || 8080;
 const myHTTPServer = initWsServer(app)
 
 const server = myHTTPServer.listen(puerto, async ()=>{

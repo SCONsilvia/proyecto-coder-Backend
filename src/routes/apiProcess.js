@@ -5,7 +5,7 @@ const routerProcess = Router();
 
 routerProcess.get("/info", (req,res) => {
     const respuesta = {
-        argumentosDeEntrada : process.execArgv,
+        argumentosDeEntrada : process.argv,
         sistemaOperativo : process.platform,
         versionNode : process.version,
         memoriaTotalReservada : JSON.stringify(process.memoryUsage()),
