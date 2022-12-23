@@ -38,7 +38,7 @@ login.post("/",validarDatos,passport.authenticate('login', passportOptions), asy
 
 const isLoggedIn = (req, res, next) => {
     console.log(req.isAuthenticated());
-    if(!req.isAuthenticated()) return res.status(401).json({msg: 'Unauthorized'});
+    if(!req.isAuthenticated()) return res.status(401).json({msg: "tienes que loguearte con el metodo post en http://localhost:8080/api/login/"});
     next();
 }
   
