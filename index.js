@@ -12,12 +12,8 @@ const puerto = argv.port || 8080;
 const myHTTPServer = initWsServer(app)
 
 const server = myHTTPServer.listen(puerto, async ()=>{
-    //para que funcione el glich
-    if (process.env.MODE == "desarrollo") {
-        const {initMongoDB} = require("./src/db/database")
-        await initMongoDB();
-    }
-    //
+    const {initMongoDB} = require("./src/db/database")
+    await initMongoDB();
     console.log(`Servidor http escuchando en el puerto ${server.address().port}`);
 })
 

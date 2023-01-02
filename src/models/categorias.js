@@ -1,4 +1,3 @@
-if (process.env.MODE == "desarrollo") {
 const mongoose = require("mongoose");
 
 const categoryCollectionName = "categorias";
@@ -11,4 +10,3 @@ const categorySchema = new mongoose.Schema({
 const CategoryModel = mongoose.model(categoryCollectionName, categorySchema);
 
 module.exports = {CategoryModel, categoryCollectionName};
-}

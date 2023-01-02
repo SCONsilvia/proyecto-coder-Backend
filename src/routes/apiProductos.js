@@ -1,12 +1,6 @@
 const config = require("../config/index");
-let ControllersProductos;
-//para que funcione el glich
-console.log(process.env.MODE);
-if (process.env.MODE == "desarrollo") {
-    ControllersProductos = require("../controllers/productos");
-}else{
-    ControllersProductos = require("../contenedor");
-}
+
+const ControllersProductos = require("../controllers/productos");
 
 const contenedor = new ControllersProductos();
 const {Router} = require("express");
