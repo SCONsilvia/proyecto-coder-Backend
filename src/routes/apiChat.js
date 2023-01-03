@@ -2,85 +2,84 @@ const ControllersChat = require("../controllers/chat");
 
 const chatUser = new ControllersChat();
 
-const {Router} = require("express");
+const { Router } = require("express");
 const rutaApiChat = Router();
 
-const {normalize, schema, denormalize} = require("normalizr")
+const { normalize, schema, denormalize } = require("normalizr");
 
-
-rutaApiChat.get("/", async (req,res)=>{
+rutaApiChat.get("/", async (req, res) => {
     const respuesta = await chatUser.getAll();
-    if(!respuesta.status){
+    if (!respuesta.status) {
         return res.json({
-            data: respuesta.err
-        })
+            data: respuesta.err,
+        });
     }
     return res.json({
-        data: respuesta.data
-    })
-})
+        data: respuesta.data,
+    });
+});
 
-rutaApiChat.post("/", async (req,res)=>{
+rutaApiChat.post("/", async (req, res) => {
     const respuesta = await chatUser.save(req.body);
-    if(!respuesta.status){
+    if (!respuesta.status) {
         return res.json({
-            data: respuesta.err
-        })
+            data: respuesta.err,
+        });
     }
     return res.json({
-        msg: `el chat se a creado existosamente su id es: ${respuesta.data}`
-    })
-})
+        msg: `el chat se a creado existosamente su id es: ${respuesta.data}`,
+    });
+});
 
-rutaApiChat.get("/normalizacion", async (req,res)=>{
+rutaApiChat.get("/normalizacion", async (req, res) => {
     const respuesta = await chatUser.getAll();
 
-    const user =  new schema.Entity("users", {}, {
-        idAttribute : "email"
+    const user = new schema.Entity("users", {}, {
+        idAttribute: "email",
     });
 
     const comment = new schema.Entity("mensaje", {
-        author : user
-    },{
-        idAttribute : "_id"
+        author: user,
+    }, {
+        idAttribute: "_id",
     });
 
-    const finalSchema = [comment]
-    const normalizeData = normalize(respuesta.data, finalSchema)
-    if(!respuesta.status){
+    const finalSchema = [comment];
+    const normalizeData = normalize(respuesta.data, finalSchema);
+    if (!respuesta.status) {
         return res.json({
-            data: respuesta.err
-        })
+            data: respuesta.err,
+        });
     }
     return res.json({
-        data: normalizeData
-    })
-})
+        data: normalizeData,
+    });
+});
 
-rutaApiChat.get("/desnormalizar", async (req,res)=>{
+rutaApiChat.get("/desnormalizar", async (req, res) => {
     const respuesta = await chatUser.getAll();
 
-    const user =  new schema.Entity("users", {}, {
-        idAttribute : "email"
+    const user = new schema.Entity("users", {}, {
+        idAttribute: "email",
     });
 
     const comment = new schema.Entity("mensaje", {
-        author : user
-    },{
-        idAttribute : "_id"
+        author: user,
+    }, {
+        idAttribute: "_id",
     });
 
-    const finalSchema = [comment]
-    const normalizeData = normalize(respuesta.data, finalSchema)
-    const denormalizarData = denormalize(normalizeData.result, finalSchema, normalizeData.entities)
-    if(!respuesta.status){
+    const finalSchema = [comment];
+    const normalizeData = normalize(respuesta.data, finalSchema);
+    const denormalizarData = denormalize(normalizeData.result, finalSchema, normalizeData.entities);
+    if (!respuesta.status) {
         return res.json({
-            data: respuesta.err
-        })
+            data: respuesta.err,
+        });
     }
     return res.json({
-        data: denormalizarData
-    })
-})
+        data: denormalizarData,
+    });
+});
 
 module.exports = rutaApiChat;
