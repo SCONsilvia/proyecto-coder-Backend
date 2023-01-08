@@ -19,6 +19,18 @@ urlNoValida.all("", (req, res) => {
     });
 });
 
+const yargs = require("yargs/yargs");
+const { hideBin } = require("yargs/helpers");
+const argv = yargs(hideBin(process.argv)).argv;
+const cluster = require("cluster");
+rutaPrincipal.get("/puerto", (req, res) => {
+    return res.json({
+        pid: process.pid,
+        ruta: req.baseUrl + req.path,
+        msg: `HOLA desde puerto ${argv.port}`
+    });
+});
+
 rutaPrincipal.use("/api/productos", apiProductosRouter);
 rutaPrincipal.use("/api/carrito", apiRutaCarrito);
 rutaPrincipal.use("/api/chat", apiChat);

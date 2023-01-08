@@ -18,9 +18,14 @@ const datosAleatorios = () => {
     return { data: respuesta, status: true, err: null };
 };
 
+const yargs = require("yargs/yargs");
+const { hideBin } = require("yargs/helpers");
+const argv = yargs(hideBin(process.argv)).argv;
+
 productosTest.get("/", (req, res) => {
     const respuesta = datosAleatorios();
     return res.json({
+        msg: `HOLA desde puerto ${argv.port}`,
         data: respuesta.data,
     });
 });
