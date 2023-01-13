@@ -7,9 +7,12 @@ const rutaApiChat = Router();
 
 const { normalize, schema, denormalize } = require("normalizr");
 
+const loggers = require("../utils/logs");
+
 rutaApiChat.get("/", async (req, res) => {
     const respuesta = await chatUser.getAll();
     if (!respuesta.status) {
+        loggers().error(respuesta.err);
         return res.json({
             data: respuesta.err,
         });
@@ -22,6 +25,7 @@ rutaApiChat.get("/", async (req, res) => {
 rutaApiChat.post("/", async (req, res) => {
     const respuesta = await chatUser.save(req.body);
     if (!respuesta.status) {
+        loggers().error(respuesta.err);
         return res.json({
             data: respuesta.err,
         });
@@ -47,6 +51,7 @@ rutaApiChat.get("/normalizacion", async (req, res) => {
     const finalSchema = [comment];
     const normalizeData = normalize(respuesta.data, finalSchema);
     if (!respuesta.status) {
+        loggers().error(respuesta.err);
         return res.json({
             data: respuesta.err,
         });
@@ -73,6 +78,7 @@ rutaApiChat.get("/desnormalizar", async (req, res) => {
     const normalizeData = normalize(respuesta.data, finalSchema);
     const denormalizarData = denormalize(normalizeData.result, finalSchema, normalizeData.entities);
     if (!respuesta.status) {
+        loggers().error(respuesta.err);
         return res.json({
             data: respuesta.err,
         });

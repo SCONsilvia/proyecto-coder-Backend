@@ -6,12 +6,14 @@ const apiCategoria = require("./apiCategorias");
 const apiFaker = require("./apiFaker");
 const login = require("./apiLogin");
 const routerProcess = require("./apiProcess");
+const loggers = require("../utils/logs");
 
 const rutaPrincipal = Router();
 
 const urlNoValida = Router();
 
 urlNoValida.all("", (req, res) => {
+    loggers().warn(`La ruta ${req.baseUrl + req.path} no es valida`);
     return res.status(404).json({
         metodo: req.method,
         ruta: req.baseUrl + req.path,

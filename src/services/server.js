@@ -52,5 +52,16 @@ passport.use("login", loginFunc);
 passport.use("signup", signUpFunc);
 //
 
-app.use("/", rutaPrincipal);
+//para que la compresion sea siempre
+const compression = require("compression");
+app.use(compression());
+
+const loggers = require("../utils/logs");
+
+const middlewareDeRutas = (req, res, next) => {
+    loggers().info(`Ruta ${req.baseUrl + req.path} metodo ${req.method}`);
+    next();
+}
+
+app.use("/", middlewareDeRutas, rutaPrincipal);
 module.exports = { app };

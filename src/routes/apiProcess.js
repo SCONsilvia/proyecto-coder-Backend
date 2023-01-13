@@ -9,8 +9,6 @@ const { hideBin } = require("yargs/helpers");
 const argv = yargs(hideBin(process.argv)).argv;
 
 routerProcess.get("/info", (req, res) => {
-    const a = process.pid
-    console.log(`Start calculo, PID: ${process.pid}`);
     const respuesta = {
         argumentosDeEntrada: process.argv,
         sistemaOperativo: process.platform,
@@ -22,7 +20,6 @@ routerProcess.get("/info", (req, res) => {
     };
     return res.json({
         pid: process.pid,
-        a: `${a}`,
         ruta: req.baseUrl + req.path,
         msg: `HOLA desde puerto ${argv.port}`,
         data: respuesta,
