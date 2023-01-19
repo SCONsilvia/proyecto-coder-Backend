@@ -6,7 +6,7 @@ const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
 const argv = yargs(hideBin(process.argv)).argv;
 
-const puerto = argv.port || 8080;
+const puerto = process.env.PORT || argv.port || 8080;
 
 const cluster = require("cluster");
 const os = require("os");
