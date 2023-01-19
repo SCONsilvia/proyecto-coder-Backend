@@ -1,0 +1,2 @@
+[33mwarn[39m | Jan-12-2023 19:36:56 | La ruta /api/process/infoo/ no es valida
+[31merror[39m | Jan-12-2023 19:37:21 | Cast to ObjectId failed for value "sdada" (type string) at path "_id" for model "productos"
