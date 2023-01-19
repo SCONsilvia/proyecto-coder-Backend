@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "node index.js --port=8081 --modo=cluster",
     "dev": "nodemon index.js",
     "artillery": "artillery quick --count 50 -n 20 http://localhost:8080/api/process/info",
     "autocannon": "autocannon -c 100 -d 20 http://localhost:8080/api/process/info"
