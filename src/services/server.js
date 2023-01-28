@@ -10,7 +10,7 @@ const { loginFunc, signUpFunc } = require("./auth.js");
 const MongoStore = require("connect-mongo");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const ttlSeconds = 60 * 5; // segundos poner 10 es 10 segundos
+const ttlSeconds = 60 * 1; // segundos poner 10 es 10 segundos
 
 const StoreOptions = {
     store: MongoStore.create({

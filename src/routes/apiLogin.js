@@ -9,12 +9,28 @@ const passport = require("passport");
 const passportOptions = { badRequestMessage: "falta username / password" };
 
 function validarDatos(req, res, next) {
-    const { email, contrasena } = req.body;
-    if (!email || !contrasena) {
+    console.log("here");
+    const { email, contrasena, nombre, direccion, edad, numero, foto } = req.body;
+    if (!email || !contrasena || !nombre || !direccion || !edad || !numero || !foto) {
 		return res.status(400).json({
 			msg: "Campos invalidos ",
 		});
 	}
+    if(isNaN(numero) || isNaN(edad)){
+        return res.status(400).json({
+            msg: "Unos de los campos no es un numero",
+        });
+    }
+    next();
+}
+
+function validarDatosIngreso(req, res, next) {
+    const { email, contrasena } = req.body;
+    if (!email || !contrasena ){
+		return res.status(400).json({
+			msg: "Campos invalidos ",
+		});
+	};
     next();
 }
 
@@ -28,7 +44,7 @@ login.post("/nuevo", validarDatos, (req, res) => {
     })(req, res);
 });
 
-login.post("/", validarDatos, passport.authenticate("login", passportOptions), async (req, res) => {
+login.post("/", validarDatosIngreso, passport.authenticate("login", passportOptions), async (req, res) => {
     req.session.email = req.user.email;
     res.json({
         data:  `bienvenido ${req.user.email}`,

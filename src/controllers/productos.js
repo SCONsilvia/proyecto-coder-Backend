@@ -1,4 +1,3 @@
-
 const { ProductsModel } = require("../models/productos");
 const { CategoryModel } = require("../models/categorias");
 

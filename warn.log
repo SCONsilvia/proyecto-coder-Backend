@@ -1,2 +1,22 @@
 [33mwarn[39m | Jan-12-2023 19:36:56 | La ruta /api/process/infoo/ no es valida
 [31merror[39m | Jan-12-2023 19:37:21 | Cast to ObjectId failed for value "sdada" (type string) at path "_id" for model "productos"
+[33mwarn[39m | Jan-25-2023 15:46:39 | La ruta /api/login/nuevo/ no es valida
+[33mwarn[39m | Jan-25-2023 15:54:45 | La ruta /api/logout/ no es valida
+[33mwarn[39m | Jan-25-2023 15:54:57 | La ruta /api/logout/ no es valida
+[33mwarn[39m | Jan-25-2023 15:55:32 | La ruta /api/logout/ no es valida
+[33mwarn[39m | Jan-25-2023 15:56:09 | La ruta /api/logout/ no es valida
+[33mwarn[39m | Jan-25-2023 15:56:12 | La ruta /api/get/ no es valida
+[33mwarn[39m | Jan-25-2023 15:56:23 | La ruta /api/get/ no es valida
+[33mwarn[39m | Jan-25-2023 15:57:54 | La ruta /api/logout/ no es valida
+[33mwarn[39m | Jan-27-2023 13:53:28 | La ruta /api/carrito/d5b2ac25-d126-4eb3-a3f0-472215cc907d/ no es valida
+[33mwarn[39m | Jan-27-2023 13:54:38 | La ruta /api/pd5b2ac25-d126-4eb3-a3f0-472215cc907d/productos/ no es valida
+[33mwarn[39m | Jan-27-2023 13:54:51 | La ruta /api/pd5b2ac25-d126-4eb3-a3f0-472215cc907d/63814345372280a8235bfd6b/ no es valida
+[33mwarn[39m | Jan-27-2023 13:54:54 | La ruta /api/pd5b2ac25-d126-4eb3-a3f0-472215cc907d/ps5/ no es valida
+[33mwarn[39m | Jan-27-2023 13:55:04 | La ruta /api/pd5b2ac25-d126-4eb3-a3f0-472215cc907d/prosuctos/ no es valida
+[33mwarn[39m | Jan-27-2023 13:55:08 | La ruta /api/pd5b2ac25-d126-4eb3-a3f0-472215cc907d/productos/ no es valida
+[33mwarn[39m | Jan-27-2023 13:55:17 | La ruta /api/pd5b2ac25-d126-4eb3-a3f0-472215cc907d/productos/ no es valida
+[31merror[39m | Jan-27-2023 13:55:58 | Campos invalidos
+[33mwarn[39m | Jan-27-2023 13:56:12 | La ruta /api/63814345372280a8235bfd6b/productos/ no es valida
+[33mwarn[39m | Jan-28-2023 17:30:57 | La ruta /api/carrito/meter/ no es valida
+[33mwarn[39m | Jan-28-2023 20:50:08 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Jan-28-2023 20:50:35 | La ruta /api/login/logout/ no es valida
