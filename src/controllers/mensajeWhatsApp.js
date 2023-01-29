@@ -1,6 +1,6 @@
 const { twilioClient } = require("../services/mensajeWhatsApp");
 
-const sendWS = async(req, res, mensaje) => {
+const sendWS = async(mensaje) => {
     try {
         const message = {
             body: mensaje,
@@ -15,7 +15,7 @@ const sendWS = async(req, res, mensaje) => {
     }
 }
 
-const sendWSUser = async(req, res, mensaje, numero) => {
+const sendWSUser = async(mensaje, numero) => {
     try {
         let numeroDeUsuaio = numero.toString();
         numeroDeUsuaio = "whatsapp:+" + numeroDeUsuaio;

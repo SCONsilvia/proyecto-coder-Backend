@@ -1,6 +1,8 @@
 const { Router } = require("express");
 
 const login = Router();
+
+const loggers = require("../utils/logs");
 // pasport
 const passport = require("passport");
 const { log } = require("winston");
@@ -12,7 +14,6 @@ const passportOptions = { badRequestMessage: "falta username / password" };
 const {sendGmailNewUser} = require("../controllers/email");
 
 function validarDatos(req, res, next) {
-    console.log("here");
     const { email, contrasena, nombre, direccion, edad, numero, foto } = req.body;
     if (!email || !contrasena || !nombre || !direccion || !edad || !numero || !foto) {
 		return res.status(400).json({
@@ -40,9 +41,9 @@ function validarDatosIngreso(req, res, next) {
 const enviarCorreoAdministrador = async(req, res) => {
     const respuesta = await sendGmailNewUser(req,res)
     if (respuesta.status) {
-        console.log("correo enviado al administador");
+        loggers().info("correo enviado al administador");
     } else {
-        console.log(respuesta.err);
+        loggers().error(respuesta.err);
     }
 }
 
@@ -64,16 +65,12 @@ login.post("/", validarDatosIngreso, passport.authenticate("login", passportOpti
     });
 });
 
-
 const isLoggedIn = (req, res, next) => {
     console.log(req.isAuthenticated());
     if (!req.isAuthenticated()) return res.status(401).json({ msg: "tienes que loguearte con el metodo post en http://localhost:8080/api/login/" });
     next();
 }
   
-
-
-
 login.get("/",isLoggedIn, (req,res) => {
     if (req.session.email) {
         req.session.touch()//renovar la time que sale solo visual   poner en un midderware si querres que se actualice en varias rutas distintas

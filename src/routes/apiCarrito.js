@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const rutaCarrito = Router();
 
+const loggers = require("../utils/logs");
+
 const ControllersCarrito = require("../controllers/carrito");
 const ControllersUsers = require("../controllers/users");
 
@@ -32,16 +34,14 @@ rutaCarrito.post("/meter", validarDatos, async (req, res) => {
         });
     }
     const idUser = req.session.passport.user;
-    console.log("usuario");
-    console.log(idUser);
     const respuesta = await contenedorCarrito.save(req.body, idUser);
-    console.log(respuesta);
     if (respuesta.status) {
         return res.json({
             msj: "El producto se metio en el carrito exitosamente",
             data: respuesta.data,
         });
     }else{
+        loggers().error(respuesta.err)
         return res.json({
             msj: respuesta.err,
         });
@@ -62,15 +62,14 @@ rutaCarrito.get("/", async (req, res) => {
             data: respuesta.data,
         });
     }else{
+        loggers().error(respuesta.err);
         return res.json({
             msj: respuesta.err,
         });
     }
 })
 
-
 rutaCarrito.delete("/", async (req, res) => {
-    console.log("deleteada");
     if(!req.session.passport){
         return res.json({
             msj: "tienes que registrarte antes de borrar en tu carrito",
@@ -85,6 +84,7 @@ rutaCarrito.delete("/", async (req, res) => {
             msj: "Borrado de carrito existosa",
         });
     }else{
+        loggers().error(respuesta.err)
         return res.json({
             msj: respuesta.err,
         });
@@ -92,7 +92,6 @@ rutaCarrito.delete("/", async (req, res) => {
 });
 
 rutaCarrito.delete("/allCarrito", async (req, res) => {
-    console.log("deleteada");
     if(!req.session.passport){
         return res.json({
             msj: "tienes que registrarte antes de borrar todo tu carrito",
@@ -106,38 +105,39 @@ rutaCarrito.delete("/allCarrito", async (req, res) => {
             msj: "Borrado de carrito existosa",
         });
     }else{
+        loggers().error(respuesta.err)
         return res.json({
             msj: respuesta.err,
         });
     }
 });
 
-const enviarCorreoAdministrador = async(req, res, usuario, productos) => {
-    const respuesta = await sendGmailCompraFinalizada(req ,res, usuario.data, productos)
+const enviarCorreoAdministrador = async(usuario, productos) => {
+    const respuesta = await sendGmailCompraFinalizada(usuario.data, productos)
     if (respuesta.status) {
-        console.log("correo enviado al administador");
+        loggers().info("correo enviado al administador");
     } else {
-        console.log(respuesta.err);
+        loggers().error(respuesta.err);
     }
 }
 
-const enviarMensajeAdministrador = async(req, res, usuario, productos) => {
+const enviarMensajeAdministrador = async(usuario, productos) => {
     const mensajeAdmin = `Nuevo pedido de ${usuario.data.nombre} ${usuario.data.email} sus productos son ${JSON.stringify(productos)}`
-    const envioDeAdmin = await sendWS(req,res, mensajeAdmin);
+    const envioDeAdmin = await sendWS(mensajeAdmin);
     if (envioDeAdmin.status) {
-        console.log("mensajes a admin enviado");
+        loggers().info("mensajes a admin enviado");
     } else {
-        console.log(envioDeAdmin.err);
+        loggers().error(respuesta.err);
     }
 }
 
-const enviarMensajeUser = async(req, res, usuario) => {
+const enviarMensajeUser = async(usuario) => {
     const mensajeUser = `Su pedido a sido recibido y se esta procesando`
-    const envioDeUser = await sendWSUser(req,res, mensajeUser, usuario.data.numero)
+    const envioDeUser = await sendWSUser(mensajeUser, usuario.data.numero)
     if (envioDeUser.status) {
-        console.log("mensajes a user enviado");
+        loggers().info("mensajes a user enviado");
     } else {
-        console.log(envioDeUser.err)
+        loggers().error(respuesta.err);
     }
 }
 
@@ -151,15 +151,16 @@ rutaCarrito.get("/finalizarCompra", async (req, res) => {
     const respuesta = await contenedorCarrito.finalizarCompra(idUser);
     if (respuesta.status) {
         const usuario = await contenedorUsuario.encontrarUnUsuario(idUser);
-        enviarCorreoAdministrador(req, res, usuario, respuesta.data);
-        enviarMensajeAdministrador(req, res, usuario, respuesta.data);
-        enviarMensajeUser(req, res, usuario);
+        enviarCorreoAdministrador(usuario, respuesta.data);
+        enviarMensajeAdministrador(usuario, respuesta.data);
+        enviarMensajeUser(usuario);
         const borrandoCarrito = await contenedorCarrito.deleteTodoElCarritoById(idUser);
         return res.json({
             msj: "Compra finalizada con exito",
             carrito: respuesta.data,
         });
     }else{
+        loggers().error(respuesta.err);
         return res.json({
             msj: respuesta.err,
         });

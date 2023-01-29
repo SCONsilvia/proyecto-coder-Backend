@@ -96,7 +96,6 @@ class ControllersCarrito {
 
     async finalizarCompra(user){
         try {
-            console.log("ajojoj");
             const data = await CarritoModel.find({ user : user });
             if (data.length == 0) {
                 return { data: null, status: false, err: "No tiene nada en el carrito" };
@@ -110,14 +109,11 @@ class ControllersCarrito {
             }
             for(let i = 0; i < carritocompleto.productos.length; i++){
                 const unProducto = await ProductsModel.findById(carritocompleto.productos[i].productoId);
-                console.log(unProducto);
                 productos.push({
                     nombreDelProducto: unProducto.nombre,
                     cantidad: carritocompleto.productos[i].cantidad,
                 })
             }
-            console.log(productos);
-
             return { data: productos, status: true, err: null };
         } catch(err) {
             return { data: null, status: false, err: err };
