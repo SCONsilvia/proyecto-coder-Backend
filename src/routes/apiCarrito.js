@@ -9,6 +9,9 @@ const ControllersCarrito = require("../controllers/carrito");
 
 const contenedorCarrito = new ControllersCarrito();
 
+//para envio de email
+const { sendGmailCompraFinalizada } = require("../controllers/email")
+
 function validarDatos(req, res, next) {
     const { idProducto, cantidad } = req.body;
     if (!idProducto || !cantidad) {
@@ -101,6 +104,38 @@ rutaCarrito.delete("/allCarrito", async (req, res) => {
     if(respuesta.status){
         return res.json({
             msj: "Borrado de carrito existosa",
+        });
+    }else{
+        return res.json({
+            msj: respuesta.err,
+        });
+    }
+});
+
+const enviarCorreoAdministrador = async(req, res, productos) => {
+    const respuesta = await sendGmailCompraFinalizada(req ,res, productos)
+    if (respuesta.status) {
+        console.log("correo enviado al administador");
+    } else {
+        console.log(respuesta.err);
+    }
+}
+
+rutaCarrito.get("/finalizarCompra", async (req, res) => {
+    if(!req.session.passport){
+        return res.json({
+            msj: "tienes que registrarte antes de finalizar la compra",
+        });
+    }
+    const idUser = req.session.passport.user;
+    const respuesta = await contenedorCarrito.finalizarCompra(idUser);
+    if (respuesta.status) {
+        enviarCorreoAdministrador(req, res, respuesta.data);
+        const borrandoCarrito = await contenedorCarrito.deleteTodoElCarritoById(idUser);
+        console.log(borrandoCarrito);
+        return res.json({
+            msj: "Compra finalizada con exito",
+            carrito: respuesta.data,
         });
     }else{
         return res.json({

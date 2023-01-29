@@ -93,6 +93,36 @@ class ControllersCarrito {
             return { data: null, status: false, err: err };
         }
     }
+
+    async finalizarCompra(user){
+        try {
+            console.log("ajojoj");
+            const data = await CarritoModel.find({ user : user });
+            if (data.length == 0) {
+                return { data: null, status: false, err: "No tiene nada en el carrito" };
+            }
+            const carritocompleto = await data[0].populate({
+                path: "productos",
+            })
+            const productos = [];
+            if(carritocompleto.productos.length == 0){
+                return { data: null, status: false, err: "No tienes nada en el carrito" };
+            }
+            for(let i = 0; i < carritocompleto.productos.length; i++){
+                const unProducto = await ProductsModel.findById(carritocompleto.productos[i].productoId);
+                console.log(unProducto);
+                productos.push({
+                    nombreDelProducto: unProducto.nombre,
+                    cantidad: carritocompleto.productos[i].cantidad,
+                })
+            }
+            console.log(productos);
+
+            return { data: productos, status: true, err: null };
+        } catch(err) {
+            return { data: null, status: false, err: err };
+        }
+    }
 }
 
 module.exports = ControllersCarrito;

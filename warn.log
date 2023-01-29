@@ -20,3 +20,5 @@
 [33mwarn[39m | Jan-28-2023 17:30:57 | La ruta /api/carrito/meter/ no es valida
 [33mwarn[39m | Jan-28-2023 20:50:08 | La ruta /api/login/logout/ no es valida
 [33mwarn[39m | Jan-28-2023 20:50:35 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Jan-29-2023 14:32:43 | La ruta /api/login/enviarCorreo2/ no es valida
+[33mwarn[39m | Jan-29-2023 15:13:05 | La ruta /api/carrito/finalizarCompra/ no es valida
