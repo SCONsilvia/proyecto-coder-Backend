@@ -22,3 +22,11 @@
 [33mwarn[39m | Jan-28-2023 20:50:35 | La ruta /api/login/logout/ no es valida
 [33mwarn[39m | Jan-29-2023 14:32:43 | La ruta /api/login/enviarCorreo2/ no es valida
 [33mwarn[39m | Jan-29-2023 15:13:05 | La ruta /api/carrito/finalizarCompra/ no es valida
+[33mwarn[39m | Jan-29-2023 17:19:50 | La ruta /api/login/enviarMensaje/ no es valida
+[33mwarn[39m | Jan-29-2023 18:04:13 | La ruta /api/carrito/finalizarCompra/ no es valida
+[33mwarn[39m | Jan-29-2023 18:04:28 | La ruta /api/carrito/finalizarCompra/ no es valida
+[33mwarn[39m | Jan-29-2023 18:17:56 | La ruta /api/carrito/meter/ no es valida
+[33mwarn[39m | Jan-29-2023 18:18:11 | La ruta /api/carrito/meter/ no es valida
+[33mwarn[39m | Jan-29-2023 18:18:37 | La ruta /api/carrito/finalizarCompra/ no es valida
+[33mwarn[39m | Jan-29-2023 18:55:05 | La ruta /api/carrito/meter/ no es valida
+[33mwarn[39m | Jan-29-2023 18:55:09 | La ruta /api/carrito/meter/ no es valida

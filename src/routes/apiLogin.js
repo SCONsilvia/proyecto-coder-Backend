@@ -3,12 +3,13 @@ const { Router } = require("express");
 const login = Router();
 // pasport
 const passport = require("passport");
+const { log } = require("winston");
 //
 
 const passportOptions = { badRequestMessage: "falta username / password" };
 
 //para envio de email
-const {sendGmailNewUser} = require("../controllers/email")
+const {sendGmailNewUser} = require("../controllers/email");
 
 function validarDatos(req, res, next) {
     console.log("here");
@@ -96,19 +97,19 @@ login.get("/logout", isLoggedIn, (req, res) => {
       });
 });
 
-/* login.post("/enviarCorreo", sendGmail);
+/* login.post("/enviarCorreo", sendGmail);*/
 
-login.post("/enviarCorreo2", async (req,res) => {
-    const respuesta = await sendGmail(req,res)
+/* login.post("/enviarMensaje", async (req,res) => {
+    const respuesta = await sendWS(req,res)
     if (respuesta.status) {
         res.json({
-            data: "Correo enviado",
+            data: "mensaje enviado",
         });
     } else {
         res.json({
             data:  respuesta.err,
         });
     }
-}); */
+});  */
 
 module.exports = login;

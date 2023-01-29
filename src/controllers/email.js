@@ -24,17 +24,16 @@ const sendGmailNewUser = async(req, res) => {
     }
 }
 
-const sendGmailCompraFinalizada = async(req, res, productos) => {
-    const { email, nombre } = req.body;
+const sendGmailCompraFinalizada = async(req, res, usuario, productos) => {
     const mailOpttions = {
         from: process.env.EMAIL,
-        to: email,
-        subject: `Nuevo pedido de ${nombre} ${email}`,
+        to: usuario.email,
+        subject: `Nuevo pedido de ${usuario.nombre} ${usuario.email}`,
         html: `<h1>Lista de productos</h1><p>${JSON.stringify(productos)}</p>`,
     };
     try{
         const response = transporter.sendMail(mailOpttions);
-        console.log(`ya se envio el mail nuevo pedido de ${email}`);
+        console.log(`ya se envio el mail nuevo pedido de ${usuario.email}`);
         return { data: response, status: true, err: null };
     }catch(err){
         console.log(err);
