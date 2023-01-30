@@ -1,3 +1,4 @@
 [31merror[39m | Jan-12-2023 19:37:21 | Cast to ObjectId failed for value "sdada" (type string) at path "_id" for model "productos"
 [31merror[39m | Jan-27-2023 13:55:58 | Campos invalidos
 [31merror[39m | Jan-29-2023 20:09:00 | No tienes nada en el carrito
+[31merror[39m | Jan-29-2023 20:25:32 | No tienes nada en el carrito

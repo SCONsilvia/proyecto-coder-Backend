@@ -85,7 +85,7 @@ class ControllersCarrito {
     async getById(user){
         try {
             const data = await CarritoModel.find({ user : user });
-            if (data == null) {
+            if (data.length == 0) {
                 return { data: null, status: false, err: "carrito vacio para ese usuario" };
             }
             return { data: data, status: true, err: null };

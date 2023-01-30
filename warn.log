@@ -31,3 +31,5 @@
 [33mwarn[39m | Jan-29-2023 18:55:05 | La ruta /api/carrito/meter/ no es valida
 [33mwarn[39m | Jan-29-2023 18:55:09 | La ruta /api/carrito/meter/ no es valida
 [31merror[39m | Jan-29-2023 20:09:00 | No tienes nada en el carrito
+[31merror[39m | Jan-29-2023 20:25:32 | No tienes nada en el carrito
+[33mwarn[39m | Jan-29-2023 20:26:23 | La ruta /api/carrito/ no es valida
