@@ -1,5 +1,7 @@
 const {transporter} = require("../services/email");
 
+const loggers = require("../utils/logs");
+
 const sendGmailNewUser = async(req, res) => {
     const { email, nombre, direccion } = req.body;
     const mailOpttions = {
@@ -18,7 +20,7 @@ const sendGmailNewUser = async(req, res) => {
         const response = transporter.sendMail(mailOpttions);
         return { data: response, status: true, err: null };
     }catch(err){
-        console.log(err);
+        loggers().error(err);
         return { data: null, status: false, err: err };
     }
 }
@@ -32,10 +34,10 @@ const sendGmailCompraFinalizada = async(usuario, productos) => {
     };
     try{
         const response = transporter.sendMail(mailOpttions);
-        console.log(`ya se envio el mail nuevo pedido de ${usuario.email}`);
+        loggers().info(`ya se envio el mail nuevo pedido de ${usuario.email}`);
         return { data: response, status: true, err: null };
     }catch(err){
-        console.log(err);
+        loggers().error(err);
         return { data: null, status: false, err: err };
     }
 }

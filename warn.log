@@ -33,3 +33,5 @@
 [31merror[39m | Jan-29-2023 20:09:00 | No tienes nada en el carrito
 [31merror[39m | Jan-29-2023 20:25:32 | No tienes nada en el carrito
 [33mwarn[39m | Jan-29-2023 20:26:23 | La ruta /api/carrito/ no es valida
+[31merror[39m | Jan-29-2023 22:11:34 | carrito vacio para ese usuario
+[33mwarn[39m | Jan-29-2023 22:22:54 | La ruta /api/login/enviarMensaje/ no es valida

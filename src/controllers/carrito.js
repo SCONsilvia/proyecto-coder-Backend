@@ -88,7 +88,10 @@ class ControllersCarrito {
             if (data.length == 0) {
                 return { data: null, status: false, err: "carrito vacio para ese usuario" };
             }
-            return { data: data, status: true, err: null };
+            const carritocompleto = await data[0].populate({
+                path: "productos",
+            })
+            return { data: carritocompleto, status: true, err: null };
         } catch(err) {
             return { data: null, status: false, err: err };
         }

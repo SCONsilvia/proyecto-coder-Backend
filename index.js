@@ -24,7 +24,6 @@ if(argv.modo == "cluster" && cluster.isPrimary){
     })
     
 }else{
-
     const myHTTPServer = initWsServer(app);
         const server = myHTTPServer.listen(puerto, async () => {
             const { initMongoDB } = require("./src/db/database");

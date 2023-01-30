@@ -17,7 +17,6 @@ const {sendWS, sendWSUser} = require("../controllers/mensajeWhatsApp");
 function validarDatos(req, res, next) {
     const { idProducto, cantidad } = req.body;
     if (!idProducto || !cantidad) {
-        console.log(idProducto);
         loggers().error("Campos invalidos");
 		return res.status(400).json({
 			msg: "Campos invalidos",
@@ -26,8 +25,7 @@ function validarDatos(req, res, next) {
     next();
 }
 
-rutaCarrito.post("/meter", validarDatos, async (req, res) => {
-    console.log(req.body);
+rutaCarrito.post("/", validarDatos, async (req, res) => {
     if(!req.session.passport){
         return res.json({
             msj: "tienes que registrarte antes de meter en tu carrito",
@@ -84,7 +82,7 @@ rutaCarrito.delete("/", async (req, res) => {
             msj: "Borrado de carrito existosa",
         });
     }else{
-        loggers().error(respuesta.err)
+        loggers().error(respuesta.err);
         return res.json({
             msj: respuesta.err,
         });
@@ -127,7 +125,7 @@ const enviarMensajeAdministrador = async(usuario, productos) => {
     if (envioDeAdmin.status) {
         loggers().info("mensajes a admin enviado");
     } else {
-        loggers().error(respuesta.err);
+        loggers().error(envioDeAdmin.err);
     }
 }
 
@@ -137,7 +135,7 @@ const enviarMensajeUser = async(usuario) => {
     if (envioDeUser.status) {
         loggers().info("mensajes a user enviado");
     } else {
-        loggers().error(respuesta.err);
+        loggers().error(envioDeUser.err);
     }
 }
 
