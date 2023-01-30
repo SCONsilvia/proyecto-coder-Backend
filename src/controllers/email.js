@@ -28,7 +28,7 @@ const sendGmailNewUser = async(req, res) => {
 const sendGmailCompraFinalizada = async(usuario, productos) => {
     const mailOpttions = {
         from: process.env.EMAIL,
-        to: usuario.email,
+        to: process.env.EMAIL,
         subject: `Nuevo pedido de ${usuario.nombre} ${usuario.email}`,
         html: `<h1>Lista de productos</h1><p>${JSON.stringify(productos)}</p>`,
     };
