@@ -2,20 +2,49 @@ const { Router } = require("express");
 
 const login = Router();
 
+const loggers = require("../utils/logs");
 // pasport
 const passport = require("passport");
+const { log } = require("winston");
 //
 
 const passportOptions = { badRequestMessage: "falta username / password" };
 
+//para envio de email
+const {sendGmailNewUser} = require("../controllers/email");
+
 function validarDatos(req, res, next) {
-    const { email, contrasena } = req.body;
-    if (!email || !contrasena) {
+    const { email, contrasena, nombre, direccion, edad, numero, foto } = req.body;
+    if (!email || !contrasena || !nombre || !direccion || !edad || !numero || !foto) {
 		return res.status(400).json({
 			msg: "Campos invalidos ",
 		});
 	}
+    if(isNaN(numero) || isNaN(edad)){
+        return res.status(400).json({
+            msg: "Unos de los campos no es un numero",
+        });
+    }
     next();
+}
+
+function validarDatosIngreso(req, res, next) {
+    const { email, contrasena } = req.body;
+    if (!email || !contrasena ){
+		return res.status(400).json({
+			msg: "Campos invalidos ",
+		});
+	};
+    next();
+}
+
+const enviarCorreoAdministrador = async(req, res) => {
+    const respuesta = await sendGmailNewUser(req,res)
+    if (respuesta.status) {
+        loggers().info("correo enviado al administador");
+    } else {
+        loggers().error(respuesta.err);
+    }
 }
 
 login.post("/nuevo", validarDatos, (req, res) => {
@@ -24,17 +53,17 @@ login.post("/nuevo", validarDatos, (req, res) => {
             res.json({ msg: "un error" });
         }
         if(!user) return res.status(401).json(info);
+        enviarCorreoAdministrador(req,res);
         res.json({ msg: "resgistrado con exito" });
     })(req, res);
 });
 
-login.post("/", validarDatos, passport.authenticate("login", passportOptions), async (req, res) => {
+login.post("/", validarDatosIngreso, passport.authenticate("login", passportOptions), async (req, res) => {
     req.session.email = req.user.email;
     res.json({
         data:  `bienvenido ${req.user.email}`,
     });
 });
-
 
 const isLoggedIn = (req, res, next) => {
     console.log(req.isAuthenticated());
@@ -42,10 +71,7 @@ const isLoggedIn = (req, res, next) => {
     next();
 }
   
-
-
-
-login.get("/",isLoggedIn,(req,res) => {
+login.get("/",isLoggedIn, (req,res) => {
     if (req.session.email) {
         req.session.touch()//renovar la time que sale solo visual   poner en un midderware si querres que se actualice en varias rutas distintas
         res.send({
@@ -67,5 +93,20 @@ login.get("/logout", isLoggedIn, (req, res) => {
         else res.send({ status: 'Logout ERROR', body: err });
       });
 });
+
+/* login.post("/enviarCorreo", sendGmail);*/
+
+/* login.post("/enviarMensaje", async (req,res) => {
+    const respuesta = await sendWS(req,res)
+    if (respuesta.status) {
+        res.json({
+            data: "mensaje enviado",
+        });
+    } else {
+        res.json({
+            data:  respuesta.err,
+        });
+    }
+});  */
 
 module.exports = login;

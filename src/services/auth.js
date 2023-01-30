@@ -14,6 +14,11 @@ const signup = async (req, username, password, done) => {
     const data = {
         email: username,
         contrasena: password,
+        direccion: req.body.direccion,
+        edad: req.body.edad,
+        foto: req.body.foto,
+        numero: req.body.numero,
+        nombre: req.body.nombre,
         admin: req.body.admin,
     };
     const newUser = await controllersUsers.save(data);

@@ -12,7 +12,7 @@ class ControllersUsers {
             }
             return { data: "email ya existente", status: false, err: null };
         } catch(err) {
-            console.log("hubo un error en el guardad del nuevo usuario", err);
+            console.log("hubo un error en el guardado del nuevo usuario", err);
             return { data: null, status: false, err: err };
         }
     }
