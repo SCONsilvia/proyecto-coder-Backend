@@ -103,7 +103,7 @@ PASSWORD=contrasenaDeLaCuentaDeGmail
 
 PORT_GMAIL=465
 
-TELEFONO=whatsapp:+00000000000
+TELEFONO=whatsapp:+00000000000EsteNumeroTeLoPropocionaTwilio
 
 SID=SIDQuePropocionaTwilio
 
