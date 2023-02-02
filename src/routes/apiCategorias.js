@@ -1,7 +1,6 @@
 const config = require("../config/index");
 
-const ControllersCategoria = require("../controllers/categorias");
-const contenedor = new ControllersCategoria();
+const { getAllControllers, getByIdControllers, postControllers, putControllers, deleteControllers } = require("../controllers/categorias.controllers");
 
 const { Router } = require("express");
 
@@ -28,67 +27,14 @@ function administrador(req, res, next) {
     next();
 }
 
-rutaApiChat.get("/", async (req, res) => {
-    const respuesta = await contenedor.getAll();
-    if(!respuesta.status){
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        data: respuesta.data,
-    });
-});
+rutaApiChat.get("/", getAllControllers);
 
-rutaApiChat.get("/:id", async (req, res) => {
-    const id = req.params.id;
-    const respuesta = await contenedor.getById(id);
-    if(!respuesta.status){
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        data: respuesta.data,
-    });
-})
+rutaApiChat.get("/:id", getByIdControllers)
 
-rutaApiChat.post("/", administrador, validarDatos, async (req,res) => {
-    const respuesta = await contenedor.save(req.body);
-    if (!respuesta.status) {
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        msg: `el producto se a creado existosamente su id es: ${respuesta.data}`,
-    });
-})
+rutaApiChat.post("/", administrador, validarDatos, postControllers)
 
-rutaApiChat.put("/:id", administrador, validarDatos, async(req, res) => {
-    const id = req.params.id;
-    const respuesta = await contenedor.actualizarPorId(id, req.body);
-    if(!respuesta.status){
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        msg: `Elemento actualizado exitosamente`,
-    });
-})
+rutaApiChat.put("/:id", administrador, validarDatos, putControllers)
 
-rutaApiChat.delete("/:id", administrador, async(req, res) => {
-    const id = req.params.id;
-    const respuesta = await contenedor.deleteById(id);
-    if(!respuesta.status){
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        msg: `Elemento eliminado exitosamente`,
-    });
-});
+rutaApiChat.delete("/:id", administrador, deleteControllers);
 
 module.exports = rutaApiChat;

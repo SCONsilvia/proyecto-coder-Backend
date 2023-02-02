@@ -26,8 +26,6 @@ if(argv.modo == "cluster" && cluster.isPrimary){
 }else{
     const myHTTPServer = initWsServer(app);
         const server = myHTTPServer.listen(puerto, async () => {
-            const { initMongoDB } = require("./src/db/database");
-            await initMongoDB();
             console.log(`Servidor http escuchando en el puerto ${server.address().port} en nucleo ${process.pid}`);
         });
 

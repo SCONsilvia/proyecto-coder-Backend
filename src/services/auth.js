@@ -1,7 +1,7 @@
 const passport = require("passport");
 const { Strategy: LocalStrategy } = require("passport-local");
-const ControllersUsers = require("../controllers/users");
-const controllersUsers = new ControllersUsers();
+
+const {persistenceUsuarios : controllersUsers} = require("../persistence/persistence");
 
 const strategyOptions = {
   usernameField: "email",
