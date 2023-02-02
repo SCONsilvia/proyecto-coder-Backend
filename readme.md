@@ -90,9 +90,7 @@ GET http://localhost:8080/api/productos/6388e73d142de044480b2ba2
 DELETE http://localhost:8080/api/productos/idDelProducto
 
 Ejemplo
-DELeTE http://localhost:8080/api/productos/6388e73d142de044480b2ba2
-
-Para usar todo en modo cluster no debe mas que hacer node index.js --modo=cluster en la consola
+DELETE http://localhost:8080/api/productos/6388e73d142de044480b2ba2
 
 ## .env ejemplo
 MONGO_ATLAS = urlDeMongoAtlas
