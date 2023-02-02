@@ -47,7 +47,7 @@ Ejemplo de datos a poner en el postman
 }
 ```
 
-### borrar un item delcarrito
+### Borrar un item delcarrito
 DELETE http://localhost:8080/api/carrito/
 
 Ejemplo de datos a poner en el postman
@@ -98,11 +98,17 @@ Para usar todo en modo cluster no debe mas que hacer node index.js --modo=cluste
 MONGO_ATLAS = urlDeMongoAtlas
 
 EMAIL=correo@gmail.com
+
 PASSWORD=contrasenaDeLaCuentaDeGmail
+
 PORT_GMAIL=465
+
 TELEFONO=whatsapp:+00000000000
+
 SID=SIDQuePropocionaTwilio
+
 TOKEN=TOKENQueTePropocionaTwilio
+
 TELEFONOADMIN=whatsapp:+00000000000
 
 ## Para ejecutar en modo cluster
