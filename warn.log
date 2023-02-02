@@ -52,3 +52,7 @@
 [31merror[39m | Feb-02-2023 19:15:54 | carrito vacio para ese usuario
 [31merror[39m | Feb-02-2023 19:15:57 | carrito vacio para ese usuario
 [31merror[39m | Feb-02-2023 19:16:19 | carrito vacio para ese usuario
+[33mwarn[39m | Feb-02-2023 19:45:42 | La ruta /api/poductos/ no es valida
+[33mwarn[39m | Feb-02-2023 19:45:44 | La ruta /api/poducto/ no es valida
+[33mwarn[39m | Feb-02-2023 19:45:51 | La ruta /api/producto/ no es valida
+[31merror[39m | Feb-02-2023 19:47:14 | no existe esa data
