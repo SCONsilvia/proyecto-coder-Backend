@@ -1,7 +1,7 @@
 // pasport
 const passport = require("passport");
-const { log } = require("winston");
 //
+const {persistenceUsuarios : user} = require("../persistence/persistence");
 
 //para envio de email
 const {sendGmailNewUser} = require("../controllers/email");

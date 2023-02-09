@@ -56,3 +56,4 @@
 [33mwarn[39m | Feb-02-2023 19:45:44 | La ruta /api/poducto/ no es valida
 [33mwarn[39m | Feb-02-2023 19:45:51 | La ruta /api/producto/ no es valida
 [31merror[39m | Feb-02-2023 19:47:14 | no existe esa data
+[33mwarn[39m | Feb-05-2023 21:06:49 | La ruta /favicon.ico/ no es valida
