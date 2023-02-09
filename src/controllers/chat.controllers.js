@@ -1,4 +1,4 @@
-const {persistenceChat : chatUser} = require("../persistence/persistence");
+const {daoChat : chatUser} = require("../persistence/daos/factory");
 
 const { normalize, schema, denormalize } = require("normalizr");
 

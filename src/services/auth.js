@@ -1,7 +1,7 @@
 const passport = require("passport");
 const { Strategy: LocalStrategy } = require("passport-local");
 
-const {persistenceUsuarios : controllersUsers} = require("../persistence/persistence");
+const {daoUsuarios : controllersUsers} = require("../persistence/daos/factory");
 
 const strategyOptions = {
   usernameField: "email",

@@ -1,7 +1,8 @@
 // pasport
 const passport = require("passport");
 //
-const {persistenceUsuarios : user} = require("../persistence/persistence");
+const {UsersRepository} = require("../persistence/repository/users.repository");
+const usersRepository = new UsersRepository();
 
 //para envio de email
 const {sendGmailNewUser} = require("../controllers/email");
@@ -40,10 +41,13 @@ const postIngresoControllers = async (req, res) => {
 const getDataControllers = async (req,res) => {
     if (req.session.email) {
         req.session.touch()//renovar la time que sale solo visual   poner en un midderware si querres que se actualice en varias rutas distintas
+        const dataUser = await usersRepository.getById(req.session.passport.user);
+
         res.send({
             session: req.session,
             sessionId: req.sessionID,
             cookies: req.cookies,
+            dataUser: dataUser
         });
     } else {
         res.json({

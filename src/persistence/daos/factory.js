@@ -6,7 +6,7 @@ const ControllersChat = require("./mongodb/controllers/chat");
 const ControllersCategoria = require("./mongodb/controllers/categorias");
 
 
-let persistenceProductos, persistenceCarrito, persistenceUsuarios, persistenceChat, persistenceCategory;
+let daoProductos, daoCarrito, daoUsuarios, daoChat, daoCategory;
 let argv = process.argv[2];
 // let argv = process.env.PERSISTENCE;
 
@@ -19,20 +19,20 @@ let argv = process.argv[2];
 switch (argv) {
     case 'mongo':
         initMongoDB();
-        persistenceProductos = new ControllersProductos();
-        persistenceCarrito = new ControllersCarrito();
-        persistenceUsuarios = new ControllersUsers();
-        persistenceChat = new ControllersChat();
-        persistenceCategory = new ControllersCategoria();
+        daoProductos = new ControllersProductos();
+        daoCarrito = new ControllersCarrito();
+        daoUsuarios = new ControllersUsers();
+        daoChat = new ControllersChat();
+        daoCategory = new ControllersCategoria();
         console.log(`arg: ${argv}`);
         break;
     default:
         initMongoDB();
-        persistenceProductos = new ControllersProductos();
-        persistenceCarrito = new ControllersCarrito();
-        persistenceUsuarios = new ControllersUsers();
-        persistenceChat = new ControllersChat();
-        persistenceCategory = new ControllersCategoria();
+        daoProductos = new ControllersProductos();
+        daoCarrito = new ControllersCarrito();
+        daoUsuarios = new ControllersUsers();
+        daoChat = new ControllersChat();
+        daoCategory = new ControllersCategoria();
         console.log(`arg: ${argv}`);
         break;
 };
@@ -45,4 +45,4 @@ export async function getAll() {
     return await persistence.getAll();
 }; */
 
-module.exports = { persistenceProductos, persistenceCarrito, persistenceUsuarios, persistenceChat, persistenceCategory };
+module.exports = { daoProductos, daoCarrito, daoUsuarios, daoChat, daoCategory };

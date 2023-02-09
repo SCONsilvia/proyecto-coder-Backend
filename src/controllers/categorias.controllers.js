@@ -1,4 +1,4 @@
-const {persistenceCategory : contenedor} = require("../persistence/persistence");
+const {daoCategory : contenedor} = require("../persistence/daos/factory");
 
 const getAllControllers = async (req, res) => {
     const respuesta = await contenedor.getAll();
