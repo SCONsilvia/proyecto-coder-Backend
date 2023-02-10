@@ -9,9 +9,9 @@ function adapater(data){
 }
 
 class ControllersChat{
-    async save(data){
+    async save(user, data){
         try {
-            const nuevoChat = await ChatsModel.create(data);
+            const nuevoChat = await ChatsModel.create({user: user, mensaje: data.mensaje});
             return { data: nuevoChat._id, status: true, err: null };
         } catch(err) {
             console.log("hubo un error en el guardado del mensaje", err);

@@ -33,7 +33,7 @@ class ControllersCategoria {
         }
     }
 
-    async actualizarPorId(id){
+    async actualizarPorId(id, nuevaData){
         try {
             const data = await CategoryModel.findById(id);
             if (data == null) {

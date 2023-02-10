@@ -33,3 +33,36 @@
 [31merror[39m | Jan-29-2023 20:09:00 | No tienes nada en el carrito
 [31merror[39m | Jan-29-2023 20:25:32 | No tienes nada en el carrito
 [33mwarn[39m | Jan-29-2023 20:26:23 | La ruta /api/carrito/ no es valida
+[31merror[39m | Jan-29-2023 22:11:34 | carrito vacio para ese usuario
+[33mwarn[39m | Jan-29-2023 22:22:54 | La ruta /api/login/enviarMensaje/ no es valida
+[31merror[39m | Jan-31-2023 16:20:08 | carrito vacio para ese usuario
+[33mwarn[39m | Feb-02-2023 17:15:22 | La ruta /api/produts/ no es valida
+[31merror[39m | Feb-02-2023 17:22:41 | carrito vacio para ese usuario
+[31merror[39m | Feb-02-2023 17:23:14 | No tiene nada en el carrito
+[31merror[39m | Feb-02-2023 17:42:36 | E11000 duplicate key error collection: coderhouse.chats index: _id_ dup key: { _id: ObjectId('63b33b5b98d0fc811362a193') }
+[33mwarn[39m | Feb-02-2023 17:47:24 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Feb-02-2023 18:35:40 | La ruta /api/process/ no es valida
+[33mwarn[39m | Feb-02-2023 18:36:35 | La ruta /api/process/ no es valida
+[33mwarn[39m | Feb-02-2023 18:36:36 | La ruta /api/process/ no es valida
+[33mwarn[39m | Feb-02-2023 18:36:36 | La ruta /api/process/ no es valida
+[33mwarn[39m | Feb-02-2023 18:36:37 | La ruta /api/process/ no es valida
+[33mwarn[39m | Feb-02-2023 18:56:25 | La ruta /api/normalizacion/ no es valida
+[33mwarn[39m | Feb-02-2023 19:00:11 | La ruta /api/categorias/ no es valida
+[31merror[39m | Feb-02-2023 19:14:19 | Producto No encontrado
+[31merror[39m | Feb-02-2023 19:15:54 | carrito vacio para ese usuario
+[31merror[39m | Feb-02-2023 19:15:57 | carrito vacio para ese usuario
+[31merror[39m | Feb-02-2023 19:16:19 | carrito vacio para ese usuario
+[33mwarn[39m | Feb-02-2023 19:45:42 | La ruta /api/poductos/ no es valida
+[33mwarn[39m | Feb-02-2023 19:45:44 | La ruta /api/poducto/ no es valida
+[33mwarn[39m | Feb-02-2023 19:45:51 | La ruta /api/producto/ no es valida
+[31merror[39m | Feb-02-2023 19:47:14 | no existe esa data
+[33mwarn[39m | Feb-05-2023 21:06:49 | La ruta /favicon.ico/ no es valida
+[31merror[39m | Feb-09-2023 18:31:40 | undefined
+[31merror[39m | Feb-09-2023 18:32:13 | undefined
+[31merror[39m | Feb-09-2023 18:35:06 | no existe esa data
+[31merror[39m | Feb-09-2023 18:43:43 | carrito vacio para ese usuario
+[33mwarn[39m | Feb-09-2023 19:18:01 | La ruta /api/producto/ no es valida
+[31merror[39m | Feb-09-2023 19:20:26 | Campos invalidos
+[31merror[39m | Feb-09-2023 19:21:14 | no existe esa data
+[33mwarn[39m | Feb-09-2023 20:34:49 | La ruta /api/categorias/ no es valida
+[31merror[39m | Feb-09-2023 21:25:51 | chats validation failed: mensaje: Cast to string failed for value "{ mensaje: 'hokasdas' }" (type Object) at path "mensaje"

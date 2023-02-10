@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { app } = require("./src/services/server");
 const { initWsServer } = require("./src/services/socket");
+const { initMongoDB } = require("./src/persistence/daos/mongodb/db/database");
 
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
@@ -10,6 +11,17 @@ const puerto = process.env.PORT || 8080;
 
 const cluster = require("cluster");
 const os = require("os");
+
+const inicializarBaseDeDatos = (argv) =>{
+    switch (argv) {
+        case 'mongo':
+            initMongoDB();
+            break;
+        default:
+            initMongoDB();
+            break;
+    };
+}
 
 const nucleos = os.cpus().length;
 if(argv.modo == "cluster" && cluster.isPrimary){
@@ -24,11 +36,9 @@ if(argv.modo == "cluster" && cluster.isPrimary){
     })
     
 }else{
-
+    inicializarBaseDeDatos(process.argv[2]);
     const myHTTPServer = initWsServer(app);
         const server = myHTTPServer.listen(puerto, async () => {
-            const { initMongoDB } = require("./src/db/database");
-            await initMongoDB();
             console.log(`Servidor http escuchando en el puerto ${server.address().port} en nucleo ${process.pid}`);
         });
 

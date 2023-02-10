@@ -1,7 +1,7 @@
 const passport = require("passport");
 const { Strategy: LocalStrategy } = require("passport-local");
-const ControllersUsers = require("../controllers/users");
-const controllersUsers = new ControllersUsers();
+
+const { usersRepository : controllersUsers} = require("../persistence/repository/users.repository");
 
 const strategyOptions = {
   usernameField: "email",
@@ -35,7 +35,7 @@ const signup = async (req, username, password, done) => {
 
 const login = async (req, username, password, done) => {
     console.log("LOGIN!");
-    const user = await controllersUsers.buscarUsuarioEmailContrasena(username, password);
+    const user = await controllersUsers.login(username, password);
     if (user.status) {
         return done(null, user.data);
     } else {
@@ -59,7 +59,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
     console.log("ejecuta deserialize");
-    const user = await controllersUsers.encontrarUnUsuario(id);
+    const user = await controllersUsers.getByIdPuro(id);
     if (user.status) {
         return done(null, user.data);
     } else {

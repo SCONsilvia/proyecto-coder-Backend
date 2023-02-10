@@ -1,91 +1,25 @@
-const ControllersChat = require("../controllers/chat");
-
-const chatUser = new ControllersChat();
-
 const { Router } = require("express");
 const rutaApiChat = Router();
 
-const { normalize, schema, denormalize } = require("normalizr");
+const { getAllControllers, postControllers, getNormalizacionControllers, getDesnormalizacionControllers } = require("../controllers/chat.controllers");
 
-const loggers = require("../utils/logs");
+function validarDatos(req, res, next) {
+    const { mensaje } = req.body;
+    if (!mensaje) {
+        loggers().error("Campos invalidos");
+		return res.status(400).json({
+			msg: "Campos invalidos",
+		});
+	}
+    next();
+}
 
-rutaApiChat.get("/", async (req, res) => {
-    const respuesta = await chatUser.getAll();
-    if (!respuesta.status) {
-        loggers().error(respuesta.err);
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        data: respuesta.data,
-    });
-});
+rutaApiChat.get("/", getAllControllers);
 
-rutaApiChat.post("/", async (req, res) => {
-    const respuesta = await chatUser.save(req.body);
-    if (!respuesta.status) {
-        loggers().error(respuesta.err);
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        msg: `el chat se a creado existosamente su id es: ${respuesta.data}`,
-    });
-});
+rutaApiChat.post("/", validarDatos, postControllers);
 
-rutaApiChat.get("/normalizacion", async (req, res) => {
-    const respuesta = await chatUser.getAll();
+rutaApiChat.get("/normalizacion", getNormalizacionControllers);
 
-    const user = new schema.Entity("users", {}, {
-        idAttribute: "email",
-    });
-
-    const comment = new schema.Entity("mensaje", {
-        author: user,
-    }, {
-        idAttribute: "_id",
-    });
-
-    const finalSchema = [comment];
-    const normalizeData = normalize(respuesta.data, finalSchema);
-    if (!respuesta.status) {
-        loggers().error(respuesta.err);
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        data: normalizeData,
-    });
-});
-
-rutaApiChat.get("/desnormalizar", async (req, res) => {
-    const respuesta = await chatUser.getAll();
-
-    const user = new schema.Entity("users", {}, {
-        idAttribute: "email",
-    });
-
-    const comment = new schema.Entity("mensaje", {
-        author: user,
-    }, {
-        idAttribute: "_id",
-    });
-
-    const finalSchema = [comment];
-    const normalizeData = normalize(respuesta.data, finalSchema);
-    const denormalizarData = denormalize(normalizeData.result, finalSchema, normalizeData.entities);
-    if (!respuesta.status) {
-        loggers().error(respuesta.err);
-        return res.json({
-            data: respuesta.err,
-        });
-    }
-    return res.json({
-        data: denormalizarData,
-    });
-});
+rutaApiChat.get("/desnormalizar", getDesnormalizacionControllers);
 
 module.exports = rutaApiChat;

@@ -7,7 +7,6 @@ const sendWS = async(mensaje) => {
             from: process.env.TELEFONO,
             to: process.env.TELEFONOADMIN
         };
-        console.log(`se envio ${mensaje}`);
         const respuesta = await twilioClient.messages.create(message);
         return { data: respuesta, status: true, err: null };
     } catch(err) {

@@ -1,5 +1,5 @@
 const { UsersModel } = require("../models/users");
-const { encryptPassword, matchPassword } = require("../utils/utils");
+const { encryptPassword, matchPassword } = require("../../../../utils/utils");
 
 class ControllersUsers {
     async save(data) {

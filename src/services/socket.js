@@ -2,11 +2,8 @@
 const webSocket = require("socket.io");
 const http = require("http");
 
-const ControllersChat = require("../controllers/chat");
-const ControllersProductos = require("../controllers/productos");
-
-const contenedor = new ControllersProductos();
-const chatUsuarios = new ControllersChat();
+const {productsRepository : contenedor} = require("../persistence/repository/products.repository");
+const {chatRepository : chatUsuarios} = require("../persistence/repository/chat.repository");
 
 let myHTTPServer;
 
@@ -26,6 +23,7 @@ const initWsServer = (app) => {
         });
 
         socket.on("envioDeDatosDelChat", (data) => {
+            console.log(data);
             chatUsuarios.save(data);
             socket.emit("agregarNuevoChatUser", data);
             socket.broadcast.emit("agregarNuevoChat", data);
