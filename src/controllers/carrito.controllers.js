@@ -1,7 +1,7 @@
 const loggers = require("../utils/logs");
 
-const {daoCarrito : contenedorCarrito} = require("../persistence/daos/factory");
-const {daoUsuarios : contenedorUsuario} = require("../persistence/daos/factory");
+const {carritoRepository : contenedorCarrito} = require("../persistence/repository/carrito.repository");
+const {usersRepository : contenedorUsuario} = require("../persistence/repository/users.repository");
 
 //para envio de email
 const { sendGmailCompraFinalizada } = require("../controllers/email");

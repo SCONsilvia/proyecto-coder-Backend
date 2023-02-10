@@ -1,4 +1,4 @@
-const {daoProductos : contenedor} = require("../persistence/daos/factory");
+const { productsRepository : contenedor } = require("../persistence/repository/products.repository");
 
 const loggers = require("../utils/logs");
 

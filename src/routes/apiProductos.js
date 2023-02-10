@@ -3,6 +3,8 @@ const config = require("../config/index");
 const { Router } = require("express");
 const rutaApiProductos = Router();
 
+const loggers = require("../utils/logs");
+
 const { getAllControllers, getByIdControllers, saveControllers, putControllers, deleteControllers } = require("../controllers/productos.controllers");
 
 function validarDatos(req, res, next) {

@@ -1,4 +1,4 @@
-const {daoChat : chatUser} = require("../persistence/daos/factory");
+const {chatRepository : chatUser} = require("../persistence/repository/chat.repository");
 
 const { normalize, schema, denormalize } = require("normalizr");
 
@@ -18,7 +18,14 @@ const getAllControllers = async (req, res) => {
 }
 
 const postControllers = async (req, res) => {
-    const respuesta = await chatUser.save(req.body);
+    if(!req.session.passport){
+        return res.json({
+            msj: "tienes que registrarte antes dec omentar",
+        });
+    }
+    const idUser = req.session.passport.user;
+    console.log(req.body);
+    const respuesta = await chatUser.save(idUser, req.body);
     if (!respuesta.status) {
         loggers().error(respuesta.err);
         return res.json({

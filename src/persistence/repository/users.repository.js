@@ -1,20 +1,33 @@
-const {UsersDTO, asDto} = require("../dto/users.dto");
-const {daoUsuarios} = require("../daos/factory");
+const { asDto } = require("../dto/users.dto");
+const { usersFactory } = require("../daos/usuario.factory");
 
 class UsersRepository {
     constructor() {
-        this.dao = daoUsuarios;
+        this.dao = usersFactory.getDao();
     }
 
     async getById(id) {
-        const users = await this.dao.encontrarUnUsuario(id);
-        console.log("user");
-        console.log(users);
-        const usersDto = asDto(users.data);
-        console.log("dto");
-        console.log(usersDto);
-        return usersDto;
+        const users = await usersFactory.getById(id);
+        if(users.data){
+            const usersDto = asDto(users.data);
+            users.data =  usersDto;
+        }
+        return users;
+    }
+
+    async save(data) {
+        return await usersFactory.save(data);
+    }
+    
+    async getByIdPuro(data) {
+        return await usersFactory.getById(data);
+    }
+    
+    async login(email, contrasena) {
+        return await usersFactory.login(email, contrasena);
     }
 }
 
-module.exports = {UsersRepository};
+const usersRepository = new UsersRepository;
+
+module.exports = { usersRepository };

@@ -1,8 +1,7 @@
 // pasport
 const passport = require("passport");
 //
-const {UsersRepository} = require("../persistence/repository/users.repository");
-const usersRepository = new UsersRepository();
+const { usersRepository } = require("../persistence/repository/users.repository");
 
 //para envio de email
 const {sendGmailNewUser} = require("../controllers/email");
@@ -47,7 +46,7 @@ const getDataControllers = async (req,res) => {
             session: req.session,
             sessionId: req.sessionID,
             cookies: req.cookies,
-            dataUser: dataUser
+            dataUser: dataUser.data
         });
     } else {
         res.json({

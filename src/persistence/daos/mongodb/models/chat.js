@@ -3,13 +3,9 @@ const mongoose = require("mongoose");
 const chatsCollectionName = "chats";
 
 const chatsSchema = new mongoose.Schema({
-    author: {
-        email: { type: String, require: true },
-        nombre: { type: String, require: true },
-        apellido: { type: String, require: true },
-        edad: { type: Number, require: true },
-        alias: { type: String, require: true },
-        avatar: { type: String, require: true },
+    user: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
     },
     mensaje: { type: String, require: true },
 }, { timestamps: true });

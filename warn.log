@@ -57,3 +57,12 @@
 [33mwarn[39m | Feb-02-2023 19:45:51 | La ruta /api/producto/ no es valida
 [31merror[39m | Feb-02-2023 19:47:14 | no existe esa data
 [33mwarn[39m | Feb-05-2023 21:06:49 | La ruta /favicon.ico/ no es valida
+[31merror[39m | Feb-09-2023 18:31:40 | undefined
+[31merror[39m | Feb-09-2023 18:32:13 | undefined
+[31merror[39m | Feb-09-2023 18:35:06 | no existe esa data
+[31merror[39m | Feb-09-2023 18:43:43 | carrito vacio para ese usuario
+[33mwarn[39m | Feb-09-2023 19:18:01 | La ruta /api/producto/ no es valida
+[31merror[39m | Feb-09-2023 19:20:26 | Campos invalidos
+[31merror[39m | Feb-09-2023 19:21:14 | no existe esa data
+[33mwarn[39m | Feb-09-2023 20:34:49 | La ruta /api/categorias/ no es valida
+[31merror[39m | Feb-09-2023 21:25:51 | chats validation failed: mensaje: Cast to string failed for value "{ mensaje: 'hokasdas' }" (type Object) at path "mensaje"

@@ -2,8 +2,8 @@
 const webSocket = require("socket.io");
 const http = require("http");
 
-const {daoProductos : contenedor} = require("../persistence/daos/factory");
-const {daoUsuarios : chatUsuarios} = require("../persistence/daos/factory");
+const {productsRepository : contenedor} = require("../persistence/repository/products.repository");
+const {chatRepository : chatUsuarios} = require("../persistence/repository/chat.repository");
 
 let myHTTPServer;
 
