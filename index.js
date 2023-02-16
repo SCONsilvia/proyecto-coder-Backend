@@ -44,5 +44,5 @@ if(argv.modo == "cluster" && cluster.isPrimary){
 
     server.on("error", (error) => console.log(`error en el servidos ${error}`));
 
-    module.exports = { server };
+    module.exports = { server }; //para que funcione productrs.test.js
 }

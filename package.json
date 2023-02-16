@@ -10,7 +10,8 @@
     "artillery": "artillery quick --count 50 -n 20 http://localhost:8080/api/process/info",
     "autocannon": "autocannon -c 100 -d 20 http://localhost:8080/api/process/info",
     "lint": "eslint .  --ext .js",
-    "test:jest" : "jest"
+    "test:jest": "jest src/test/products.test.js",
+    "test:mocha": "mocha src/test/products.mocha.test.js"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +19,12 @@
   "devDependencies": {
     "artillery": "^2.0.0-27",
     "autocannon": "^7.10.0",
+    "chai": "^4.3.7",
     "eslint": "^8.31.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "jest": "^29.4.3",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.20",
     "supertest": "^6.3.3"
   },
