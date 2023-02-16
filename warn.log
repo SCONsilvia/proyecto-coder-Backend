@@ -66,3 +66,11 @@
 [31merror[39m | Feb-09-2023 19:21:14 | no existe esa data
 [33mwarn[39m | Feb-09-2023 20:34:49 | La ruta /api/categorias/ no es valida
 [31merror[39m | Feb-09-2023 21:25:51 | chats validation failed: mensaje: Cast to string failed for value "{ mensaje: 'hokasdas' }" (type Object) at path "mensaje"
+[33mwarn[39m | Feb-16-2023 15:32:49 | La ruta /news/ no es valida
+[33mwarn[39m | Feb-16-2023 16:31:14 | La ruta /api/productos/ no es valida
+[31merror[39m | Feb-16-2023 16:39:35 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 16:39:40 | no existe esa data
+[31merror[39m | Feb-16-2023 16:40:51 | Campos invalidos
+[31merror[39m | Feb-16-2023 16:47:44 | no existe esa data
+[31merror[39m | Feb-16-2023 16:51:55 | no existe esa data
+[31merror[39m | Feb-16-2023 16:55:24 | no existe esa data

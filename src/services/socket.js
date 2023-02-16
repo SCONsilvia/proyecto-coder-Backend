@@ -12,10 +12,12 @@ const initWsServer = (app) => {
     const myWebSocketServer = webSocket(myHTTPServer);
 
     myWebSocketServer.on("connection", (socket) => {
-        console.log("cliente conectado");
+        //console.log("cliente conectado");
 
         socket.on("envioDeDatosDeUnNuevoProducto", async (dataRecibida) => {
             const nuevoId = await contenedor.save(dataRecibida);
+            console.log("producto");
+            console.log(dataRecibida);
             dataRecibida.id = nuevoId.data;
             console.log("creacion exitosa el id es:", nuevoId.data);
 

@@ -39,9 +39,10 @@ if(argv.modo == "cluster" && cluster.isPrimary){
     inicializarBaseDeDatos(process.argv[2]);
     const myHTTPServer = initWsServer(app);
         const server = myHTTPServer.listen(puerto, async () => {
-            console.log(`Servidor http escuchando en el puerto ${server.address().port} en nucleo ${process.pid}`);
+            //console.log(`Servidor http escuchando en el puerto ${server.address().port} en nucleo ${process.pid}`);
         });
 
     server.on("error", (error) => console.log(`error en el servidos ${error}`));
 
+    module.exports = { server };
 }
