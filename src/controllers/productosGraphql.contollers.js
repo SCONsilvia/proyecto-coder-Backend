@@ -4,7 +4,6 @@ const loggers = require("../utils/logs");
 
 const getAllControllers = async () => {
     const respuesta = await contenedor.getAll();
-    console.log(respuesta.data);
     return respuesta.data
 }
 

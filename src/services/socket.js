@@ -16,8 +16,6 @@ const initWsServer = (app) => {
 
         socket.on("envioDeDatosDeUnNuevoProducto", async (dataRecibida) => {
             const nuevoId = await contenedor.save(dataRecibida);
-            console.log("producto");
-            console.log(dataRecibida);
             dataRecibida.id = nuevoId.data;
             console.log("creacion exitosa el id es:", nuevoId.data);
 
@@ -25,7 +23,6 @@ const initWsServer = (app) => {
         });
 
         socket.on("envioDeDatosDelChat", (data) => {
-            console.log(data);
             chatUsuarios.save(data);
             socket.emit("agregarNuevoChatUser", data);
             socket.broadcast.emit("agregarNuevoChat", data);

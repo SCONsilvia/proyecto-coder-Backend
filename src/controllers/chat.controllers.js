@@ -24,7 +24,6 @@ const postControllers = async (req, res) => {
         });
     }
     const idUser = req.session.passport.user;
-    console.log(req.body);
     const respuesta = await chatUser.save(idUser, req.body);
     if (!respuesta.status) {
         loggers().error(respuesta.err);

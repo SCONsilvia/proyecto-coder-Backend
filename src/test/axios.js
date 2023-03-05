@@ -63,16 +63,16 @@ const borrar = async(id) => {
     }
 }
 const prueba1 = async () =>{
-    console.log("empezando prueba 1");
-    console.log("obtener todo");
+    //console.log("empezando prueba 1");
+    //console.log("obtener todo");
     await getAll();
-    console.log("nuevo producto");
+    //console.log("nuevo producto");
     await postNuevoProducto();
-    console.log("obtener todo *2");
+    //console.log("obtener todo *2");
     await getAll();
-    console.log("obtener un producto por id");
+    //console.log("obtener un producto por id");
     await getByIdProducto(idProduct);
-    console.log("actualizar producto");
+    //console.log("actualizar producto");
     await update(idProduct, {
         nombre: "Nintendo switch 4",
         descripcion: "La nueva nintendo",
@@ -81,13 +81,13 @@ const prueba1 = async () =>{
         stock: "11",
         foto: "https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg"
     })
-    console.log("obtener producto por id");
+    //console.log("obtener producto por id");
     await getByIdProducto(idProduct);
-    console.log("borrar producto");
+    //console.log("borrar producto");
     await borrar(idProduct);
-    console.log("obtener todo");
+    //console.log("obtener todo");
     await getAll();
-    console.log("obtener un producto");
+    //console.log("obtener un producto");
     await getByIdProducto(idProduct);
 }
 

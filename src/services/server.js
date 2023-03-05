@@ -55,22 +55,12 @@ passport.use("signup", signUpFunc);
 //Graphql
 const { graphqlHTTP } = require("express-graphql");
 const { graphqlRoot, graphqlSchema } = require("../services/graphql/productsGraphql");
-const { graphqlLoginSchema, graphqlLoginRoot } = require("../services/graphql/loginGraphql");
 
 app.use(
     "/graphql/productos",
     graphqlHTTP({
         schema: graphqlSchema,
         rootValue: graphqlRoot,
-        graphiql: true,
-    })
-)
-
-app.use(
-    "/graphql/login",
-    graphqlHTTP({
-        schema: graphqlLoginSchema,
-        rootValue: graphqlLoginRoot,
         graphiql: true,
     })
 )
