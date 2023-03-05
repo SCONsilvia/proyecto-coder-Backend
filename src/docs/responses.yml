@@ -1,0 +1,63 @@
+components:
+  schema:
+    Productos:
+      NuevoProducto:
+        type: object
+        properties:
+          id:
+            type: string
+            description: Id del producto
+          nombre:
+            type: string
+            description: Nombre del producto
+          descripcion:
+            type: string
+            description: Nombre del producto
+          precio:
+            type: integer
+            description: Precio del producto
+          codigo:
+            type: string
+            description: Codigo del producto
+          stock:
+            type: integer
+            description: Cantidad que tienes de un producto
+          foto:
+            type: string
+            description: Imagen del producto
+        example:
+          id: f65sd4f56s4df564sdf
+          nombre: Ps5
+          descripcion: Una consola de videojuegos.
+          precio: 1000
+          codigo: ps459
+          stock: 10
+          foto: https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg
+      NotFound:
+        type: string
+        description: error en el servidor
+      getAllProductos:
+        type: array
+        items:
+          properties:
+            id:
+              type: string
+              example: f65sd4f56s4df564sdf
+            nombre:
+              type: string
+              example: Ps5
+            descripcion:
+              type: string
+              example: Una consola de videojuegos.
+            precio:
+              type: integer
+              example: 1000
+            codigo:
+              type: string
+              example: ps459
+            stock:
+              type: integer
+              example: 10
+            foto:
+              type: string
+              example: https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg

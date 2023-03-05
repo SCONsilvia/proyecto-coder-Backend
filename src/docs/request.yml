@@ -1,0 +1,38 @@
+components:
+  parameters:
+    schemas:
+      ProductPost: 
+        type: object
+        required:
+          - nombre
+          - descripcion
+          - precio
+          - codigo
+          - stock
+          - foto
+        properties:
+          nombre:
+            type: string
+            description: Nombre del producto
+          descripcion:
+            type: string
+            description: descripcion del producto
+          precio:
+            type: integer
+            description: Precio del producto
+          codigo:
+            type: string
+            description: Codigo del producto
+          stock:
+            type: integer
+            description: Cantidad que tienes de un producto
+          foto:
+            type: string
+            description: Imagen del producto
+        example:
+          nombre: Ps5
+          descripcion: Una consola de videojuegos.
+          precio: 1000
+          codigo: ps459
+          stock: 10
+          foto: https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg

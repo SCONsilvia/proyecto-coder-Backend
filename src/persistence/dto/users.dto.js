@@ -1,11 +1,12 @@
 class UsersDTO {
-    constructor({ nombre, email, direccion, edad, numero, foto }) {
+    constructor({ nombre, email, direccion, edad, numero, foto, admin }) {
         this.nombre = nombre
         this.email = email
         this.direccion = direccion
         this.edad = edad
         this.numero = numero
         this.foto = foto
+        this.admin = admin
     }
 }
 

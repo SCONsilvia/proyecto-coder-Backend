@@ -1,0 +1,37 @@
+paths:
+  /api/productos:
+    post:
+      tags: 
+      - Productos
+      summary: Registro de producto a la base de datos.
+      parameters: 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/ProductPost'
+        required: true
+      responses:
+        200:
+          description: Se registró el prodcuto correctamente.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schema/Productos/NuevoProducto'
+        500:
+          description: error del servidor.
+          $ref: '#/components/schema/Productos/NotFound'
+    get:
+      tags:
+      - Productos
+      summary: Lista de Productos en base de datos
+      responses:
+        200:
+          description: Lista de Productos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Productos/getAllProductos'
+        500:
+          description: error de servidor
+          $ref: '#/components/schema/Productos/NotFound'
