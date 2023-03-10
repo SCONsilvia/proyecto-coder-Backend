@@ -75,6 +75,26 @@ components:
       deleteAllProducto:
         type: string
         description: se eliminaron todos los productos correctamente
-      
+    Chat:
+      allChat:
+        type: array
+        properties:
+          user:
+            type: object
+            description: Objeto con la informacion del autor del comentario
+          mensaje:
+            type: string
+            description: Mensaje publicado
+        example:
+          id: {
+                "nombre": "ana",
+                "email": "email@gmail.com",
+                "direccion": "Narnia",
+                "edad": 80,
+                "numero": 59897511042,
+                "foto": "https://www.elmueble.com/medio/2023/01/03/gato-gigante-de-raza-maine-coon_d2eb0c4b_230103105112_900x900.jpg",
+                "admin": false
+            }
+          mensaje: Hola a todos          
 
 

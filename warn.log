@@ -191,3 +191,18 @@
 [31merror[39m | Mar-10-2023 12:51:14 | Elemento no encontrado
 [31merror[39m | Mar-10-2023 12:51:17 | Elemento no encontrado
 [31merror[39m | Mar-10-2023 12:56:27 | Cast to ObjectId failed for value "f65sd4f56s4df564sdf" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-10-2023 13:10:46 | Campos invalidos
+[33mwarn[39m | Mar-10-2023 13:42:06 | La ruta /api/user/ no es valida
+[33mwarn[39m | Mar-10-2023 13:44:32 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Mar-10-2023 16:39:48 | La ruta / no es valida
+[31merror[39m | Mar-10-2023 17:03:59 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:15:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:15:27 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:15:43 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 17:22:33 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:25:40 | null
+[31merror[39m | Mar-10-2023 17:39:11 | Producto No encontrado
+[33mwarn[39m | Mar-10-2023 17:48:26 | La ruta /api/carrito/allCarrito/ no es valida
+[31merror[39m | Mar-10-2023 17:48:30 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:52:15 | The 'To' number +9999 is not a valid phone number.
+[31merror[39m | Mar-10-2023 17:53:12 | carrito vacio para ese usuario
