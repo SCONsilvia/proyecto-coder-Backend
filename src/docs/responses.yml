@@ -36,6 +36,8 @@ components:
       NotFound:
         type: string
         description: error en el servidor
+        example:
+          id: 
       getAllProductos:
         type: array
         items:
@@ -61,3 +63,18 @@ components:
             foto:
               type: string
               example: https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg
+      putProductos:
+        type: string
+        description: Elemento actualizado exitosamente
+      IdNotFound:
+        type: string
+        description: ID no encontrado
+      deleteProducto:
+        type: string
+        description: Elemento eliminado exitosamente
+      deleteAllProducto:
+        type: string
+        description: se eliminaron todos los productos correctamente
+      
+
+

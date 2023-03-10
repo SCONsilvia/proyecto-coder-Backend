@@ -181,3 +181,13 @@
 [33mwarn[39m | Mar-02-2023 17:03:01 | La ruta /graphql/ no es valida
 [33mwarn[39m | Mar-03-2023 12:12:53 | La ruta / no es valida
 [33mwarn[39m | Mar-05-2023 14:37:54 | La ruta /graphql/login/ no es valida
+[31merror[39m | Mar-06-2023 18:02:30 | Elemento no encontrado
+[31merror[39m | Mar-06-2023 18:07:40 | Elemento no encontrado
+[33mwarn[39m | Mar-06-2023 18:16:30 | La ruta /api/productos/ no es valida
+[33mwarn[39m | Mar-10-2023 12:09:18 | La ruta /api/products/ no es valida
+[31merror[39m | Mar-10-2023 12:16:16 | no existe esa data
+[31merror[39m | Mar-10-2023 12:18:32 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:49:12 | Cast to ObjectId failed for value "640b4d632d82608c5cc4e45x" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-10-2023 12:51:14 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:51:17 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:56:27 | Cast to ObjectId failed for value "f65sd4f56s4df564sdf" (type string) at path "_id" for model "productos"

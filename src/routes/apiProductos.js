@@ -5,7 +5,7 @@ const rutaApiProductos = Router();
 
 const loggers = require("../utils/logs");
 
-const { getAllControllers, getByIdControllers, saveControllers, putControllers, deleteControllers } = require("../controllers/productos.controllers");
+const { getAllControllers, getByIdControllers, saveControllers, putControllers, deleteControllers, deleteAll } = require("../controllers/productos.controllers");
 
 function validarDatos(req, res, next) {
     const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
@@ -39,5 +39,7 @@ rutaApiProductos.post("/", administrador, validarDatos, saveControllers);
 rutaApiProductos.put("/:id", administrador, validarDatos, putControllers);
 
 rutaApiProductos.delete("/:id", administrador, deleteControllers);
+
+rutaApiProductos.delete("/", administrador, deleteAll);
 
 module.exports = rutaApiProductos;

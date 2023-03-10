@@ -9,7 +9,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/parameters/schemas/ProductPost'
+              $ref: "#/components/parameters/schemas/ProductPost"
         required: true
       responses:
         200:
@@ -17,10 +17,9 @@ paths:
           content: 
             application/json:
               schema:
-                $ref: '#/components/schema/Productos/NuevoProducto'
+                $ref: "#/components/schema/Productos/NuevoProducto"
         500:
           description: error del servidor.
-          $ref: '#/components/schema/Productos/NotFound'
     get:
       tags:
       - Productos
@@ -31,7 +30,75 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/Productos/getAllProductos'
+                $ref: "#/components/schema/Productos/getAllProductos"
         500:
           description: error de servidor
-          $ref: '#/components/schema/Productos/NotFound'
+    delete:
+      tags:
+      - Productos
+      summary: Borra todos los productos de la base de datos
+      responses:
+        200:
+          description: Se elimino correctamente todo
+        500:
+          description: error de servidor
+  /api/productos/{id}:
+    get:
+      tags: 
+      - Productos
+      summary: Buscar un producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      responses:
+        200:
+          description: producto encontrado
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schema/Productos/NuevoProducto"
+        404:
+          description: No se encuentra el producto con ese id
+    put:
+      tags: 
+      - Productos
+      summary: Editar producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/ProductPost"
+        required: true
+      responses:
+        200:
+          description: producto actualizado
+        404:
+          description: No se encuentra el producto con ese id
+    delete:
+      tags: 
+      - Productos
+      summary: eliminar un producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      responses:
+        200:
+          description: Elemento eliminado exitosamente
+        404:
+          description: No se encuentra el producto con ese id
+    

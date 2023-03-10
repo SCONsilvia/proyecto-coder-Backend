@@ -111,3 +111,11 @@
 [31merror[39m | Mar-01-2023 16:19:16 | Elemento no encontrado
 [31merror[39m | Mar-01-2023 16:20:25 | Elemento no encontrado
 [31merror[39m | Mar-01-2023 16:23:56 | no existe esa data
+[31merror[39m | Mar-06-2023 18:02:30 | Elemento no encontrado
+[31merror[39m | Mar-06-2023 18:07:40 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:16:16 | no existe esa data
+[31merror[39m | Mar-10-2023 12:18:32 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:49:12 | Cast to ObjectId failed for value "640b4d632d82608c5cc4e45x" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-10-2023 12:51:14 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:51:17 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:56:27 | Cast to ObjectId failed for value "f65sd4f56s4df564sdf" (type string) at path "_id" for model "productos"
