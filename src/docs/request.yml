@@ -64,7 +64,7 @@ components:
             description: foto de perfil
           numero:
             type: Number
-            description: numero uruguayo
+            description: numero con codigo del pais pero sin el +
           edad:
             type: Number
             description: tu edad
@@ -74,7 +74,7 @@ components:
           nombre: nombre
           direccion: calle mi casa avenida mi casa
           foto: https://www.elmueble.com/medio/2023/01/03/gato-gigante-de-raza-maine-coon_d2eb0c4b_230103105112_900x900.jpg
-          numero: 00000000000
+          numero: 1112222222222
           edad: 50
       loginRegistroPost:
         required:
@@ -125,4 +125,4 @@ components:
             type: string
             description: Mensaje que se quiere anadir
         example:
-          idProducto: Hola a todos como esyab
+          mensaje: Hola a todos como estan

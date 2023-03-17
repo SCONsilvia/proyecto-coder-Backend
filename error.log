@@ -130,3 +130,17 @@
 [31merror[39m | Mar-10-2023 17:48:30 | carrito vacio para ese usuario
 [31merror[39m | Mar-10-2023 17:52:15 | The 'To' number +9999 is not a valid phone number.
 [31merror[39m | Mar-10-2023 17:53:12 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 18:29:03 | Campos invalidos
+[31merror[39m | Mar-10-2023 18:29:35 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 18:33:57 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 18:36:05 | carrito vacio para ese usuario
+[31merror[39m | Mar-14-2023 15:29:17 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-14-2023 15:29:17 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-17-2023 19:03:00 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:03:04 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:05:04 | carrito vacio para ese usuario
+[31merror[39m | Mar-17-2023 19:13:34 | Cast to ObjectId failed for value "6414e5d780612241f035ee722" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-17-2023 19:13:39 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:13:59 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:15:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-17-2023 19:16:59 | carrito vacio para ese usuario

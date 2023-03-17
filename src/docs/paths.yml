@@ -4,7 +4,6 @@ paths:
       tags: 
       - Productos
       summary: Registro de producto a la base de datos.
-      parameters: 
       requestBody:
         content:
           application/json:
@@ -106,7 +105,6 @@ paths:
       tags: 
       - Login
       summary: Crear un nuevo usuario a la base de datos
-      parameters: 
       requestBody:
         content:
           application/json:
@@ -125,7 +123,6 @@ paths:
       tags: 
       - Login
       summary: Iniciar session.
-      parameters: 
       requestBody:
         content:
           application/json:
@@ -165,7 +162,6 @@ paths:
       tags: 
       - Carrito
       summary: Agregrar un producto en el carrito
-      parameters: 
       requestBody:
         content:
           application/json:
@@ -196,7 +192,6 @@ paths:
       tags: 
       - Carrito
       summary: eliminar un item del carrito
-      parameters:
       requestBody:
         content:
           application/json:
@@ -241,7 +236,6 @@ paths:
       tags: 
       - Chat
       summary: Agregar un nuevo mensaje al chat
-      parameters: 
       requestBody:
         content:
           application/json:

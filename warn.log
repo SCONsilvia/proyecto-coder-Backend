@@ -206,3 +206,27 @@
 [31merror[39m | Mar-10-2023 17:48:30 | carrito vacio para ese usuario
 [31merror[39m | Mar-10-2023 17:52:15 | The 'To' number +9999 is not a valid phone number.
 [31merror[39m | Mar-10-2023 17:53:12 | carrito vacio para ese usuario
+[33mwarn[39m | Mar-10-2023 18:28:45 | La ruta /api/productos/ no es valida
+[31merror[39m | Mar-10-2023 18:29:03 | Campos invalidos
+[31merror[39m | Mar-10-2023 18:29:35 | Elemento no encontrado
+[33mwarn[39m | Mar-10-2023 18:32:34 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Mar-10-2023 18:32:44 | La ruta /api/login/nuevo/ no es valida
+[33mwarn[39m | Mar-10-2023 18:33:04 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Mar-10-2023 18:33:39 | La ruta /api/carripo/ no es valida
+[31merror[39m | Mar-10-2023 18:33:57 | carrito vacio para ese usuario
+[33mwarn[39m | Mar-10-2023 18:35:11 | La ruta /api/carrito/640ba0cd43e2c4a7bdf2f7d5/ no es valida
+[33mwarn[39m | Mar-10-2023 18:35:43 | La ruta /api/login/logout/ no es valida
+[31merror[39m | Mar-10-2023 18:36:05 | carrito vacio para ese usuario
+[33mwarn[39m | Mar-10-2023 18:36:40 | La ruta /api/chat/640ba2e343e2c4a7bdf2f850/ no es valida
+[31merror[39m | Mar-14-2023 15:29:17 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-14-2023 15:29:17 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[33mwarn[39m | Mar-17-2023 19:01:58 | La ruta / no es valida
+[33mwarn[39m | Mar-17-2023 19:01:59 | La ruta /favicon.ico/ no es valida
+[31merror[39m | Mar-17-2023 19:03:00 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:03:04 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:05:04 | carrito vacio para ese usuario
+[31merror[39m | Mar-17-2023 19:13:34 | Cast to ObjectId failed for value "6414e5d780612241f035ee722" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-17-2023 19:13:39 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:13:59 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:15:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-17-2023 19:16:59 | carrito vacio para ese usuario
