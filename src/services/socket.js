@@ -12,7 +12,7 @@ const initWsServer = (app) => {
     const myWebSocketServer = webSocket(myHTTPServer);
 
     myWebSocketServer.on("connection", (socket) => {
-        console.log("cliente conectado");
+        //console.log("cliente conectado");
 
         socket.on("envioDeDatosDeUnNuevoProducto", async (dataRecibida) => {
             const nuevoId = await contenedor.save(dataRecibida);
@@ -23,8 +23,10 @@ const initWsServer = (app) => {
         });
 
         socket.on("envioDeDatosDelChat", (data) => {
-            console.log(data);
-            chatUsuarios.save(data);
+            console.log("llega al socket",data)
+            chatUsuarios.save(data.user.id, {mensaje:data.mensaje});
+            //data.user= {email: data.email}
+            //data.fecha= new Date();
             socket.emit("agregarNuevoChatUser", data);
             socket.broadcast.emit("agregarNuevoChat", data);
         });

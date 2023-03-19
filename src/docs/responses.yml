@@ -1,0 +1,100 @@
+components:
+  schema:
+    Productos:
+      NuevoProducto:
+        type: object
+        properties:
+          id:
+            type: string
+            description: Id del producto
+          nombre:
+            type: string
+            description: Nombre del producto
+          descripcion:
+            type: string
+            description: Nombre del producto
+          precio:
+            type: integer
+            description: Precio del producto
+          codigo:
+            type: string
+            description: Codigo del producto
+          stock:
+            type: integer
+            description: Cantidad que tienes de un producto
+          foto:
+            type: string
+            description: Imagen del producto
+        example:
+          id: f65sd4f56s4df564sdf
+          nombre: Ps5
+          descripcion: Una consola de videojuegos.
+          precio: 1000
+          codigo: ps459
+          stock: 10
+          foto: https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg
+      NotFound:
+        type: string
+        description: error en el servidor
+        example:
+          id: 
+      getAllProductos:
+        type: array
+        items:
+          properties:
+            id:
+              type: string
+              example: f65sd4f56s4df564sdf
+            nombre:
+              type: string
+              example: Ps5
+            descripcion:
+              type: string
+              example: Una consola de videojuegos.
+            precio:
+              type: integer
+              example: 1000
+            codigo:
+              type: string
+              example: ps459
+            stock:
+              type: integer
+              example: 10
+            foto:
+              type: string
+              example: https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg
+      putProductos:
+        type: string
+        description: Elemento actualizado exitosamente
+      IdNotFound:
+        type: string
+        description: ID no encontrado
+      deleteProducto:
+        type: string
+        description: Elemento eliminado exitosamente
+      deleteAllProducto:
+        type: string
+        description: se eliminaron todos los productos correctamente
+    Chat:
+      allChat:
+        type: array
+        properties:
+          user:
+            type: object
+            description: Objeto con la informacion del autor del comentario
+          mensaje:
+            type: string
+            description: Mensaje publicado
+        example:
+          id: {
+                "nombre": "ana",
+                "email": "email@gmail.com",
+                "direccion": "Narnia",
+                "edad": 80,
+                "numero": 59897511042,
+                "foto": "https://www.elmueble.com/medio/2023/01/03/gato-gigante-de-raza-maine-coon_d2eb0c4b_230103105112_900x900.jpg",
+                "admin": false
+            }
+          mensaje: Hola a todos          
+
+

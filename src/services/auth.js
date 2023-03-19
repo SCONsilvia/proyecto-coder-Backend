@@ -34,7 +34,6 @@ const signup = async (req, username, password, done) => {
 };
 
 const login = async (req, username, password, done) => {
-    console.log("LOGIN!");
     const user = await controllersUsers.login(username, password);
     if (user.status) {
         return done(null, user.data);
@@ -53,12 +52,12 @@ const signUpFunc = new LocalStrategy(strategyOptions, signup);
 module.exports = { loginFunc, signUpFunc };
 
 passport.serializeUser((user, done) => {
-    console.log("ejecuta serialize");
+    //console.log("ejecuta serialize");
     done(null, user._id);
 });
 
 passport.deserializeUser(async (id, done) => {
-    console.log("ejecuta deserialize");
+    //console.log("ejecuta deserialize");
     const user = await controllersUsers.getByIdPuro(id);
     if (user.status) {
         return done(null, user.data);

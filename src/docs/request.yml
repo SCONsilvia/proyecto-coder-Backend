@@ -1,0 +1,128 @@
+components:
+  parameters:
+    schemas:
+      ProductPost: 
+        type: object
+        required:
+          - nombre
+          - descripcion
+          - precio
+          - codigo
+          - stock
+          - foto
+        properties:
+          nombre:
+            type: string
+            description: Nombre del producto.
+          descripcion:
+            type: string
+            description: descripcion del producto.
+          precio:
+            type: Number
+            description: Precio del producto.
+          codigo:
+            type: string
+            description: Codigo del producto.
+          stock:
+            type: Number
+            description: Cantidad que tienes de un producto.
+          foto:
+            type: string
+            description: Imagen del producto.
+        example:
+          nombre: Ps5
+          descripcion: Una consola de videojuegos.
+          precio: 1000
+          codigo: ps459
+          stock: 10
+          foto: https://http2.mlstatic.com/D_NQ_NP_860235-MLA47920360779_102021-O.jpg
+      loginNuevoUserPost:
+        required:
+          - email
+          - contrasena
+          - nombre
+          - direccion
+          - foto
+          - numero
+          - edad
+        type: object
+        properties:
+          email:
+            type: string
+            description: direccion de un email
+          contrasena:
+            type: string
+            description: una contrasena
+          nombre:
+            type: string
+            description: tu nombre de ususario
+          direccion:
+            type: string
+            description: direccion de donde vives
+          foto:
+            type: string
+            description: foto de perfil
+          numero:
+            type: Number
+            description: numero con codigo del pais pero sin el +
+          edad:
+            type: Number
+            description: tu edad
+        example:
+          email: email@gmail.com
+          contrasena: 154sdafq5
+          nombre: nombre
+          direccion: calle mi casa avenida mi casa
+          foto: https://www.elmueble.com/medio/2023/01/03/gato-gigante-de-raza-maine-coon_d2eb0c4b_230103105112_900x900.jpg
+          numero: 1112222222222
+          edad: 50
+      loginRegistroPost:
+        required:
+          - email
+          - contrasena
+        type: object
+        properties:
+          email:
+            type: string
+            description: direccion de un email
+          contrasena:
+            type: string
+            description: una contrasena
+        example:
+          email: email@gmail.com
+          contrasena: 154sdafq5
+      CarritoPost: 
+        type: object
+        required:
+          - idProducto
+          - cantidad
+        properties:
+          idProducto:
+            type: string
+            description: Id del producto a meter en el carrito.
+          cantidad:
+            type: Number
+            description: Cantidad que desea comprar del producto
+        example:
+          idProducto: 640b7d6bad56676a3d3de59d
+          cantidad: 2
+      CarritoDelete: 
+        type: object
+        required:
+          - idProducto
+        properties:
+          idProducto:
+            type: string
+            description: Id del producto del carrito que se quiere borrar
+        example:
+          idProducto: 640b7d6bad56676a3d3de59d
+      ChatPost: 
+        type: object
+        required:
+          - mensaje
+        properties:
+          mensaje:
+            type: string
+            description: Mensaje que se quiere anadir
+        example:
+          mensaje: Hola a todos como estan

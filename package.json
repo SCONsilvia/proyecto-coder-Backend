@@ -2,13 +2,17 @@
   "name": "tarea-3",
   "version": "1.0.0",
   "description": "",
+  
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "artillery": "artillery quick --count 50 -n 20 http://localhost:8080/api/process/info",
-    "autocannon": "autocannon -c 100 -d 20 http://localhost:8080/api/process/info"
+    "autocannon": "autocannon -c 100 -d 20 http://localhost:8080/api/process/info",
+    "lint": "eslint .  --ext .js",
+    "test:jest": "jest src/test/products.test.js",
+    "test:mocha": "mocha src/test/products.mocha.test.js"
   },
   "keywords": [],
   "author": "",
@@ -16,10 +20,14 @@
   "devDependencies": {
     "artillery": "^2.0.0-27",
     "autocannon": "^7.10.0",
+    "chai": "^4.3.7",
     "eslint": "^8.31.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "nodemon": "^2.0.20"
+    "jest": "^29.4.3",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
@@ -31,8 +39,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+    "graphql": "^15.8.0",
     "knex": "^2.3.0",
     "moment": "^2.29.4",
     "mongoose": "^6.7.3",
@@ -43,6 +53,8 @@
     "passport-local": "^1.0.0",
     "socket.io": "^4.5.3",
     "sqlite3": "^5.1.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
     "twilio": "^3.84.1",
     "uuid": "^9.0.0",
     "winston": "^3.8.2",

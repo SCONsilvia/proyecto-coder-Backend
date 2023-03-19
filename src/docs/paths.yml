@@ -1,0 +1,264 @@
+paths:
+  /api/productos:
+    post:
+      tags: 
+      - Productos
+      summary: Registro de producto a la base de datos.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/ProductPost"
+        required: true
+      responses:
+        200:
+          description: Se registró el prodcuto correctamente.
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schema/Productos/NuevoProducto"
+        500:
+          description: error del servidor.
+    get:
+      tags:
+      - Productos
+      summary: Lista de Productos en base de datos
+      responses:
+        200:
+          description: Lista de Productos
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schema/Productos/getAllProductos"
+        500:
+          description: error de servidor
+    delete:
+      tags:
+      - Productos
+      summary: Borra todos los productos de la base de datos
+      responses:
+        200:
+          description: Se elimino correctamente todo
+        500:
+          description: error de servidor
+  /api/productos/{id}:
+    get:
+      tags: 
+      - Productos
+      summary: Buscar un producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      responses:
+        200:
+          description: producto encontrado
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schema/Productos/NuevoProducto"
+        404:
+          description: No se encuentra el producto con ese id
+    put:
+      tags: 
+      - Productos
+      summary: Editar producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/ProductPost"
+        required: true
+      responses:
+        200:
+          description: producto actualizado
+        404:
+          description: No se encuentra el producto con ese id
+    delete:
+      tags: 
+      - Productos
+      summary: eliminar un producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      responses:
+        200:
+          description: Elemento eliminado exitosamente
+        404:
+          description: No se encuentra el producto con ese id
+  /api/login/nuevo:
+    post:
+      tags: 
+      - Login
+      summary: Crear un nuevo usuario a la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/loginNuevoUserPost"
+        required: true
+      responses:
+        200:
+          description: Resgistrado con exito.
+        401:
+          description: Usuario existente.
+        500:
+          description: error del servidor.
+  /api/login:
+    post:
+      tags: 
+      - Login
+      summary: Iniciar session.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/loginRegistroPost"
+        required: true
+      responses:
+        200:
+          description: Inicio de session exitoso.
+        401:
+          description: Usuario o contrasena invalidas.
+        500:
+          description: error del servidor.
+    get:
+      tags:
+      - Login
+      summary: Datos de inicio de session
+      responses:
+        200:
+          description: se retornan datos como las cookies dataUser y la sesion
+        401:
+          description: Tienes que loguearte antes
+        500:
+          description: error de servidor
+  /api/login/logout:
+    get:
+      tags:
+       - Login
+      summary: Cerrar inicio de session
+      responses:
+        200:
+          description: session cerrada correctamente
+        500:
+          description: error de servidor
+  /api/carrito:
+    post:
+      tags: 
+      - Carrito
+      summary: Agregrar un producto en el carrito
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/CarritoPost"
+        required: true
+      responses:
+        200:
+          description: El producto se guardo exitosamente.
+        401:
+          description: Tienes que registrarte.
+        404:
+         description: No existe ese producto
+        500:
+          description: error del servidor.
+    get:
+      tags:
+      - Carrito
+      summary: Datos del carrito del usuario logeado
+      responses:
+        200:
+          description: datos del carrito
+        401:
+          description: Tienes que loguearte antes
+        500:
+          description: error de servidor
+    delete:
+      tags: 
+      - Carrito
+      summary: eliminar un item del carrito
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/CarritoDelete"
+        required: true
+      responses:
+        200:
+          description: Se borro con exito el producto
+        401:
+          description: Tienes que loguearte antes
+        404:
+          description: No se encuentra el producto con ese id
+        500:
+          description: error del servidor.
+  /api/carrito/allCarrito:
+    delete:
+      tags:
+      - Carrito
+      summary: Borra todo el carrito
+      responses:
+        200:
+          description: Se elimino correctamente todo el carrito
+        401:
+          description: Tienes que loguearte antes
+        500:
+          description: error de servidor
+  /api/carrito/finalizarCompra:
+    get:
+      tags:
+      - Carrito
+      summary: Finalizar compra
+      responses:
+        200:
+          description: Compra finalizada con exito
+        401:
+          description: Tienes que loguearte antes
+        500:
+          description: error de servidor
+  /api/chat:
+    post:
+      tags: 
+      - Chat
+      summary: Agregar un nuevo mensaje al chat
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/ChatPost"
+        required: true
+      responses:
+        200:
+          description: El chat se guardo bien.
+        401:
+          description: Tienes que registrarte.
+        500:
+          description: error del servidor.
+    get:
+      tags:
+      - Chat
+      summary: Todos los mensajes del chat con su autor
+      responses:
+        200:
+          description: lista de datos del chat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schema/Chat/allChat"
+        500:
+          description: error de servidor

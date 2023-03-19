@@ -33,7 +33,7 @@ class ProductsFactory {
     }
 
     async deleteAll() {
-        return await daoProductos.deleteAll(id);
+        return await daoProductos.deleteAll();
     }
 
     async deleteById(id) {

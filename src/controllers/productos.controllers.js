@@ -20,7 +20,7 @@ const getByIdControllers = async (req, res) => {
     const respuesta = await contenedor.getById(id);
     if (!respuesta.status) {
         loggers().error(respuesta.err);
-        return res.json({
+        return res.status(404).json({
             data: respuesta.err,
         });
     }
@@ -47,7 +47,7 @@ const putControllers = async (req, res) => {
     const respuesta = await contenedor.actualizarPorId(id, req.body);
     if (!respuesta.status) {
         loggers().error(respuesta.err);
-        return res.json({
+        return res.status(404).json({
             data: respuesta.err,
         });
     }
@@ -61,7 +61,7 @@ const deleteControllers = async (req, res) => {
     const respuesta = await contenedor.deleteById(id);
     if(!respuesta.status){
         loggers().error(respuesta.err);
-        return res.json({
+        return res.status(404).json({
             data: respuesta.err,
         });
     }
@@ -70,4 +70,17 @@ const deleteControllers = async (req, res) => {
     });
 }
 
-module.exports = { getAllControllers, getByIdControllers, saveControllers, putControllers, deleteControllers }
+const deleteAll = async (req, res) => {
+    const respuesta = await contenedor.deleteAll();
+    if(!respuesta.status){
+        loggers().error(respuesta.err);
+        return res.status(400).json({
+            data: respuesta.err,
+        });
+    }
+    return res.json({
+        msg: `se eliminaron todos los productos correctamente`,
+    });
+}
+
+module.exports = { getAllControllers, getByIdControllers, saveControllers, putControllers, deleteControllers, deleteAll }

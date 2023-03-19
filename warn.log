@@ -66,3 +66,338 @@
 [31merror[39m | Feb-09-2023 19:21:14 | no existe esa data
 [33mwarn[39m | Feb-09-2023 20:34:49 | La ruta /api/categorias/ no es valida
 [31merror[39m | Feb-09-2023 21:25:51 | chats validation failed: mensaje: Cast to string failed for value "{ mensaje: 'hokasdas' }" (type Object) at path "mensaje"
+[33mwarn[39m | Feb-16-2023 15:32:49 | La ruta /news/ no es valida
+[33mwarn[39m | Feb-16-2023 16:31:14 | La ruta /api/productos/ no es valida
+[31merror[39m | Feb-16-2023 16:39:35 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 16:39:40 | no existe esa data
+[31merror[39m | Feb-16-2023 16:40:51 | Campos invalidos
+[31merror[39m | Feb-16-2023 16:47:44 | no existe esa data
+[31merror[39m | Feb-16-2023 16:51:55 | no existe esa data
+[31merror[39m | Feb-16-2023 16:55:24 | no existe esa data
+[31merror[39m | Feb-16-2023 18:13:58 | no existe esa data
+[31merror[39m | Feb-16-2023 18:26:14 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 18:28:56 | Cast to ObjectId failed for value "0" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:30:50 | Cast to ObjectId failed for value "0" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:36:48 | Cast to ObjectId failed for value "[object Object]" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:37:11 | Cast to ObjectId failed for value "[object Object]" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:37:47 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:38:14 | Cast to ObjectId failed for value "[object Object]" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:38:38 | Cast to ObjectId failed for value "[object Object]" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:43:40 | Cast to ObjectId failed for value "10" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 18:45:12 | no existe esa data
+[31merror[39m | Feb-16-2023 18:48:17 | no existe esa data
+[31merror[39m | Feb-16-2023 18:51:29 | no existe esa data
+[31merror[39m | Feb-16-2023 18:51:48 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 18:51:48 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 18:51:48 | no existe esa data
+[31merror[39m | Feb-16-2023 18:51:48 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 18:51:48 | no existe esa data
+[31merror[39m | Feb-16-2023 18:51:48 | no existe esa data
+[31merror[39m | Feb-16-2023 18:54:22 | no existe esa data
+[31merror[39m | Feb-16-2023 18:55:14 | no existe esa data
+[31merror[39m | Feb-16-2023 19:16:31 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 19:16:59 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 19:17:11 | no existe esa data
+[31merror[39m | Feb-16-2023 19:21:53 | no existe esa data
+[31merror[39m | Feb-16-2023 19:22:17 | no existe esa data
+[31merror[39m | Feb-16-2023 19:22:17 | Elemento no encontrado
+[31merror[39m | Feb-16-2023 19:22:17 | no existe esa data
+[31merror[39m | Feb-16-2023 19:24:34 | no existe esa data
+[31merror[39m | Feb-16-2023 19:29:36 | no existe esa data
+[31merror[39m | Feb-16-2023 19:37:52 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:37:52 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:37:52 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:37:52 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:37:52 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:39:48 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:39:48 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:39:48 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:39:48 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:39:48 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:11 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:11 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:11 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:11 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:11 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:23 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:23 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:23 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:23 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:40:23 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:41:10 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:41:10 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:41:10 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:41:10 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:41:10 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-16-2023 19:42:43 | no existe esa data
+[31merror[39m | Feb-16-2023 19:42:56 | no existe esa data
+[31merror[39m | Feb-16-2023 19:44:14 | no existe esa data
+[33mwarn[39m | Feb-21-2023 15:40:26 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:40:26 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:40:36 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:40:36 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:41:09 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:41:09 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:41:09 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:41:09 | La ruta /api/productosundefined/ no es valida
+[33mwarn[39m | Feb-21-2023 15:41:38 | La ruta /api/productosundefined/ no es valida
+[31merror[39m | Feb-21-2023 15:42:12 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:42:15 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:42:15 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:42:26 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:42:26 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:42:46 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:42:46 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:43:29 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:43:35 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:43:38 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:43:38 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:44:08 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:44:10 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:44:10 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:45:11 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:45:15 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:45:15 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:45:36 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:45:38 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:45:38 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Feb-21-2023 15:45:57 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[33mwarn[39m | Feb-28-2023 16:28:14 | La ruta /favicon.ico/ no es valida
+[33mwarn[39m | Feb-28-2023 16:28:24 | La ruta /api/graphql/productos/ no es valida
+[33mwarn[39m | Feb-28-2023 16:29:42 | La ruta /api/graphl/productos/ no es valida
+[33mwarn[39m | Feb-28-2023 16:30:40 | La ruta /api/graphl/productos/ no es valida
+[33mwarn[39m | Feb-28-2023 16:32:46 | La ruta /api/graphql/ no es valida
+[31merror[39m | Feb-28-2023 16:36:32 | Campos invalidos
+[31merror[39m | Mar-01-2023 15:10:55 | Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+[31merror[39m | Mar-01-2023 15:11:13 | Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+[31merror[39m | Mar-01-2023 15:22:09 | Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+[33mwarn[39m | Mar-01-2023 16:15:38 | La ruta /api/productos/63eeb1beec2a9a55d18c03d0/ no es valida
+[31merror[39m | Mar-01-2023 16:19:16 | Elemento no encontrado
+[31merror[39m | Mar-01-2023 16:20:25 | Elemento no encontrado
+[31merror[39m | Mar-01-2023 16:23:56 | no existe esa data
+[33mwarn[39m | Mar-01-2023 16:25:50 | La ruta /api/products/ no es valida
+[33mwarn[39m | Mar-01-2023 16:51:49 | La ruta /graphql/ no es valida
+[33mwarn[39m | Mar-01-2023 16:52:02 | La ruta /graphq/productos/ no es valida
+[33mwarn[39m | Mar-02-2023 17:03:01 | La ruta /graphql/ no es valida
+[33mwarn[39m | Mar-03-2023 12:12:53 | La ruta / no es valida
+[33mwarn[39m | Mar-05-2023 14:37:54 | La ruta /graphql/login/ no es valida
+[31merror[39m | Mar-06-2023 18:02:30 | Elemento no encontrado
+[31merror[39m | Mar-06-2023 18:07:40 | Elemento no encontrado
+[33mwarn[39m | Mar-06-2023 18:16:30 | La ruta /api/productos/ no es valida
+[33mwarn[39m | Mar-10-2023 12:09:18 | La ruta /api/products/ no es valida
+[31merror[39m | Mar-10-2023 12:16:16 | no existe esa data
+[31merror[39m | Mar-10-2023 12:18:32 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:49:12 | Cast to ObjectId failed for value "640b4d632d82608c5cc4e45x" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-10-2023 12:51:14 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:51:17 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 12:56:27 | Cast to ObjectId failed for value "f65sd4f56s4df564sdf" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-10-2023 13:10:46 | Campos invalidos
+[33mwarn[39m | Mar-10-2023 13:42:06 | La ruta /api/user/ no es valida
+[33mwarn[39m | Mar-10-2023 13:44:32 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Mar-10-2023 16:39:48 | La ruta / no es valida
+[31merror[39m | Mar-10-2023 17:03:59 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:15:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:15:27 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:15:43 | Elemento no encontrado
+[31merror[39m | Mar-10-2023 17:22:33 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:25:40 | null
+[31merror[39m | Mar-10-2023 17:39:11 | Producto No encontrado
+[33mwarn[39m | Mar-10-2023 17:48:26 | La ruta /api/carrito/allCarrito/ no es valida
+[31merror[39m | Mar-10-2023 17:48:30 | carrito vacio para ese usuario
+[31merror[39m | Mar-10-2023 17:52:15 | The 'To' number +9999 is not a valid phone number.
+[31merror[39m | Mar-10-2023 17:53:12 | carrito vacio para ese usuario
+[33mwarn[39m | Mar-10-2023 18:28:45 | La ruta /api/productos/ no es valida
+[31merror[39m | Mar-10-2023 18:29:03 | Campos invalidos
+[31merror[39m | Mar-10-2023 18:29:35 | Elemento no encontrado
+[33mwarn[39m | Mar-10-2023 18:32:34 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Mar-10-2023 18:32:44 | La ruta /api/login/nuevo/ no es valida
+[33mwarn[39m | Mar-10-2023 18:33:04 | La ruta /api/login/logout/ no es valida
+[33mwarn[39m | Mar-10-2023 18:33:39 | La ruta /api/carripo/ no es valida
+[31merror[39m | Mar-10-2023 18:33:57 | carrito vacio para ese usuario
+[33mwarn[39m | Mar-10-2023 18:35:11 | La ruta /api/carrito/640ba0cd43e2c4a7bdf2f7d5/ no es valida
+[33mwarn[39m | Mar-10-2023 18:35:43 | La ruta /api/login/logout/ no es valida
+[31merror[39m | Mar-10-2023 18:36:05 | carrito vacio para ese usuario
+[33mwarn[39m | Mar-10-2023 18:36:40 | La ruta /api/chat/640ba2e343e2c4a7bdf2f850/ no es valida
+[31merror[39m | Mar-14-2023 15:29:17 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-14-2023 15:29:17 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[33mwarn[39m | Mar-17-2023 19:01:58 | La ruta / no es valida
+[33mwarn[39m | Mar-17-2023 19:01:59 | La ruta /favicon.ico/ no es valida
+[31merror[39m | Mar-17-2023 19:03:00 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:03:04 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:05:04 | carrito vacio para ese usuario
+[31merror[39m | Mar-17-2023 19:13:34 | Cast to ObjectId failed for value "6414e5d780612241f035ee722" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-17-2023 19:13:39 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:13:59 | Elemento no encontrado
+[31merror[39m | Mar-17-2023 19:15:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-17-2023 19:16:59 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 15:12:01 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-18-2023 15:12:01 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-18-2023 16:59:26 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-18-2023 16:59:26 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-18-2023 18:15:21 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-18-2023 18:15:21 | Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "productos"
+[31merror[39m | Mar-18-2023 19:18:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:18:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:19:17 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:19:17 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:19:22 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:19:22 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:19:45 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:19:45 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:21:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:21:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:21:43 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:21:43 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:22:11 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:22:11 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:22:14 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:22:14 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:22:53 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:22:53 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:23:00 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:23:00 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:23:03 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:23:03 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:23:58 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:23:58 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:24:00 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:24:00 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:25:55 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:25:55 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:27:44 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:27:44 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:27:51 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:27:51 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:28:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:28:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:28:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:28:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:28:22 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:28:22 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:29:47 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:29:47 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:30:36 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:30:36 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:31:11 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:31:12 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:03 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:03 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:03 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:03 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:03 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:04 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:17 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:17 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:58 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:32:59 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:27 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:27 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:27 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:28 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:28 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:28 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:28 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:28 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:41 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:42 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:42 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:34:42 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:13 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:13 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:15 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:15 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:39 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:39 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:42 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:42 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:55 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:35:55 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:36:06 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:36:06 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:38:11 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:38:14 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:38:14 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:38:52 | carrito vacio para ese usuario
+[31merror[39m | Mar-18-2023 19:38:53 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:02:28 | The 'To' number +9999 is not a valid phone number.
+[31merror[39m | Mar-19-2023 16:02:33 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:02:34 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:10:33 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:10:33 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:10:33 | The 'To' number +9999 is not a valid phone number.
+[31merror[39m | Mar-19-2023 16:10:48 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:10:48 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:13:30 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:13:30 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:19:20 | No tiene nada en el carrito
+[31merror[39m | Mar-19-2023 16:20:39 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:25:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:25:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:25:11 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:25:11 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:39:49 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 16:39:49 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:17:29 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:17:37 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:17:37 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:19:55 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:20:20 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:20:20 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:21:15 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:21:50 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:21:50 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:22:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:22:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:22:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:22:16 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:24:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:26:54 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:26:55 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:27:46 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:27:46 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:27:50 | No tiene nada en el carrito
+[31merror[39m | Mar-19-2023 17:27:50 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:27:58 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:27:58 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:28:07 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:28:30 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:28:30 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:28:45 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:29:12 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:29:12 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:29:31 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:29:51 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:30:40 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:30:40 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:30:40 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:30:40 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:30:51 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:30:51 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:31:08 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:33:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:33:43 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:33:44 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:33:57 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:34:39 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:34:40 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:35:02 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:36:25 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:36:25 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:36:31 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:36:32 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:36:46 | carrito vacio para ese usuario
+[31merror[39m | Mar-19-2023 17:37:17 | carrito vacio para ese usuario

@@ -39,8 +39,10 @@ const enviarMensajeUser = async(usuario) => {
 
 const getDataControllers = async (req, res) => {
     if(!req.session.passport){
-        return res.json({
+        return res.status(401).json({
+            status: false,
             msj: "tienes que registrarte antes de ver su carrito",
+
         });
     }
     const idUser = req.session.passport.user;
@@ -48,11 +50,13 @@ const getDataControllers = async (req, res) => {
 
     if(respuesta.status){
         return res.json({
+            status:true,
             data: respuesta.data,
         });
     }else{
         loggers().error(respuesta.err);
         return res.json({
+            status: false,
             msj: respuesta.err,
         });
     }
@@ -60,7 +64,7 @@ const getDataControllers = async (req, res) => {
 
 const postControllers = async (req, res) => {
     if(!req.session.passport){
-        return res.json({
+        return res.status(401).json({
             msj: "tienes que registrarte antes de meter en tu carrito",
         });
     }
@@ -72,6 +76,11 @@ const postControllers = async (req, res) => {
             data: respuesta.data,
         });
     }else{
+        if(respuesta.err == null){
+            return res.status(404).json({
+                msj: respuesta.data,
+            });
+        }
         loggers().error(respuesta.err)
         return res.json({
             msj: respuesta.err,
@@ -81,7 +90,7 @@ const postControllers = async (req, res) => {
 
 const deleteProductControllers = async (req, res) => {
     if(!req.session.passport){
-        return res.json({
+        return res.status(401).json({
             msj: "tienes que registrarte antes de borrar en tu carrito",
         });
     }
@@ -94,6 +103,11 @@ const deleteProductControllers = async (req, res) => {
             msj: "Borrado de carrito existosa",
         });
     }else{
+        if(respuesta.err == null){
+            return res.status(404).json({
+                msj: respuesta.data,
+            });
+        }
         loggers().error(respuesta.err);
         return res.json({
             msj: respuesta.err,
@@ -103,7 +117,7 @@ const deleteProductControllers = async (req, res) => {
 
 const deleteAllCarritoControllers = async (req, res) => {
     if(!req.session.passport){
-        return res.json({
+        return res.status(401).json({
             msj: "tienes que registrarte antes de borrar todo tu carrito",
         });
     }
@@ -124,14 +138,14 @@ const deleteAllCarritoControllers = async (req, res) => {
 
 const getFinalizarCompraControllers = async (req, res) => {
     if(!req.session.passport){
-        return res.json({
+        return res.status(401).json({
             msj: "tienes que registrarte antes de finalizar la compra",
         });
     }
     const idUser = req.session.passport.user;  
     const respuesta = await contenedorCarrito.finalizarCompra(idUser);
     if (respuesta.status) {
-        const usuario = await contenedorUsuario.encontrarUnUsuario(idUser);
+        const usuario = await contenedorUsuario.getById(idUser);
         enviarCorreoAdministrador(usuario, respuesta.data);
         enviarMensajeAdministrador(usuario, respuesta.data);
         enviarMensajeUser(usuario);

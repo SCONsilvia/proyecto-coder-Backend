@@ -33,7 +33,7 @@ class ProductsRepository {
     }
 
     async deleteAll() {
-        return await productsFactory.deleteAll(id);
+        return await productsFactory.deleteAll();
     }
 
     async deleteById(id) {

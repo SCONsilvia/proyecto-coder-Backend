@@ -25,7 +25,7 @@ class ControllersProductos {
         try {
             const data = await ProductsModel.findById(id);
             if (data == null) {
-                return { data: null, status: false, err: "no existe esa data" };
+                return { data: null, status: false, err: "Elemento no encontrado" };
             }
             return { data: data, status: true, err: null };
         } catch(err) {

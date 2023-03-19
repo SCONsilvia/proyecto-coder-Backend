@@ -9,34 +9,38 @@ class ControllersCarrito {
             //vemos si el carrito de tal usuario ya existe o no
             const carrito = await CarritoModel.find({ user : user });
             const buscandoProducto = await ProductsModel.findById(data.idProducto);
-            if(carrito.length > 0){
-                //si existe tenemos que ver si el producto esta o no
-                const existeProductoEnElCarrio = await carrito[0].populate({
-                    path: "productos",
-                    match: {productoId: {$eq:data.idProducto}}
-                })
-                if(existeProductoEnElCarrio.productos.length > 0){
-                    //El producto si esta asi que debemos hacer esto
-                    const productoCarritoModificado = await ProductsCarritoModel.findById(existeProductoEnElCarrio.productos[0]._id)
-                    productoCarritoModificado.cantidad = data.cantidad;
-                    productoCarritoModificado.save();
+            if (buscandoProducto != null){
+                if(carrito.length > 0){
+                    //si existe tenemos que ver si el producto esta o no
+                    const existeProductoEnElCarrio = await carrito[0].populate({
+                        path: "productos",
+                        match: {productoId: {$eq:data.idProducto}}
+                    })
+                    if(existeProductoEnElCarrio.productos.length > 0){
+                        //El producto si esta asi que debemos hacer esto
+                        const productoCarritoModificado = await ProductsCarritoModel.findById(existeProductoEnElCarrio.productos[0]._id)
+                        productoCarritoModificado.cantidad = data.cantidad;
+                        productoCarritoModificado.save();
 
+                    }else{
+                        //el producto no esta asi que debemos crearlo 
+                        const nuevoProductocarrito = await ProductsCarritoModel.create({productoId: buscandoProducto, cantidad: data.cantidad});
+                        existeProductoEnElCarrio.productos.push(nuevoProductocarrito)
+                        existeProductoEnElCarrio.save();
+                    }
                 }else{
-                    //el producto no esta asi que debemos crearlo 
+                    //el carrito no existe para ese usuario asi que lo creamos
+                    const nuevoCarrito = await CarritoModel.create({user: user});
                     const nuevoProductocarrito = await ProductsCarritoModel.create({productoId: buscandoProducto, cantidad: data.cantidad});
-                    existeProductoEnElCarrio.productos.push(nuevoProductocarrito)
-                    existeProductoEnElCarrio.save();
-                }
-            }else{
-                //el carrito no existe para ese usuario asi que lo creamos
-                const nuevoCarrito = await CarritoModel.create({user: user});
-                const nuevoProductocarrito = await ProductsCarritoModel.create({productoId: buscandoProducto, cantidad: data.cantidad});
-                nuevoCarrito.productos.push(nuevoProductocarrito)
-                nuevoCarrito.save();
+                    nuevoCarrito.productos.push(nuevoProductocarrito)
+                    nuevoCarrito.save();
 
+                }
+                const carritoModificado = await CarritoModel.find({ user : user });
+                return { data: carritoModificado, status: true, err: null };
+            }else{
+                return { data: "no existe ese producto", status: false, err: null };
             }
-            const carritoModificado = await CarritoModel.find({ user : user });
-            return { data: carritoModificado, status: true, err: null };
         }catch(err){
             console.log("hubo un error en el guardado puede que el producto no exista", err);
             return { data: null, status: false, err: "hubo un error en el guardado puede que el producto no exista" };
@@ -51,7 +55,7 @@ class ControllersCarrito {
                 match: {productoId: {$eq:idProducto}}
             })
             if(buscandoProductoEnElCarrito.productos.length == 0){
-                return { data: null, status: false, err: "Producto No encontrado" };
+                return { data: "Producto No encontrado", status: false, err: null };
             }else{
                 
                 const data = await ProductsCarritoModel.findByIdAndDelete(buscandoProductoEnElCarrito.productos[0]._id)

@@ -19,13 +19,14 @@ const getAllControllers = async (req, res) => {
 
 const postControllers = async (req, res) => {
     if(!req.session.passport){
-        return res.json({
-            msj: "tienes que registrarte antes dec omentar",
+        return res.status(401).json({
+            msj: "tienes que registrarte antes de comentar",
         });
     }
     const idUser = req.session.passport.user;
-    console.log(req.body);
     const respuesta = await chatUser.save(idUser, req.body);
+    console.log(idUser);
+    console.log(respuesta);
     if (!respuesta.status) {
         loggers().error(respuesta.err);
         return res.json({
