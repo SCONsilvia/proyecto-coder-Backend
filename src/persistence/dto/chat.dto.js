@@ -1,7 +1,8 @@
 class ChatDTO {
-    constructor({ user,  mensaje }) {
+    constructor({ user,  mensaje, createdAt }) {
         this.user = user
         this.mensaje = mensaje
+        this.timestamps = createdAt
     }
 }
 

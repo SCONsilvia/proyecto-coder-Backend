@@ -23,7 +23,10 @@ const initWsServer = (app) => {
         });
 
         socket.on("envioDeDatosDelChat", (data) => {
-            chatUsuarios.save(data);
+            console.log("llega al socket",data)
+            chatUsuarios.save(data.user.id, {mensaje:data.mensaje});
+            //data.user= {email: data.email}
+            //data.fecha= new Date();
             socket.emit("agregarNuevoChatUser", data);
             socket.broadcast.emit("agregarNuevoChat", data);
         });

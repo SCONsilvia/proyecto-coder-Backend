@@ -6,7 +6,6 @@ class UsersDTO {
         this.edad = edad
         this.numero = numero
         this.foto = foto
-        this.admin = admin
     }
 }
 

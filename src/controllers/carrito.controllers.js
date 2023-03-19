@@ -40,7 +40,9 @@ const enviarMensajeUser = async(usuario) => {
 const getDataControllers = async (req, res) => {
     if(!req.session.passport){
         return res.status(401).json({
+            status: false,
             msj: "tienes que registrarte antes de ver su carrito",
+
         });
     }
     const idUser = req.session.passport.user;
@@ -48,11 +50,13 @@ const getDataControllers = async (req, res) => {
 
     if(respuesta.status){
         return res.json({
+            status:true,
             data: respuesta.data,
         });
     }else{
         loggers().error(respuesta.err);
         return res.json({
+            status: false,
             msj: respuesta.err,
         });
     }
