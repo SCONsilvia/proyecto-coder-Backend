@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: true }));
 // cors para que me funcione el api en react y no me tire un error
 const cors = require("cors");
 
-app.use(cors({ origin: ["http://localhost:3000"], credentials: true })); // (cooki) aqui va la ruta del origen del front donde esta montada la pagina web origin: ["http://localhost:3000"], credentials: true }
+app.use(cors({ origin: ["http://localhost:3000", "https://proyecto-coder-backend-production.up.railway.app"], credentials: true })); // (cooki) aqui va la ruta del origen del front donde esta montada la pagina web origin: ["http://localhost:3000"], credentials: true }
 
 // sesion
 app.use(cookieParser());
