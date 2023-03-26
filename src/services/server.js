@@ -33,7 +33,7 @@ const StoreOptions = {
 // finsesion
 const app = express();
 const cors = require("cors");
-app.use(cors({'Access-Control-Allow-Credentials':true,'Access-Control-Allow-Origin': "http://localhost:3000", origin: ["http://localhost:3000", "https://proyecto-coder-backend-production.up.railway.app","https://fronteddelcursodebackend-production.up.railway.app/"], credentials: true })); // (cooki) aqui va la ruta del origen del front donde esta montada la pagina web origin: ["http://localhost:3000"], credentials: true }
+app.use(cors({'Access-Control-Allow-Credentials':true,'Access-Control-Allow-Origin': "https://fronteddelcursodebackend-production.up.railway.app", origin: ["http://localhost:3000", "https://proyecto-coder-backend-production.up.railway.app","https://fronteddelcursodebackend-production.up.railway.app"], credentials: true })); // (cooki) aqui va la ruta del origen del front donde esta montada la pagina web origin: ["http://localhost:3000"], credentials: true }
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
