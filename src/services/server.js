@@ -27,7 +27,7 @@ const StoreOptions = {
     maxAge: ttlSeconds * 1000,
     cookie: {
         maxAge: ttlSeconds * 1000,
-        domain: "localhost"
+        domain: "railway.app"
     },
 };
 // finsesion
