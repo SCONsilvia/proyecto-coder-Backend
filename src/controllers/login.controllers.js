@@ -32,7 +32,6 @@ const postNuevoUserControllers = async (req, res) => {
 }
 
 const postIngresoControllers = async (req, res) => {
-    console.log(req)
     req.session.email = req.user.email;
     res.json({
         data:  `bienvenido ${req.user.email}`,
