@@ -3,6 +3,10 @@ const { Strategy: LocalStrategy } = require("passport-local");
 
 const { usersRepository : controllersUsers} = require("../persistence/repository/users.repository");
 
+const passportJWT = require("passport-jwt");
+const JWTStrategy   = passportJWT.Strategy;
+const ExtractJWT = passportJWT.ExtractJwt;
+
 const strategyOptions = {
   usernameField: "email",
   passwordField: "contrasena",
@@ -47,9 +51,30 @@ const login = async (req, username, password, done) => {
     }
 };
 
+const jwt = async  (jwtPayload, done) => {
+    //find the user in db if needed. This functionality may be omitted if you store everything you'll need in JWT payload.
+    const user = await controllersUsers.getByIdPuro(jwtPayload.id);
+    if (user.status) {
+        return done(null, user.data);
+    }else {
+        if (user.err) {
+            return done(user.err);
+        } else {
+            //req.info= { message: "usuario invalido" };
+            return done(null, false, { message: "usuario invalido" });
+        }
+    }
+
+}
+
+
 const loginFunc = new LocalStrategy(strategyOptions, login);
 const signUpFunc = new LocalStrategy(strategyOptions, signup);
-module.exports = { loginFunc, signUpFunc };
+const jwtFunc = new JWTStrategy({
+    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+    secretOrKey   : 'mijwtsecreto',
+},jwt)
+module.exports = { loginFunc, signUpFunc,jwtFunc };
 
 passport.serializeUser((user, done) => {
     //console.log("ejecuta serialize");

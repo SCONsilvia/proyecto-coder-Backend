@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const passport = require("passport");
 const apiProductosRouter = require("./apiProductos");
 const apiRutaCarrito = require("./apiCarrito");
 const apiChat = require("./apiChat");
@@ -33,9 +34,15 @@ rutaPrincipal.get("/puerto", (req, res) => {
     });
 });
 
+const checkToken = (req,res,next) =>{
+    passport.authenticate('jwt', {session: false})(req,res)
+    next()
+}
+
+
 rutaPrincipal.use("/api/productos", apiProductosRouter);
-rutaPrincipal.use("/api/carrito", apiRutaCarrito);
-rutaPrincipal.use("/api/chat", apiChat);
+rutaPrincipal.use("/api/carrito",checkToken, apiRutaCarrito);
+rutaPrincipal.use("/api/chat",checkToken, apiChat);
 rutaPrincipal.use("/api/categoria", apiCategoria);
 rutaPrincipal.use("/api/productos-test", apiFaker);
 rutaPrincipal.use("/api/login", login);

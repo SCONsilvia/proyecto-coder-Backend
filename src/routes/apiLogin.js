@@ -4,7 +4,8 @@ const login = Router();
 
 const { postNuevoUserControllers, postIngresoControllers, getDataControllers, getLogoutControllers } = require("../controllers/login.controllers");
 const passport = require("passport");
-const passportOptions = { badRequestMessage: "falta username / password" };
+
+const passportOptions = { badRequestMessage: "falta username / password",session: false };
 
 
 function validarDatos(req, res, next) {
@@ -41,8 +42,8 @@ login.post("/nuevo", validarDatos, postNuevoUserControllers);
 
 login.post("/", validarDatosIngreso, passport.authenticate("login", passportOptions), postIngresoControllers);
   
-login.get("/",isLoggedIn, getDataControllers);
+login.get("/",passport.authenticate('jwt', {session: false}), getDataControllers);
 
-login.get("/logout", isLoggedIn, getLogoutControllers);
+login.get("/logout", passport.authenticate('jwt', {session: false}), getLogoutControllers);
 
 module.exports = login;

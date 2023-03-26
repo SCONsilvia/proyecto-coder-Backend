@@ -10,6 +10,8 @@ const passportOptions = { badRequestMessage: "falta username / password" };
 
 const loggers = require("../utils/logs");
 
+const jwt = require('jsonwebtoken');
+
 const enviarCorreoAdministrador = async(req, res) => {
     const respuesta = await sendGmailNewUser(req,res)
     if (respuesta.status) {
@@ -32,21 +34,19 @@ const postNuevoUserControllers = async (req, res) => {
 }
 
 const postIngresoControllers = async (req, res) => {
-    req.session.email = req.user.email;
+    
+    const token = jwt.sign({exp:Math.floor(Date.now() / 1000) + 60*60*24,id:req.user._id.toString()}, 'mijwtsecreto');
     res.json({
         data:  `bienvenido ${req.user.email}`,
+        token: token,
     });
 }
 
 const getDataControllers = async (req,res) => {
-    if (req.session.email) {
-        req.session.touch()//renovar la time que sale solo visual   poner en un midderware si querres que se actualice en varias rutas distintas
-        const dataUser = await usersRepository.getById(req.session.passport.user);
-
+    console.log("en getdata",req.user)
+    if (req.user.email) {
+        const dataUser = await usersRepository.getById(req.user._id);
         res.send({
-            session: req.session,
-            sessionId: req.sessionID,
-            cookies: req.cookies,
             dataUser: dataUser.data
         });
     } else {

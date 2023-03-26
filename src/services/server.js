@@ -4,7 +4,7 @@ const express = require("express");
 // passport local
 const passport = require("passport");
 
-const { loginFunc, signUpFunc } = require("./auth.js");
+const { loginFunc, signUpFunc,jwtFunc } = require("./auth.js");
 
 // session
 const MongoStore = require("connect-mongo");
@@ -41,15 +41,16 @@ const cors = require("cors");
 app.use(cors({ origin: ["http://localhost:3000", "https://proyecto-coder-backend-production.up.railway.app"], credentials: true })); // (cooki) aqui va la ruta del origen del front donde esta montada la pagina web origin: ["http://localhost:3000"], credentials: true }
 
 // sesion
-app.use(cookieParser());
-app.use(session(StoreOptions));
+//app.use(cookieParser());
+//app.use(session(StoreOptions));
 // finsesion
 
 // passport local
 app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.session());
 passport.use("login", loginFunc);
 passport.use("signup", signUpFunc);
+passport.use("jwt", jwtFunc);
 //
 
 //Graphql

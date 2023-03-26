@@ -7,7 +7,7 @@ let argv = process.argv[2];
 class ProductsFactory {
     constructor() {
         switch (argv) {
-            case 'mongo':
+            case "mongo":
                 daoProductos = new ControllersProductos();
                 break;
             default:
