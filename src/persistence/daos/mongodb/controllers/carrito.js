@@ -3,6 +3,8 @@ const { CarritoModel } = require("../models/carrito");
 const { ProductsCarritoModel } = require("../models/productoCarrito");
 const { ProductsModel } = require("../models/productos");
 
+const loggers = require("../../../../utils/logs");
+
 class ControllersCarrito {
     async save(data, user){
         try {
@@ -42,7 +44,6 @@ class ControllersCarrito {
                 return { data: "no existe ese producto", status: false, err: null };
             }
         }catch(err){
-            console.log("hubo un error en el guardado puede que el producto no exista", err);
             return { data: null, status: false, err: "hubo un error en el guardado puede que el producto no exista" };
         }
     }
@@ -67,7 +68,7 @@ class ControllersCarrito {
                 return { data: null, status: true, err: null };
         }
         } catch(err) {
-            console.log(err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     } 
@@ -81,7 +82,7 @@ class ControllersCarrito {
             }
             return { data: null, status: true, err: null };
         } catch(err) {
-            console.log(err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         } 
     } 

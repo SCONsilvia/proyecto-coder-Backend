@@ -31,9 +31,7 @@ const getByIdControllers = async (req, res) => {
 
 const getByCategoryIdControllers = async (req, res) => {
     const id = req.params.categoryId;
-    console.log(id)
     const categoryData = await categoryRepository.getById(id)
-    console.log(categoryData)
     if (categoryData.status){
         const respuesta = await contenedor.getByCategoryId(id);
         if (!respuesta.status) {
@@ -60,7 +58,6 @@ const saveControllers = async (req,res) => {
         const respuesta = await contenedor.save(req.body);
         if (!respuesta.status) {
             loggers().error(respuesta.err);
-            console.log("lol");
             return res.status(404).json({
                 data: respuesta.err,
             });

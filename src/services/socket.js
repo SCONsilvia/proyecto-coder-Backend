@@ -12,18 +12,13 @@ const initWsServer = (app) => {
     const myWebSocketServer = webSocket(myHTTPServer);
 
     myWebSocketServer.on("connection", (socket) => {
-        //console.log("cliente conectado");
-
         socket.on("envioDeDatosDeUnNuevoProducto", async (dataRecibida) => {
             const nuevoId = await contenedor.save(dataRecibida);
             dataRecibida.id = nuevoId.data;
-            console.log("creacion exitosa el id es:", nuevoId.data);
-
             myWebSocketServer.emit("agregarNuevoProductoYQueSeVeaParaTodosLosUsuario", dataRecibida);
         });
 
         socket.on("envioDeDatosDelChat", (data) => {
-            console.log("llega al socket",data)
             chatUsuarios.save(data.user.id, {mensaje:data.mensaje});
             //data.user= {email: data.email}
             //data.fecha= new Date();

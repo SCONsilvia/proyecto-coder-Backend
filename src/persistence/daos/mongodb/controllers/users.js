@@ -1,5 +1,6 @@
 const { UsersModel } = require("../models/users");
 const { encryptPassword, matchPassword } = require("../../../../utils/utils");
+const loggers = require("../../../../utils/logs");
 
 class ControllersUsers {
     async save(data) {
@@ -12,7 +13,7 @@ class ControllersUsers {
             }
             return { data: "email ya existente", status: false, err: null };
         } catch(err) {
-            console.log("hubo un error en el guardado del nuevo usuario", err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     }

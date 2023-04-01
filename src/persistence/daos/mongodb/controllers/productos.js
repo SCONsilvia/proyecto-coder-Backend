@@ -1,14 +1,13 @@
 const { ProductsModel } = require("../models/productos");
-const { CategoryModel } = require("../models/categorias");
+const loggers = require("../../../../utils/logs");
 
 class ControllersProductos {    
     async save(data){
-        console.log(data)
         try {
             const nuevoProducto = await ProductsModel.create(data);
             return { data: nuevoProducto._id, status: true, err: null };
         }catch(err){
-            console.log("hubo un error en el guardado", err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     }
@@ -55,7 +54,7 @@ class ControllersProductos {
             const productoActualizado = await ProductsModel.findByIdAndUpdate(id, nuevaData,{new: true});
             return { data: productoActualizado, status: true, err: null };
         } catch(err) {
-            console.log(err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     }
@@ -65,7 +64,7 @@ class ControllersProductos {
             await ProductsModel.deleteMany();
             return { data: null, status: true, err: null };
         } catch(err) {
-            console.log("Ocurrio un error al borrar todo", err)
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }  
     }
@@ -78,7 +77,7 @@ class ControllersProductos {
             }
             return { data: null, status: true, err: null };
         } catch(err) {
-            console.log(err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     }

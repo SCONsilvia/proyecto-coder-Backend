@@ -1,13 +1,13 @@
 const { CategoryModel } = require("../models/categorias");
+const loggers = require("../../../../utils/logs");
 
-// no en uso por ahora
 class ControllersCategoria {
     async save(data) {
         try {
             const nuevoCategoria = await CategoryModel.create(data);
             return { data: nuevoCategoria._id, status: true, err: null } ;
         } catch(err) {
-            console.log("hubo un error en el guardado", err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     }
@@ -42,7 +42,7 @@ class ControllersCategoria {
             const productoActualizado = await CategoryModel.findByIdAndUpdate(id, nuevaData, { new: true });
             return { data: productoActualizado, status: true, err: null };
         } catch(err) {
-            console.log(err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     }

@@ -1,5 +1,5 @@
 const { ChatsModel } = require("../models/chat")
-
+const loggers = require("../../../../utils/logs");
 // para la normaliizacion
 function adapater(data){
     return data.map((element) => {
@@ -14,7 +14,7 @@ class ControllersChat{
             const nuevoChat = await ChatsModel.create({user: user, mensaje: data.mensaje});
             return { data: nuevoChat._id, status: true, err: null };
         } catch(err) {
-            console.log("hubo un error en el guardado del mensaje", err);
+            loggers().error(err);
             return { data: null, status: false, err: err };
         }
     }

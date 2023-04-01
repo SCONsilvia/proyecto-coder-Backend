@@ -2,6 +2,7 @@ const { Router } = require("express");
 const rutaCarrito = Router();
 
 const { getDataControllers, postControllers, deleteProductControllers, deleteAllCarritoControllers, getFinalizarCompraControllers } = require("../controllers/carrito.controllers");
+const loggers = require("../utils/logs");
 
 function validarDatos(req, res, next) {
     const { idProducto, cantidad } = req.body;
