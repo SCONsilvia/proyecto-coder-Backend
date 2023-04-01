@@ -53,8 +53,9 @@ const getByCategoryIdControllers = async (req, res) => {
 }
 
 const saveControllers = async (req,res) => {
+    console.log(req.body.categoryId);
     const categoryData = await categoryRepository.getById(req.body.categoryId);
-    if(categoryData.status || !req.body.categoryId){
+    if(categoryData.status || req.body.categoryId==undefined){
         const respuesta = await contenedor.save(req.body);
         if (!respuesta.status) {
             loggers().error(respuesta.err);
