@@ -59,7 +59,7 @@ paths:
           content: 
             application/json:
               schema:
-                $ref: "#/components/schema/Productos/NuevoProducto"
+                $ref: "#/components/schema/Productos/MostrarProducto"
         404:
           description: No se encuentra el producto con ese id
     put:
@@ -262,3 +262,95 @@ paths:
                 $ref: "#/components/schema/Chat/allChat"
         500:
           description: error de servidor
+  /api/categoria:
+    post:
+      tags: 
+      - Categoria
+      summary: Registro de una categoria a la base de datos.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/CategoriaPost"
+        required: true
+      responses:
+        200:
+          description: Se registró categoria correctamente.
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schema/Categorias/NuevaCategoria"
+        500:
+          description: error del servidor.
+    get:
+      tags:
+      - Categoria
+      summary: Lista de Categorias
+      responses:
+        200:
+          description: Lista de Categoria
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schema/Categorias/getAllCategorias"
+        500:
+          description: error de servidor
+  /api/categoria/{id}:
+    get:
+      tags: 
+      - Categoria
+      summary: Buscar una categoria
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      responses:
+        200:
+          description: categoria encontrada
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schema/Categorias/MostraCategoria"
+        404:
+          description: No se encuentra categoria con ese id
+    put:
+      tags: 
+      - Categoria
+      summary: Editar categoria
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/parameters/schemas/CategoriaPost"
+        required: true
+      responses:
+        200:
+          description: producto actualizado
+        404:
+          description: No se encuentra el producto con ese id
+    delete:
+      tags: 
+      - Categoria
+      summary: eliminar una categoria
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: es requerido un string
+          schema:
+            type: string
+      responses:
+        200:
+          description: Elemento eliminado exitosamente
+        404:
+          description: No se encuentra el producto con ese id

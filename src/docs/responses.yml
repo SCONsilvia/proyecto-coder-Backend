@@ -4,6 +4,14 @@ components:
       NuevoProducto:
         type: object
         properties:
+          msj:
+            type: string
+            description: mensaje y id del producto
+        example:
+          msj: "El productos se a creado existosamente su id es: 642886cc7f41a6fe936c43f2"
+      MostrarProducto:
+        type: object
+        properties:
           id:
             type: string
             description: Id del producto
@@ -96,5 +104,54 @@ components:
                 "admin": false
             }
           mensaje: Hola a todos          
-
+    Categorias:
+      NuevaCategoria:
+        type: object
+        properties:
+          msj:
+            type: string
+            description: mensaje y id de la categoria creada
+        example:
+          msj: "La categoria se a creado existosamente su id es: 642886cc7f41a6fe936c43f2"
+      getAllCategorias:
+        type: array
+        items:
+          properties:
+            id:
+              type: string
+              example: f65sd4f56s4df564sdf
+            nombre:
+              type: string
+              example: Ps5
+            descripcion:
+              type: string
+              example: Una descripcion.
+      MostraCategoria:
+        type: object
+        properties:
+          id:
+            type: string
+            description: Id del producto
+          nombre:
+            type: string
+            description: Nombre del producto
+          descripcion:
+            type: string
+            description: Nombre del producto
+        example:
+          id: f65sd4f56s4df564sdf
+          nombre: Ps5
+          descripcion: Una descripcion.
+      putProductos:
+        type: string
+        description: Elemento actualizado exitosamente
+      IdNotFound:
+        type: string
+        description: ID no encontrado
+      deleteProducto:
+        type: string
+        description: Elemento eliminado exitosamente
+      deleteAllProducto:
+        type: string
+        description: se eliminaron todos los productos correctamente
 

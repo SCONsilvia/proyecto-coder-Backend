@@ -15,6 +15,15 @@ class ProductsRepository {
         return products;
     }
 
+    async getByCategoryId(id) {
+        const products = await productsFactory.getByCategoryId(id);
+        if(products.data){
+            const productDtoo = asDto(products.data);
+            products.data =  productDtoo;
+        }
+        return products;
+    }
+
     async save(data) {
         return await productsFactory.save(data);
     }

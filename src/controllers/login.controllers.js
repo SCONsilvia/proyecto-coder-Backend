@@ -21,7 +21,6 @@ const enviarCorreoAdministrador = async(req, res) => {
 
 const postNuevoUserControllers = async (req, res) => {
     passport.authenticate("signup", passportOptions, (err, user, info) => {
-        console.log(user);
         if(err) {
             res.json({ msg: "un error" });
         }

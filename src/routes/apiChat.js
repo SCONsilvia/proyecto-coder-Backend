@@ -2,7 +2,7 @@ const { Router } = require("express");
 const rutaApiChat = Router();
 
 const { getAllControllers, postControllers, getNormalizacionControllers, getDesnormalizacionControllers } = require("../controllers/chat.controllers");
-
+const loggers = require("../utils/logs");
 function validarDatos(req, res, next) {
     const { mensaje } = req.body;
     if (!mensaje) {
