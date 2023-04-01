@@ -345,3 +345,18 @@
 [31merror[39m | Apr-01-2023 17:25:16 | no existe esa categoria
 [31merror[39m | Apr-01-2023 17:27:08 | no existe esa categoria
 [31merror[39m | Apr-01-2023 17:27:11 | no existe esa categoria
+[31merror[39m | Apr-01-2023 17:56:34 | Campos invalidos
+[31merror[39m | Apr-01-2023 18:20:28 | productos validation failed: categoryId: Cast to ObjectId failed for value "" (type string) at path "categoryId" because of "BSONTypeError"
+[31merror[39m | Apr-01-2023 18:20:47 | carrito vacio para ese usuario
+[31merror[39m | Apr-01-2023 18:20:47 | carrito vacio para ese usuario
+[31merror[39m | Apr-01-2023 18:21:21 | productos validation failed: categoryId: Cast to ObjectId failed for value "" (type string) at path "categoryId" because of "BSONTypeError"
+[31merror[39m | Apr-01-2023 18:22:40 | productos validation failed: categoryId: Cast to ObjectId failed for value "" (type string) at path "categoryId" because of "BSONTypeError"
+[31merror[39m | Apr-01-2023 18:23:25 | productos validation failed: categoryId: Cast to ObjectId failed for value "" (type string) at path "categoryId" because of "BSONTypeError"
+[31merror[39m | Apr-01-2023 18:23:25 | productos validation failed: categoryId: Cast to ObjectId failed for value "" (type string) at path "categoryId" because of "BSONTypeError"
+[31merror[39m | Apr-01-2023 18:24:31 | Cast to ObjectId failed for value "" (type string) at path "_id" for model "categorias"
+[31merror[39m | Apr-01-2023 18:25:02 | Cast to ObjectId failed for value "culo" (type string) at path "_id" for model "categorias"
+[31merror[39m | Apr-01-2023 18:25:06 | Cast to ObjectId failed for value "" (type string) at path "_id" for model "categorias"
+[31merror[39m | Apr-01-2023 18:25:08 | Cast to ObjectId failed for value "" (type string) at path "_id" for model "categorias"
+[31merror[39m | Apr-01-2023 18:25:09 | Cast to ObjectId failed for value "" (type string) at path "_id" for model "categorias"
+[31merror[39m | Apr-01-2023 18:25:32 | Cast to ObjectId failed for value "" (type string) at path "_id" for model "categorias"
+[31merror[39m | Apr-01-2023 18:25:57 | productos validation failed: categoryId: Cast to ObjectId failed for value "" (type string) at path "categoryId" because of "BSONTypeError"
