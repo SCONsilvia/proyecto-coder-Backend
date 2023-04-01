@@ -3,6 +3,7 @@ const { CategoryModel } = require("../models/categorias");
 
 class ControllersProductos {    
     async save(data){
+        console.log(data)
         try {
             const nuevoProducto = await ProductsModel.create(data);
             return { data: nuevoProducto._id, status: true, err: null };
@@ -24,6 +25,18 @@ class ControllersProductos {
     async getById(id){
         try {
             const data = await ProductsModel.findById(id);
+            if (data == null) {
+                return { data: null, status: false, err: "Elemento no encontrado" };
+            }
+            return { data: data, status: true, err: null };
+        } catch(err) {
+            return { data: null, status: false, err: err };
+        }
+    }
+
+    async getByCategoryId(id){
+        try {
+            const data = await ProductsModel.find({categoryId:id})
             if (data == null) {
                 return { data: null, status: false, err: "Elemento no encontrado" };
             }

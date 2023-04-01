@@ -28,6 +28,10 @@ class ProductsFactory {
         return await daoProductos.getById(id);
     }
 
+    async getByCategoryId(id) {
+        return await daoProductos.getByCategoryId(id);
+    }
+
     async actualizarPorId(id, nuevaData) {
         return await daoProductos.actualizarPorId(id, nuevaData);
     }

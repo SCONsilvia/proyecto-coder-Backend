@@ -1,5 +1,5 @@
 const { productsRepository : contenedor } = require("../persistence/repository/products.repository");
-
+const { categoryRepository } = require("../persistence/repository/category.repository");
 const loggers = require("../utils/logs");
 
 const getAllControllers = async (req, res) => {
@@ -29,17 +29,53 @@ const getByIdControllers = async (req, res) => {
     });
 }
 
-const saveControllers = async (req,res) => {
-    const respuesta = await contenedor.save(req.body);
-    if (!respuesta.status) {
-        loggers().error(respuesta.err);
+const getByCategoryIdControllers = async (req, res) => {
+    const id = req.params.categoryId;
+    console.log(id)
+    const categoryData = await categoryRepository.getById(id)
+    console.log(categoryData)
+    if (categoryData.status){
+        const respuesta = await contenedor.getByCategoryId(id);
+        if (!respuesta.status) {
+            loggers().error(respuesta.err);
+            return res.status(404).json({
+                data: respuesta.err,
+            });
+        }
         return res.json({
-            data: respuesta.err,
+            data: respuesta.data,
+        });
+    }else{
+        loggers().error(categoryData.err);
+        return res.status(404).json({
+            data: "No existe esa categoria",
         });
     }
-    return res.json({
-        msg: `el producto se a creado existosamente su id es: ${respuesta.data}`,
-    });
+
+}
+
+const saveControllers = async (req,res) => {
+    const categoryData = await categoryRepository.getById(req.body.categoryId);
+    if(categoryData.status || !req.body.categoryId){
+        const respuesta = await contenedor.save(req.body);
+        if (!respuesta.status) {
+            loggers().error(respuesta.err);
+            console.log("lol");
+            return res.status(404).json({
+                data: respuesta.err,
+            });
+        }
+        return res.json({
+            msg: `el producto se a creado existosamente su id es: ${respuesta.data}`,
+        });
+    }else{
+        loggers().error(categoryData.err);
+        return res.status(404).json({
+            data: "Categoria invalidad colocar una categoria valida",
+        });
+    }
+
+    
 }
 
 const putControllers = async (req, res) => {
@@ -83,4 +119,4 @@ const deleteAll = async (req, res) => {
     });
 }
 
-module.exports = { getAllControllers, getByIdControllers, saveControllers, putControllers, deleteControllers, deleteAll }
+module.exports = { getAllControllers, getByIdControllers,getByCategoryIdControllers, saveControllers, putControllers, deleteControllers, deleteAll }

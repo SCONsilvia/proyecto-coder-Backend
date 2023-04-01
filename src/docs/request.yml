@@ -29,6 +29,9 @@ components:
           foto:
             type: string
             description: Imagen del producto.
+          categoryId:
+            type: string
+            description: id de la categoria.
         example:
           nombre: Ps5
           descripcion: Una consola de videojuegos.
@@ -126,3 +129,19 @@ components:
             description: Mensaje que se quiere anadir
         example:
           mensaje: Hola a todos como estan
+      CategoriaPost: 
+        type: object
+        required:
+          - nombre
+          - descripcion
+        properties:
+          nombre:
+            type: string
+            description: Nombre de la categoria.
+          descripcion:
+            type: string
+            description: descripcion de la categoria.
+        example:
+          nombre: Xbox
+          descripcion: todos los productos perteneciente a la marca de Xbox.
+          

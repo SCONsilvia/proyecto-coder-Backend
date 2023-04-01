@@ -5,7 +5,7 @@ const rutaApiProductos = Router();
 
 const loggers = require("../utils/logs");
 
-const { getAllControllers, getByIdControllers, saveControllers, putControllers, deleteControllers, deleteAll } = require("../controllers/productos.controllers");
+const { getAllControllers, getByIdControllers, getByCategoryIdControllers,saveControllers, putControllers, deleteControllers, deleteAll } = require("../controllers/productos.controllers");
 
 function validarDatos(req, res, next) {
     const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
@@ -33,6 +33,8 @@ function administrador(req, res, next){
 rutaApiProductos.get("/", getAllControllers);
 
 rutaApiProductos.get("/:id", getByIdControllers);
+
+rutaApiProductos.get("/categoria/:categoryId", getByCategoryIdControllers);
 
 rutaApiProductos.post("/", administrador, validarDatos, saveControllers);
 
